@@ -7,15 +7,11 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/tailwind-vue-template/',
-  export default defineConfig({
-  base: '/your-repo-name/', // Add this line!
-  plugins: [vue()],
-})
+  base: '/',
   plugins: [
     vue(),
     vueDevTools(),
-    tailwindcss(),
+    tailwindcss()
   ],
   resolve: {
     alias: {
