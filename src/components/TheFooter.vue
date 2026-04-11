@@ -1,5 +1,12 @@
 <script setup>
 import { personalInfo } from '@/data/portfolio.js'
+
+const linkedInUrl = 'https://www.linkedin.com/in/alexa-cattaneo-piazza'
+
+const getSocialUrl = link => {
+  if (link?.name === 'LinkedIn') return linkedInUrl
+  return link?.url || '#'
+}
 </script>
 
 <template>
@@ -35,7 +42,7 @@ import { personalInfo } from '@/data/portfolio.js'
               <a 
                 v-for="link in personalInfo.socials" 
                 :key="link.name" 
-                :href="link.url" 
+                :href="getSocialUrl(link)" 
                 target="_blank"
                 rel="noreferrer"
                 class="text-sm font-black uppercase tracking-widest text-black hover-text-social transition-colors"

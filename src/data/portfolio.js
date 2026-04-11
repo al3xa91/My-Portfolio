@@ -9,7 +9,7 @@ export const personalInfo = {
   email: "Al3xa91@gmail.com",
   location: "Billund, Denmark", // Optional: helpful for recruiters
   socials: [
-    { name: "LinkedIn", url: "https://linkedin.com/in/yourprofile" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/alexa-cattaneo-piazza" },
    
   ]
 };
