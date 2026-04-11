@@ -20,7 +20,7 @@ export const projects = [
     title: "Figma Project 1: Website Design",
     category: "UX/UI",
     subcategory: "UI",
-    description: "Mobile banking app focusing on accessibility and clean data visualization.",
+    description: "A comprehensive web experience for a plant-based culinary platform, focusing on intuitive recipe navigation and high-conversion content layouts.",
     imageUrl: publicAsset('Vegama.webp'),
     embedUrl: "https://embed.figma.com/proto/3r8WbkB8qu0WKBRQXul1er/VEGAMA?node-id=1-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=share&hide-ui=1",
   },
