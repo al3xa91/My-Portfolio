@@ -47,7 +47,7 @@ const flattenedSkills = computed(() => {
 
       <div class="space-y-8">
         <div class="bg-cv-surface p-8 rounded-lg hover:bg-black transition-all duration-500 group cursor-pointer">
-          <a :href="cvData.resumeUrl" download class="flex justify-between items-center">
+          <a :href="cvData.resumeUrl" :download="cvData.resumeDownloadName" class="flex justify-between items-center">
             <div>
               <p class="text-cv-heading group-hover:text-white font-black uppercase tracking-tighter text-xl">Download CV</p>
               <p class="text-cv-muted text-[10px] uppercase tracking-widest mt-2">Ready for Print / PDF</p>
