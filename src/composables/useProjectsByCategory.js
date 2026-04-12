@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 
 const ALL_CATEGORIES = 'All'
 
@@ -77,9 +77,12 @@ export function useProjectsByCategory(projects, categoryData = []) {
       })
   })
 
-  const scrollToCategory = category => {
+  const scrollToCategory = async category => {
     activeCategory.value = category
     activeSubcategory.value = null
+
+    await nextTick()
+
     let target = document.getElementById(getSectionId(category))
 
     // For categories rendered only as subcategory sections (e.g. UX/UI),
@@ -97,9 +100,12 @@ export function useProjectsByCategory(projects, categoryData = []) {
     }
   }
 
-  const selectSubcategory = (category, subcategory) => {
+  const selectSubcategory = async (category, subcategory) => {
     activeCategory.value = category
     activeSubcategory.value = subcategory
+
+    await nextTick()
+
     const target = document.getElementById(getSectionId(category, subcategory))
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' })
