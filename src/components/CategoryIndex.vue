@@ -54,7 +54,7 @@ const showSubcategories = computed(() => {
             v-if="section.thumbnailImageUrl"
             :src="section.thumbnailImageUrl"
             :alt="`${section.category} preview`"
-            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-30 group-hover:opacity-100"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 touch-fullcolor transition-all duration-700 opacity-30 group-hover:opacity-100 touch-fullopacity"
           />
           <div v-else class="w-full h-full bg-slate-100"></div>
           <div class="absolute inset-0 p-6 flex flex-col justify-end bg-linear-to-t from-black/50 to-transparent">
@@ -94,7 +94,7 @@ const showSubcategories = computed(() => {
             v-if="subcategory.projects.length"
             :src="subcategory.projects[0].imageUrl"
             :alt="`${subcategory.name} preview`"
-            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-30 group-hover:opacity-100"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 touch-fullcolor transition-all duration-700 opacity-30 group-hover:opacity-100 touch-fullopacity"
           />
           <div v-else class="w-full h-full bg-slate-100"></div>
           <div class="absolute inset-0 p-6 flex flex-col justify-end bg-linear-to-t from-black/50 to-transparent">

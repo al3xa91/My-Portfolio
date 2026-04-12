@@ -70,6 +70,17 @@ body {
   }
 }
 
+/* Touch devices do not have hover states; keep media in full color by default. */
+@media (hover: none), (pointer: coarse) {
+  .touch-fullcolor {
+    filter: grayscale(0) !important;
+  }
+
+  .touch-fullopacity {
+    opacity: 1 !important;
+  }
+}
+
 /* Hero: Soft & Light */
 /* Update these sections in your main.css */
 

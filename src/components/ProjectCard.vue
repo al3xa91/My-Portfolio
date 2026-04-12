@@ -77,7 +77,7 @@ const closePreview = () => {
         :src="project.imageUrl" 
         :alt="project.title"
         loading="lazy"
-        class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+        class="w-full h-full object-cover grayscale group-hover:grayscale-0 touch-fullcolor group-hover:scale-105 transition-all duration-700 ease-out"
       />
 
       <button

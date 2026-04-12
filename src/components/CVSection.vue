@@ -37,7 +37,7 @@ const flattenedSkills = computed(() => {
           <video 
             controls 
             playsinline
-            class="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-90 group-hover:opacity-100 transition-all duration-700 ease-out"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 touch-fullcolor opacity-90 group-hover:opacity-100 touch-fullopacity transition-all duration-700 ease-out"
           >
             <source :src="cvData.videoUrl" type="video/mp4">
             Your browser does not support the video tag.
