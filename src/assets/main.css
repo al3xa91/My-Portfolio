@@ -56,6 +56,13 @@ body {
   }
 }
 
+@media (max-width: 400px) {
+  .safe-px {
+    padding-left: max(0.75rem, env(safe-area-inset-left, 0px)) !important;
+    padding-right: max(0.75rem, env(safe-area-inset-right, 0px)) !important;
+  }
+}
+
 @media (min-width: 768px) {
   .safe-px {
     padding-left: max(2.5rem, env(safe-area-inset-left, 0px)) !important;
