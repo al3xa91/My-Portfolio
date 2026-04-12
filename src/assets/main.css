@@ -35,6 +35,10 @@ body,
   min-height: 100%;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -43,6 +47,13 @@ body {
 .safe-px {
   padding-left: max(1.5rem, env(safe-area-inset-left, 0px)) !important;
   padding-right: max(1.5rem, env(safe-area-inset-right, 0px)) !important;
+}
+
+@media (max-width: 460px) {
+  .safe-px {
+    padding-left: max(1rem, env(safe-area-inset-left, 0px)) !important;
+    padding-right: max(1rem, env(safe-area-inset-right, 0px)) !important;
+  }
 }
 
 @media (min-width: 768px) {

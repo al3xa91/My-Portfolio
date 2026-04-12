@@ -30,7 +30,7 @@ const getSocialUrl = link => {
             <p class="text-slate-500 uppercase text-[10px] font-black tracking-[0.3em] mb-6">Direct Inquiry</p>
             <a 
               :href="`mailto:${personalInfo.email}`" 
-              class="text-3xl md:text-5xl font-light tracking-tighter text-black border-b border-black/20 pb-4 hover:text-black hover:border-black transition-all duration-500"
+              class="text-2xl sm:text-3xl md:text-5xl font-light tracking-tighter text-black border-b border-black/20 pb-4 hover:text-black hover:border-black transition-all duration-500 break-all"
             >
               {{ personalInfo.email }}
             </a>
