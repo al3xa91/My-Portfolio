@@ -78,7 +78,25 @@ export function useProjectsByCategory(projects, categoryData = []) {
   })
 
   const scrollToCategory = async category => {
-    activeCategory.value = category
+    if (category === ALL_CATEGORIES) {
+      activeCategory.value = ALL_CATEGORIES
+      activeSubcategory.value = null
+
+      await nextTick()
+
+      const indexTarget = document.getElementById('category-index')
+      if (indexTarget) {
+        indexTarget.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+      return
+    }
+
+    const currentSection = sections.value.find(section => section.category === category)
+    const hasSubcategories = Boolean(currentSection?.hasSubcategories)
+
+    // Keep all sections visible for single-category clicks to avoid layout collapse
+    // that can snap the viewport to the bottom on some scroll states.
+    activeCategory.value = hasSubcategories ? category : ALL_CATEGORIES
     activeSubcategory.value = null
 
     await nextTick()
@@ -88,7 +106,6 @@ export function useProjectsByCategory(projects, categoryData = []) {
     // For categories rendered only as subcategory sections (e.g. UX/UI),
     // fall back to the first subcategory section anchor.
     if (!target) {
-      const currentSection = sections.value.find(section => section.category === category)
       const firstSubcategory = currentSection?.subcategories?.[0]?.name
       if (firstSubcategory) {
         target = document.getElementById(getSectionId(category, firstSubcategory))
