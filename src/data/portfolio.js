@@ -29,7 +29,7 @@ export const projects = [
     title: "Figma Project 2: Website Design",
     category: "UX/UI",
     subcategory: "UI",
-    description: "Mobile banking app focusing on accessibility and clean data visualization.",
+    description: "A narrative-driven web experience for a theatrical production, featuring custom illustrations and a streamlined ticket-booking flow.",
     imageUrl: publicAsset('Lionheart-mockup.jpg'),
     embedUrl: "https://embed.figma.com/proto/1tbzeWt4MYITMZWq35v5Fv/THE-BROTHERS-LIONHEART?node-id=88-2&p=f&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=88%3A2&embed-host=share&hide-ui=1",
   },
