@@ -38,7 +38,7 @@ const showSubcategories = computed(() => {
 </script>
 
 <template>
-  <section class="py-24 px-10 border-t border-slate-100 max-w-screen-2xl mx-auto">
+  <section class="py-24 px-6 md:px-10 safe-px border-t border-slate-100 max-w-screen-2xl mx-auto">
     <!-- Main Category Index -->
     <div v-if="!showSubcategories">
       <p class="text-slate-400 uppercase tracking-[0.4em] text-[9px] font-black mb-12 text-center md:text-left">Index / Categories</p>

@@ -28,6 +28,30 @@ body {
   /* Removed display: flex to prevent layout squishing */
 }
 
+html,
+body,
+#app {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* iOS Safari safe-area support for notch devices */
+.safe-px {
+  padding-left: max(1.5rem, env(safe-area-inset-left, 0px)) !important;
+  padding-right: max(1.5rem, env(safe-area-inset-right, 0px)) !important;
+}
+
+@media (min-width: 768px) {
+  .safe-px {
+    padding-left: max(2.5rem, env(safe-area-inset-left, 0px)) !important;
+    padding-right: max(2.5rem, env(safe-area-inset-right, 0px)) !important;
+  }
+}
+
 /* Hero: Soft & Light */
 /* Update these sections in your main.css */
 

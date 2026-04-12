@@ -13,7 +13,7 @@ const flattenedSkills = computed(() => {
 </script>
 
 <template>
-  <section id="cv" class="py-32 px-10 max-w-350 mx-auto border-t border-cv scroll-mt-24">
+  <section id="cv" class="py-32 px-6 md:px-10 safe-px max-w-350 mx-auto border-t border-cv scroll-mt-24">
     <!-- Header -->
     <div class="mb-20">
       <span class="text-accent font-black text-[10px] tracking-[0.3em] uppercase mb-4 block">— CV</span>

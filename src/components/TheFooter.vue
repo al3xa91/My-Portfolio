@@ -10,7 +10,7 @@ const getSocialUrl = link => {
 </script>
 
 <template>
-  <footer id="contact" class="footer-mesh footer-mesh-animated text-white pt-70 pb-20 px-10 relative overflow-hidden">
+  <footer id="contact" class="footer-mesh footer-mesh-animated text-white pt-70 pb-20 px-6 md:px-10 safe-px relative overflow-hidden">
     
     <div class="absolute bottom-[-10%] left-[-5%] w-[50vw] h-[50vw] bg-pink-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
@@ -54,7 +54,7 @@ const getSocialUrl = link => {
         </div>
       </div>
 
-      <div class="pt-10 border-t border-white/5 flex justify-between items-center text-[9px] text-slate-500 uppercase tracking-[0.3em] font-black">
+      <div class="pt-10 border-t border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-[9px] text-slate-500 uppercase tracking-[0.3em] font-black">
         <span>© {{ new Date().getFullYear() }} {{ personalInfo.name }}</span>
         <div class="flex items-center gap-3">
           <div class="w-1 h-1 bg-accent rounded-full"></div>
