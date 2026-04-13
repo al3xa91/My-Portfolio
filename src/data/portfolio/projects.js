@@ -12,12 +12,67 @@ export const projects = [
   },
   {
     id: 1.1,
-    title: 'Figma Project 2: Website Design',
+    title: 'The Brothers Lionheart - Theatre Promotion',
     category: 'UX/UI',
     subcategory: 'UI',
-    description: 'A narrative-driven web experience for a theatrical production, featuring custom illustrations and a streamlined ticket-booking flow.',
+    description: 'A UX/UI case study for a theatre promotion site that balances emotional storytelling for children with fast, clear ticket information for parents.',
     imageUrl: publicAsset('Lionheart-mockup.jpg'),
     embedUrl: 'https://embed.figma.com/proto/1tbzeWt4MYITMZWq35v5Fv/THE-BROTHERS-LIONHEART?node-id=88-2&p=f&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=88%3A2&embed-host=share&hide-ui=1',
+    caseStudy: {
+      role: 'UX/UI Designer & Researcher',
+      tools: ['Figma', 'Adobe Illustrator'],
+      problem: 'Musikhuset Esbjerg needed a way to sell tickets for a fantasy play that appealed to children emotionally but gave parents quick, clear logistical information.',
+      outcome: 'A cohesive, accessible booking flow with a strong visual identity and a clear information hierarchy.',
+      sections: [
+        {
+          slug: 'research',
+          eyebrow: 'Research',
+          title: 'Understanding the audience before designing the interface',
+          body: 'I did not design for children alone. I mapped three audience types and used target group research and card sorting to decide what had to surface first: price, age rating, dates, and booking certainty.',
+          visual: {
+            type: 'gallery',
+            title: 'Research Artifacts',
+            frames: [
+              { label: 'Personas', note: 'Add personas image' },
+              { label: 'Affinity Map', note: 'Add affinity map image' },
+              { label: 'Double Diamond', note: 'Add double diamond image' },
+            ],
+          },
+        },
+        {
+          slug: 'wireframing-iteration',
+          eyebrow: 'Wireframing & Iteration',
+          title: 'From low-fidelity sketches to responsive layout decisions',
+          body: 'I translated the content hierarchy into wireframes and then refined the solution in Figma with a 12-column grid, sticky navigation, and breadcrumbs so users never felt lost in the fantasy world.',
+          visual: {
+            type: 'image',
+            src: publicAsset('Lionheart-mockup.jpg'),
+            alt: 'The Brothers Lionheart desktop and mobile mockup',
+          },
+        },
+        {
+          slug: 'interactive-prototype',
+          eyebrow: 'Interactive Prototype',
+          title: 'Testing the Figma prototype with real users',
+          body: 'The interactive prototype was usability tested with the Think Aloud method, which helped me refine the flow based on what users actually expected rather than what simply looked polished.',
+          visual: {
+            type: 'imageLink',
+            src: publicAsset('Lionheart-mockup.jpg'),
+            alt: 'The Brothers Lionheart prototype mockup',
+            buttonLabel: 'Go to prototype',
+          },
+        },
+        {
+          slug: 'final-design-system',
+          eyebrow: 'Final Design System',
+          title: 'Turning the solution into a cohesive visual language',
+          body: 'The final result was a clear, accessible design system with strong typography, consistent components, and a booking flow that feels immersive without sacrificing usability.',
+          visual: {
+            type: 'none',
+          },
+        },
+      ],
+    },
   },
   {
     id: 1.3,

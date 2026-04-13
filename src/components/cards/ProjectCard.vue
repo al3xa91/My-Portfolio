@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { isProject } from '@/utils/projectValidation.js'
+import ProjectCaseStudy from '@/components/cards/ProjectCaseStudy.vue'
 
 const props = defineProps({
   project: {
@@ -23,6 +24,7 @@ const hasPreview = computed(() => {
 })
 
 const hasEmbed = computed(() => Boolean(props.project.embedUrl))
+const hasCaseStudy = computed(() => Boolean(props.project.caseStudy?.sections?.length))
 
 const ensureFigmaPreconnect = () => {
   const hosts = ['https://embed.figma.com', 'https://www.figma.com']
@@ -112,62 +114,65 @@ const closePreview = () => {
           </div>
 
           <div class="flex-1 min-h-0 bg-slate-100 relative">
-            <video
-              v-if="project.prototypeVideoUrl"
-              controls
-              playsinline
-              class="w-full h-full object-cover"
-            >
-              <source :src="project.prototypeVideoUrl" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <iframe
-              v-else-if="project.embedUrl"
-              :src="project.embedUrl"
-              :title="`${project.title} prototype full view`"
-              allowfullscreen
-              loading="eager"
-              @load="isEmbedLoading = false"
-              class="w-full h-full border-0"
-            ></iframe>
-            <div
-              v-if="project.embedUrl && isEmbedLoading"
-              class="absolute inset-0 flex items-center justify-center bg-slate-100"
-            >
-              <p class="text-slate-500 text-sm uppercase tracking-widest font-black">Loading prototype...</p>
-            </div>
-            <img
-              v-else-if="project.prototypeImageUrl"
-              :src="project.prototypeImageUrl"
-              :alt="`${project.title} preview`"
-              class="w-full h-full object-cover"
-            />
-            <object
-              v-else-if="project.prototypePdfUrl"
-              :data="project.prototypePdfUrl"
-              type="application/pdf"
-              class="w-full h-full"
-            >
-              <div class="w-full h-full flex items-center justify-center px-6 text-center">
-                <div>
-                  <p class="text-slate-700 font-black uppercase tracking-wider text-xs mb-3">PDF preview not supported in this browser</p>
-                  <a
-                    :href="project.prototypePdfUrl"
-                    target="_blank"
-                    rel="noreferrer"
-                    class="text-[10px] font-black uppercase tracking-widest text-pink-800 hover:text-black"
-                  >
-                    Open PDF in New Tab
-                  </a>
-                </div>
+            <ProjectCaseStudy v-if="hasCaseStudy" :project="project" />
+            <template v-else>
+              <video
+                v-if="project.prototypeVideoUrl"
+                controls
+                playsinline
+                class="w-full h-full object-cover"
+              >
+                <source :src="project.prototypeVideoUrl" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <iframe
+                v-else-if="project.embedUrl"
+                :src="project.embedUrl"
+                :title="`${project.title} prototype full view`"
+                allowfullscreen
+                loading="eager"
+                @load="isEmbedLoading = false"
+                class="w-full h-full border-0"
+              ></iframe>
+              <div
+                v-if="project.embedUrl && isEmbedLoading"
+                class="absolute inset-0 flex items-center justify-center bg-slate-100"
+              >
+                <p class="text-slate-500 text-sm uppercase tracking-widest font-black">Loading prototype...</p>
               </div>
-            </object>
-            <div v-else class="w-full h-full flex items-center justify-center text-slate-500 text-sm">
-              Preview not available
-            </div>
+              <img
+                v-else-if="project.prototypeImageUrl"
+                :src="project.prototypeImageUrl"
+                :alt="`${project.title} preview`"
+                class="w-full h-full object-cover"
+              />
+              <object
+                v-else-if="project.prototypePdfUrl"
+                :data="project.prototypePdfUrl"
+                type="application/pdf"
+                class="w-full h-full"
+              >
+                <div class="w-full h-full flex items-center justify-center px-6 text-center">
+                  <div>
+                    <p class="text-slate-700 font-black uppercase tracking-wider text-xs mb-3">PDF preview not supported in this browser</p>
+                    <a
+                      :href="project.prototypePdfUrl"
+                      target="_blank"
+                      rel="noreferrer"
+                      class="text-[10px] font-black uppercase tracking-widest text-pink-800 hover:text-black"
+                    >
+                      Open PDF in New Tab
+                    </a>
+                  </div>
+                </div>
+              </object>
+              <div v-else class="w-full h-full flex items-center justify-center text-slate-500 text-sm">
+                Preview not available
+              </div>
+            </template>
           </div>
 
-          <div v-if="project.prototypePdfUrl" class="px-5 py-3 border-t border-slate-200 bg-white">
+          <div v-if="project.prototypePdfUrl && !hasCaseStudy" class="px-5 py-3 border-t border-slate-200 bg-white">
             <div class="flex items-center">
               <a
                 :href="project.prototypePdfUrl"
