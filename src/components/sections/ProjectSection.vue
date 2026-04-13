@@ -40,7 +40,7 @@ const hasMultipleProjects = computed(() => props.section.projects.length > 1)
   <div :id="sectionId" class="mb-40 scroll-mt-24">
     <div :class="['flex flex-col mb-12', index % 2 === 0 ? 'items-start' : 'items-end text-right']">
       <span class="text-pink-800 font-black text-[10px] tracking-[0.3em] uppercase mb-4">
-        0{{ index + 1 }} — {{ section.category }}{{ subtitle ? ` / ${subtitle}` : '' }}
+        {{ section.category }}{{ subtitle ? ` / ${subtitle}` : '' }}
       </span>
       
       <h2 class="text-black text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none mb-6">
