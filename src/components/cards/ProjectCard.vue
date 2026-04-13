@@ -1,23 +1,12 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import { isProject } from '@/utils/projectValidation.js'
 
 const props = defineProps({
   project: {
     type: Object,
     required: true,
-    validator: value => {
-      return (
-        typeof value.id === 'number'
-        && typeof value.title === 'string'
-        && typeof value.category === 'string'
-        && typeof value.description === 'string'
-        && typeof value.imageUrl === 'string'
-        && (value.prototypeVideoUrl === undefined || typeof value.prototypeVideoUrl === 'string')
-        && (value.prototypeImageUrl === undefined || typeof value.prototypeImageUrl === 'string')
-        && (value.prototypePdfUrl === undefined || typeof value.prototypePdfUrl === 'string')
-        && (value.embedUrl === undefined || typeof value.embedUrl === 'string')
-      )
-    },
+    validator: isProject,
   },
 })
 

@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import ProjectCard from '@/components/ProjectCard.vue'
+import ProjectCard from '@/components/cards/ProjectCard.vue'
 import { categoryData } from '@/data/portfolio.js'
 
 const props = defineProps({
