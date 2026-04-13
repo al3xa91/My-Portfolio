@@ -86,7 +86,7 @@ const flattenedSkills = computed(() => {
         <span 
           v-for="skill in flattenedSkills" 
           :key="skill"
-          class="px-4 py-3 bg-cv-surface border border-cv text-sm font-black uppercase tracking-widest text-cv-body rounded-lg hover:border-accent hover:text-accent hover:bg-pink-50 transition-all cursor-default text-center"
+          class="text-sm font-black uppercase tracking-[0.14em] text-cv-body text-center py-1"
         >
           {{ skill }}
         </span>

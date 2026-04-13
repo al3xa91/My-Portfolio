@@ -47,11 +47,11 @@ const hasMultipleProjects = computed(() => props.section.projects.length > 1)
         {{ subtitle || section.category }}
       </h2>
 
-      <div :class="['flex flex-wrap gap-2 max-w-2xl', index % 2 === 0 ? 'justify-start' : 'justify-end']">
+      <div :class="['flex flex-wrap gap-x-4 gap-y-1 max-w-2xl', index % 2 === 0 ? 'justify-start' : 'justify-end']">
         <span 
           v-for="skill in getSkills(section.category)" 
           :key="skill"
-          class="px-4 py-1.5 bg-slate-50 border border-slate-100 text-[9px] font-black uppercase tracking-widest text-slate-400 rounded-full hover:border-pink-800 hover:text-pink-800 transition-all cursor-default"
+          class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-500"
         >
           {{ skill }}
         </span>
