@@ -77,8 +77,54 @@ export const projects = [
     title: 'Figma Project 1: App Design',
     category: 'UX/UI',
     description: 'Mobile banking app focusing on accessibility and clean data visualization.',
-    imageUrl: publicAsset('Wanderly.jpg'),
+    imageUrl: publicAsset('Wanderly.webp'),
     embedUrl: 'https://embed.figma.com/proto/HbvZtWRpgpeHqCM7kJxubm/Ux-Travel-app?node-id=63-301&p=f&scaling=scale-down&content-scaling=fixed&page-id=63%3A21&starting-point-node-id=63%3A301&embed-host=share&hide-ui=1',
+    caseStudy: {
+      role: 'UX/UI Designer',
+      tools: ['Figma'],
+      problem: 'Design a travel app experience that keeps planning clear, fast, and accessible on mobile.',
+      outcome: 'A mobile-first booking journey with strong hierarchy and intuitive actions.',
+      sections: [
+        {
+          slug: 'research',
+          eyebrow: 'Research',
+          title: 'Discovery and user understanding',
+          body: 'Document your key findings here and attach the visuals you want to showcase for this project.',
+          visual: {
+            type: 'gallery',
+            title: 'Research Artifacts',
+            frames: [
+              { label: 'Personas', note: 'Replace with your personas image file', src: publicAsset('wanderly/personas.webp') },
+              { label: 'User Flow', note: 'Replace with your user flow image file', src: publicAsset('wanderly/user-flow.webp') },
+              { label: 'Insights', note: 'Replace with your insights image file', src: publicAsset('wanderly/insights.webp') },
+            ],
+          },
+        },
+        {
+          slug: 'wireframes',
+          eyebrow: 'Wireframes',
+          title: 'From structure to polished interface',
+          body: 'Explain how layout and navigation evolved from low-fidelity concepts into final mobile screens.',
+          visual: {
+            type: 'image',
+            src: publicAsset('Wanderly.webp'),
+            alt: 'Wanderly app mockup',
+          },
+        },
+        {
+          slug: 'interactive-prototype',
+          eyebrow: 'Interactive Prototype',
+          title: 'Navigate the prototype',
+          body: 'Open the prototype to review interactions, transitions, and task flow.',
+          visual: {
+            type: 'imageLink',
+            src: publicAsset('Wanderly.webp'),
+            alt: 'Wanderly prototype mockup',
+            buttonLabel: 'Go to prototype',
+          },
+        },
+      ],
+    },
   },
   {
     id: 2,

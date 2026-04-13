@@ -8,7 +8,72 @@ const props = defineProps({
   },
 })
 
-const sections = computed(() => props.project.caseStudy?.sections ?? [])
+const toSlug = (value, fallback) => {
+  if (!value || typeof value !== 'string') return fallback
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || fallback
+}
+
+const caseStudy = computed(() => {
+  const custom = props.project.caseStudy
+
+  const defaultSections = [
+    {
+      slug: 'project-overview',
+      eyebrow: 'Project Overview',
+      title: 'Design challenge and scope',
+      body: props.project.description,
+      visual: {
+        type: 'image',
+        src: props.project.imageUrl,
+        alt: `${props.project.title} mockup`,
+      },
+    },
+    {
+      slug: 'process',
+      eyebrow: 'Process',
+      title: 'How the concept was developed',
+      body: 'The project moved from exploration to refined interface decisions, balancing visual direction, content clarity, and user flow consistency.',
+      visual: {
+        type: 'none',
+      },
+    },
+    {
+      slug: 'final-delivery',
+      eyebrow: props.project.embedUrl ? 'Interactive Prototype' : 'Final Delivery',
+      title: props.project.embedUrl ? 'Explore the final interactive prototype' : 'Final visual outcome',
+      body: props.project.embedUrl
+        ? 'Open the live prototype to review interactions, hierarchy, and flow decisions.'
+        : 'This project is presented as a final visual deliverable. Additional documentation can be added later if needed.',
+      visual: props.project.embedUrl
+        ? {
+            type: 'imageLink',
+            src: props.project.imageUrl,
+            alt: `${props.project.title} prototype mockup`,
+            buttonLabel: 'Go to prototype',
+          }
+        : {
+            type: 'image',
+            src: props.project.imageUrl,
+            alt: `${props.project.title} final preview`,
+          },
+    },
+  ]
+
+  const mergedSections = (custom?.sections?.length ? custom.sections : defaultSections).map((section, index) => ({
+    ...section,
+    slug: section.slug || toSlug(section.eyebrow, `section-${index + 1}`),
+  }))
+
+  return {
+    role: custom?.role || `${props.project.category} Designer`,
+    tools: custom?.tools?.length ? custom.tools : [props.project.category],
+    problem: custom?.problem || `Create a strong ${props.project.category} solution with clear storytelling and a coherent user experience.`,
+    outcome: custom?.outcome || props.project.description,
+    sections: mergedSections,
+  }
+})
+
+const sections = computed(() => caseStudy.value.sections)
 const sectionLinks = computed(() => sections.value.map(section => ({
   label: section.eyebrow,
   slug: section.slug,
@@ -33,14 +98,14 @@ const sectionLinks = computed(() => sections.value.map(section => ({
           <div class="space-y-4 border-t border-pink-100 pt-5">
             <div>
               <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-2">Role</p>
-              <p class="text-slate-900 font-semibold">{{ project.caseStudy.role }}</p>
+              <p class="text-slate-900 font-semibold">{{ caseStudy.role }}</p>
             </div>
 
             <div>
               <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-2">Tools</p>
               <div class="flex flex-wrap gap-2">
                 <span
-                  v-for="tool in project.caseStudy.tools"
+                  v-for="tool in caseStudy.tools"
                   :key="tool"
                   class="px-3 py-1 rounded-full border border-pink-100 bg-pink-50 text-[10px] font-black uppercase tracking-widest text-slate-700"
                 >
@@ -52,7 +117,7 @@ const sectionLinks = computed(() => sections.value.map(section => ({
             <div>
               <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-2">Problem</p>
               <p class="text-slate-700 leading-relaxed text-sm">
-                {{ project.caseStudy.problem }}
+                {{ caseStudy.problem }}
               </p>
             </div>
           </div>
@@ -89,7 +154,7 @@ const sectionLinks = computed(() => sections.value.map(section => ({
                   The project at a glance
                 </h4>
                 <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                  {{ project.caseStudy.outcome }}
+                  {{ caseStudy.outcome }}
                 </p>
               </div>
             </div>
