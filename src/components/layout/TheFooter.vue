@@ -21,7 +21,7 @@ const getSocialUrl = link => {
           <p class="text-accent font-black text-[10px] uppercase tracking-[0.4em] mb-8">Next Step</p>
           <h2 class="text-[13vw] md:text-[10vw] font-black tracking-tighter leading-[0.8] uppercase">
             <span class="block text-black">Let's</span>
-            <span class="block ml-[10vw] text-transparent stroke-text">Connect.</span>
+            <span class="inline-block ml-[10vw] text-transparent stroke-text">Connect.</span>
           </h2>
         </div>
 

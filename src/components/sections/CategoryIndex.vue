@@ -69,7 +69,7 @@ const showSubcategories = computed(() => {
       <div class="flex items-center gap-6 mb-12">
         <button
           @click="$emit('selectCategory', 'All')"
-          class="text-slate-400 hover:text-slate-600 transition-colors text-sm"
+          class="text-[10px] font-black uppercase tracking-widest bg-pink-800 text-white px-4 py-2 rounded-full hover:bg-black transition-colors"
         >
           ← Back
         </button>

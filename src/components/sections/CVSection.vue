@@ -16,10 +16,10 @@ const flattenedSkills = computed(() => {
   <section id="cv" class="py-32 px-6 md:px-10 safe-px max-w-350 mx-auto border-t border-cv scroll-mt-24">
     <!-- Header -->
     <div class="mb-20">
-      <span class="text-accent font-black text-[10px] tracking-[0.3em] uppercase mb-4 block">— CV</span>
+      <span class="text-accent font-black text-[10px] tracking-[0.3em] uppercase mb-4 ml-2 block">CV</span>
       <h2 class="text-[13vw] md:text-[11vw] font-black tracking-tighter leading-[0.8] uppercase mb-12">
         <span class="block">Professional</span>
-        <span class="block ml-[10vw] text-transparent stroke-text">Profile</span>
+        <span class="inline-block ml-[10vw] text-transparent stroke-text">Profile</span>
       </h2>
     </div>
 

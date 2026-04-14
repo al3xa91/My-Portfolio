@@ -34,15 +34,25 @@ const skillsByCategory = computed(() => {
 const getSkills = categoryName => skillsByCategory.value[categoryName] ?? []
 
 const hasMultipleProjects = computed(() => props.section.projects.length > 1)
+
+const overlineByCategory = {
+  'Web Dev': 'Built For The Browser',
+  'Graphic Design': 'Visual Identity In Focus',
+  Photography: 'Moments, Composed',
+  Video: 'Motion And Storytelling',
+  'UX/UI': 'Experience First Decisions',
+}
+
+const overlineLabel = computed(() => overlineByCategory[props.section.category] ?? 'Selected Works')
 </script>
 
 <template>
   <div :id="sectionId" class="mb-40 scroll-mt-24">
     <div :class="['flex flex-col mb-12', index % 2 === 0 ? 'items-start' : 'items-end text-right']">
-      <span class="text-pink-800 font-black text-[10px] tracking-[0.3em] uppercase mb-4">
-        {{ section.category }}{{ subtitle ? ` / ${subtitle}` : '' }}
-      </span>
-      
+      <p class="text-pink-800 font-black text-[10px] tracking-[0.3em] uppercase mb-4">
+        {{ overlineLabel }}
+      </p>
+
       <h2 class="text-black text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none mb-6">
         {{ subtitle || section.category }}
       </h2>

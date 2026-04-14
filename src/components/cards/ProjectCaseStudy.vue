@@ -86,7 +86,7 @@ const sectionLinks = computed(() => sections.value.map(section => ({
       <div class="grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)] items-start">
         <aside class="lg:sticky lg:top-6 space-y-6 rounded-3xl border border-pink-100 bg-white text-black p-6 shadow-2xl">
           <div class="space-y-4">
-            <p class="text-[10px] font-black uppercase tracking-[0.4em] text-pink-800">UX/UI Case Study</p>
+            <p class="text-[10px] font-black uppercase tracking-[0.4em] text-pink-800">{{ project.category }} Case Study</p>
             <h3 class="text-2xl md:text-3xl font-black tracking-tighter uppercase leading-none">
               {{ project.title }}
             </h3>

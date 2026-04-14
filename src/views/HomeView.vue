@@ -10,15 +10,12 @@ import { computed, nextTick } from 'vue'
 
 const { sections, visibleSections, activeCategory, activeSubcategory, scrollToCategory, selectSubcategory } = useProjectsByCategory(allProjects, categoryData)
 
-// Flatten visibleSections to render each subcategory as a separate ProjectSection
+// Render one ProjectSection per category and combine its visible subcategories.
 const flattenedSections = computed(() => {
-  return visibleSections.value.flatMap(section => 
-    section.visibleSubcategories.map(subcategory => ({
-      category: section.category,
-      subcategory: subcategory.name,
-      projects: subcategory.projects,
-    }))
-  )
+  return visibleSections.value.map(section => ({
+    category: section.category,
+    projects: section.visibleSubcategories.flatMap(subcategory => subcategory.projects),
+  }))
 })
 
 const handleSelectCategory = (category) => {
@@ -60,11 +57,10 @@ const handleExploreWork = () => {
       <section class="py-20 px-6 md:px-10 safe-px max-w-350 mx-auto">
         <ProjectSection
           v-for="(section, index) in flattenedSections"
-          :key="`${section.category}-${section.subcategory}`"
+          :key="section.category"
           :section="{ category: section.category, projects: section.projects }"
           :index="index"
-          :section-id="section.subcategory === section.category ? getSectionId(section.category) : getSectionId(section.category, section.subcategory)"
-          :subtitle="section.subcategory"
+          :section-id="getSectionId(section.category)"
         />
       </section>
 

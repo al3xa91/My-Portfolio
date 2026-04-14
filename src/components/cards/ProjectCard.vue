@@ -63,7 +63,7 @@ const closePreview = () => {
         v-if="hasPreview"
         type="button"
         @click="openPreview"
-        class="absolute bottom-4 right-4 bg-black/70 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full hover:bg-pink-800 transition-colors"
+        class="absolute bottom-4 right-4 bg-black/80 group-hover:bg-pink-800 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full hover:bg-black transition-colors"
       >
         Open Project
       </button>
@@ -95,7 +95,7 @@ const closePreview = () => {
             <button
               type="button"
               @click="closePreview"
-              class="text-slate-500 hover:text-black font-black text-xs uppercase tracking-wider"
+              class="bg-pink-800 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full hover:bg-black transition-colors"
             >
               Close
             </button>
