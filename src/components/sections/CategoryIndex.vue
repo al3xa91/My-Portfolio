@@ -48,7 +48,7 @@ const showSubcategories = computed(() => {
           :key="section.category"
           type="button"
           @click="$emit('selectCategory', section.category)"
-          class="group relative aspect-square overflow-hidden rounded-2xl border border-slate-100"
+          class="group relative aspect-square overflow-hidden rounded-l border border-slate-100"
         >
           <img
             v-if="section.thumbnailImageUrl"
@@ -84,7 +84,7 @@ const showSubcategories = computed(() => {
           type="button"
           @click="$emit('selectSubcategory', { category: currentCategory.category, subcategory: subcategory.name })"
           :class="[
-            'group relative aspect-square overflow-hidden rounded-2xl border transition-all duration-300',
+            'group relative aspect-square overflow-hidden rounded-3xl border transition-all duration-300',
             activeSubcategory === subcategory.name 
               ? 'border-pink-400 bg-pink-50' 
               : 'border-slate-100 hover:border-slate-300'
