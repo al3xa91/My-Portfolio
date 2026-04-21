@@ -10,7 +10,7 @@ defineEmits({
 </script>
 
 <template>
-  <section class="hero-mesh min-h-[85svh] md:min-h-screen flex items-center px-6 md:px-10 safe-px py-12 md:py-24 relative overflow-hidden">
+  <section class="hero-mesh min-h-svh md:min-h-screen flex items-center px-6 md:px-10 safe-px py-6 md:py-24 relative overflow-hidden box-border">
     <div class="absolute top-[-10%] right-[-5%] w-[60vw] h-[60vw] bg-pink-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
     <div class="max-w-350 mx-auto relative z-10">
