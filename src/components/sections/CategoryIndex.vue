@@ -35,6 +35,8 @@ const currentCategory = computed(() => {
 const showSubcategories = computed(() => {
   return currentCategory.value && currentCategory.value.hasSubcategories
 })
+
+const mobileCategoryLabel = category => (category === 'Photography' ? 'Photo' : category)
 </script>
 
 <template>
@@ -58,7 +60,10 @@ const showSubcategories = computed(() => {
           />
           <div v-else class="w-full h-full bg-slate-100"></div>
           <div class="absolute inset-0 p-6 flex flex-col justify-end bg-linear-to-t from-black/50 to-transparent">
-            <span class="text-white text-[10px] font-black uppercase tracking-widest">{{ section.category }}</span>
+            <span class="text-white text-[10px] font-black uppercase tracking-widest">
+              <span class="md:hidden">{{ mobileCategoryLabel(section.category) }}</span>
+              <span class="hidden md:inline">{{ section.category }}</span>
+            </span>
           </div>
         </button>
       </div>
@@ -74,7 +79,9 @@ const showSubcategories = computed(() => {
           ← Back
         </button>
         <p class="text-slate-400 uppercase tracking-[0.4em] text-[9px] font-black">
-          {{ currentCategory.category }} / Choose Type
+          <span class="md:hidden">{{ mobileCategoryLabel(currentCategory.category) }}</span>
+          <span class="hidden md:inline">{{ currentCategory.category }}</span>
+          / Choose Type
         </p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">

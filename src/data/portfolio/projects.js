@@ -143,7 +143,7 @@ export const projects = [
   {
     id: 4,
     title: 'Urban Architecture',
-    category: 'Photo',
+    category: 'Photography',
     description: 'High-contrast street photography focused on brutalist structures.',
     imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200',
   },
