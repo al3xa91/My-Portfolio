@@ -38,7 +38,7 @@ const hasMultipleProjects = computed(() => props.section.projects.length > 1)
 const overlineByCategory = {
   'Web Dev': 'Built For The Browser',
   'Graphic Design': 'Visual Identity In Focus',
-  Photography: 'Moments, Composed',
+  Photo: 'Moments, Composed',
   Video: 'Motion And Storytelling',
   'UX/UI': 'Experience First Decisions',
 }
