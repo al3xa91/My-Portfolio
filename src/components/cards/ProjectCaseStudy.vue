@@ -84,10 +84,11 @@ const sectionLinks = computed(() => sections.value.map(section => ({
   <div class="w-full h-full overflow-y-auto bg-white">
     <div class="max-w-7xl mx-auto px-5 md:px-10 py-6 md:py-10">
       <div class="grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)] items-start">
-        <aside class="lg:sticky lg:top-6 space-y-6 rounded-3xl border border-pink-100 bg-white text-black p-6 shadow-2xl">
+        <!-- Sidebar: project meta, role/tools/problem, and jump links -->
+        <aside class="lg:sticky lg:top-6 space-y-6 rounded-lg border border-pink-100 bg-white text-black p-6 shadow-2xl">
           <div class="space-y-4">
             <p class="text-[10px] font-black uppercase tracking-[0.4em] text-pink-800">{{ project.category }} Case Study</p>
-            <h3 class="text-2xl md:text-3xl font-black tracking-tighter uppercase leading-none">
+            <h3 class="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none">
               {{ project.title }}
             </h3>
             <p class="text-slate-600 text-sm leading-relaxed">
@@ -129,7 +130,7 @@ const sectionLinks = computed(() => sections.value.map(section => ({
                 v-for="(link, index) in sectionLinks"
                 :key="link.slug"
                 :href="`#case-${link.slug}`"
-                class="rounded-xl border border-pink-100 bg-slate-50 px-3 py-2 hover:bg-pink-50 transition-colors text-slate-700"
+                class="rounded-lg border border-pink-100 bg-slate-50 px-3 py-2 hover:bg-pink-50 transition-colors text-slate-700"
               >
                 {{ String(index + 1).padStart(2, '0') }}. {{ link.label }}
               </a>
@@ -138,12 +139,13 @@ const sectionLinks = computed(() => sections.value.map(section => ({
         </aside>
 
         <main class="space-y-10 md:space-y-12">
-          <section class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-start rounded-3xl border border-pink-100 bg-slate-50 p-5 md:p-8 shadow-sm">
+          <!-- Intro card: hero image + short outcome summary -->
+          <section class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-start rounded-lg border border-pink-100 bg-slate-50 p-5 md:p-8 shadow-sm">
             <div class="space-y-4">
               <img
                 :src="project.imageUrl"
                 :alt="project.title"
-                class="w-full rounded-2xl object-cover aspect-16/10 shadow-2xl"
+                class="w-full rounded-lg object-cover aspect-16/10 shadow-2xl"
               />
             </div>
 
@@ -160,12 +162,13 @@ const sectionLinks = computed(() => sections.value.map(section => ({
             </div>
           </section>
 
+          <!-- Dynamic case-study sections from projects.js -> caseStudy.sections -->
           <section
             v-for="(section, index) in sections"
             :id="`case-${section.slug}`"
             :key="section.slug"
             :class="[
-              'grid gap-5 items-start rounded-3xl border border-pink-100 bg-white p-5 md:p-8 shadow-sm scroll-mt-6',
+              'grid gap-5 items-start rounded-lg border border-pink-100 bg-white p-5 md:p-8 shadow-sm scroll-mt-6',
               section.visual?.type === 'none' ? 'lg:grid-cols-1' : 'lg:grid-cols-[0.95fr_1.05fr]'
             ]"
           >
@@ -176,13 +179,15 @@ const sectionLinks = computed(() => sections.value.map(section => ({
               <h4 class="text-2xl md:text-4xl font-black tracking-tighter uppercase leading-tight text-black">
                 {{ section.title }}
               </h4>
-              <p class="text-slate-600 text-base md:text-lg leading-relaxed max-w-2xl">
+              <p class="text-slate-600 text-base md:text-lg leading-relaxed max-w-2xl whitespace-pre-line">
                 {{ section.body }}
               </p>
             </div>
 
+            <!-- Visual renderer: switches by section.visual.type -->
             <div v-if="section.visual?.type !== 'none'">
-              <div v-if="section.visual?.type === 'image'" class="overflow-hidden rounded-2xl shadow-xl border border-slate-200 bg-slate-100">
+              <!-- Single static image -->
+              <div v-if="section.visual?.type === 'image'" class="overflow-hidden rounded-lg shadow-xl border border-slate-200 bg-slate-100">
                 <img
                   :src="section.visual.src"
                   :alt="section.visual.alt"
@@ -190,7 +195,8 @@ const sectionLinks = computed(() => sections.value.map(section => ({
                 />
               </div>
 
-              <div v-else-if="section.visual?.type === 'embed'" class="overflow-hidden rounded-2xl shadow-xl border border-slate-200 bg-slate-100 aspect-16/10 relative">
+              <!-- Embedded prototype iframe -->
+              <div v-else-if="section.visual?.type === 'embed'" class="overflow-hidden rounded-lg shadow-xl border border-slate-200 bg-slate-100 aspect-16/10 relative">
                 <iframe
                   :src="project.embedUrl"
                   :title="`${project.title} prototype full view`"
@@ -200,8 +206,9 @@ const sectionLinks = computed(() => sections.value.map(section => ({
                 ></iframe>
               </div>
 
+              <!-- Image plus CTA button linking to prototype -->
               <div v-else-if="section.visual?.type === 'imageLink'" class="space-y-4">
-                <div class="overflow-hidden rounded-2xl shadow-xl border border-slate-200 bg-slate-100">
+                <div class="overflow-hidden rounded-lg shadow-xl border border-slate-200 bg-slate-100">
                   <img
                     :src="section.visual.src"
                     :alt="section.visual.alt"
@@ -218,31 +225,29 @@ const sectionLinks = computed(() => sections.value.map(section => ({
                 </a>
               </div>
 
-              <div v-else-if="section.visual?.type === 'gallery'" class="rounded-2xl border border-pink-100 bg-slate-50 p-4 md:p-5 shadow-sm space-y-4">
-                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-pink-800">
-                  {{ section.visual?.title }}
-                </p>
-                <div class="grid gap-4 md:grid-cols-3">
+              <!-- Multi-image gallery -->
+              <div v-else-if="section.visual?.type === 'gallery'" class="rounded-lg border border-pink-100 bg-slate-50 p-4 md:p-6 shadow-sm">
+                <div class="space-y-4">
                   <div
                     v-for="frame in section.visual?.frames ?? []"
                     :key="frame.label"
-                    class="rounded-xl border-2 border-dashed border-pink-200 bg-white overflow-hidden"
+                    class="rounded-lg border border-pink-100 bg-white overflow-hidden"
                   >
                     <img
                       v-if="frame.src"
                       :src="frame.src"
                       :alt="frame.label"
-                      class="w-full aspect-4/3 object-cover"
+                      class="w-full h-auto max-h-[70svh] object-contain object-center bg-white"
                     />
-                    <div v-else class="aspect-4/3 flex flex-col items-center justify-center text-center px-4">
-                      <p class="text-[10px] font-black uppercase tracking-[0.3em] text-pink-800 mb-2">{{ frame.label }}</p>
-                      <p class="text-slate-500 text-xs">{{ frame.note }}</p>
+                    <div v-else class="aspect-16/10 flex flex-col items-center justify-center text-center px-4 bg-slate-50 border-2 border-dashed border-pink-200">
+                      <p class="text-slate-500 text-xs">Add image</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div v-else class="rounded-2xl border border-pink-100 bg-slate-50 p-6 md:p-8 shadow-sm text-slate-900">
+              <!-- Fallback: bullet list block for custom text visuals -->
+              <div v-else class="rounded-lg border border-pink-100 bg-slate-50 p-6 md:p-8 shadow-sm text-slate-900">
                 <p class="text-[10px] font-black uppercase tracking-[0.3em] text-pink-800 mb-4">
                   {{ section.visual?.title }}
                 </p>

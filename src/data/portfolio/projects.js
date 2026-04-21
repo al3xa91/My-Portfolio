@@ -6,8 +6,59 @@ export const projects = [
     title: 'Figma Project 1: Website Design',
     category: 'UX/UI',
     description: 'A comprehensive web experience for a plant-based culinary platform, focusing on intuitive recipe navigation and high-conversion content layouts.',
-    imageUrl: publicAsset('Vegama.webp'),
+    imageUrl: publicAsset('public/vegama/cover.webp'),
     embedUrl: 'https://embed.figma.com/proto/3r8WbkB8qu0WKBRQXul1er/VEGAMA?node-id=1-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=share&hide-ui=1',
+    caseStudy: {
+      role: 'UX Researcher & UI Designer',
+      tools: ['Figma', 'Adobe Illustrator'], 
+      problem: 'Many users want to cook plant-based meals but find it complicated, time-consuming, or are frustrated by unclear online recipes.',
+      outcome: 'A friendly experience designed to help users explore and cook vegan dishes with ease and confidence.',
+      sections: [
+        {
+          slug: 'research',
+          eyebrow: 'Research',
+          title: 'Identifying the barriers to plant-based cooking',
+          body: 'I conducted a survey with 14 participants which revealed that 64% prioritize quick and easy recipes. \n I developed two distinct personas: Freja, a minimalist interior designer from Aarhus, and Clara, a social marketing specialist from Valencia. \n Research highlighted that 43% of users specifically desire photos with instructions, while another 43% look for step-by-step videos to simplify the cooking process.',
+          visual: {
+            type: 'gallery',
+            title: 'Research Artifacts',
+            frames: [
+              { label: 'Personas', src: publicAsset('vegama/personas.webp'), note: 'Freja and Clara personas' },
+            ],
+          },
+        },
+        {
+          slug: 'architecture',
+          eyebrow: 'Information Architecture',
+          title: 'Organizing content for intuitive navigation',
+          body: 'The project moved from exploration to refined interface decisions, balancing visual direction and content clarity. \n I structured the platform with dedicated sections for Basics, E-books, and Wellness to address the lack of knowledge identified in research. \n This flow ensures that users can move seamlessly from learning foundational vegan tips to executing full recipes.',
+          visual: {
+            type: 'none',
+          },
+        },
+        {
+          slug: 'interactive-prototype',
+          eyebrow: 'Interactive Prototype',
+          title: 'A high-conversion mobile-first culinary experience',
+          body: 'The prototype focuses on intuitive recipe navigation and clear storytelling to create a coherent user experience. \n By addressing the 43% demand for visual aids, the design utilizes instruction-heavy layouts for signature dishes. \n This allows users to review interactions, hierarchy, and flow decisions in a realistic cooking environment.',
+          visual: {
+            type: 'imageLink',
+            src: publicAsset('public/vegama/prototype.webp'),
+            alt: 'Vegama interactive mobile prototype',
+            buttonLabel: 'Go to prototype',
+          },
+        },
+        {
+          slug: 'final-design-system',
+          eyebrow: 'Final Design System',
+          title: 'Friendly, accessible, and nature-inspired visuals',
+          body: 'The final visual identity balances a calm, minimalist aesthetic with an energetic and curious brand voice. \n Using nature-inspired elements and clean typography, the design system proves that vegan cooking can be tasty, colorful, and easy to fit into daily life. \n The result is an accessible solution that aligns with eco-conscious values while remaining practical for busy lifestyles.',
+          visual: {
+            type: 'none',
+          },
+        },
+      ],
+    },
   },
   {
     id: 1.1,
