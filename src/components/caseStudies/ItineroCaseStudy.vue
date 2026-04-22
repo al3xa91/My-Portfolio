@@ -144,7 +144,7 @@ const sectionLinks = computed(() => sections.value.map(section => ({
 
                     <!-- Image plus CTA button -->
                     <div v-else-if="section.visual?.type === 'imageLink'" class="space-y-6">
-                      <div class="overflow-hidden rounded-lg border border-slate-200 shadow-lg bg-slate-100 flex items-center justify-center min-h-[400px]">
+                      <div class="overflow-hidden rounded-lg border border-slate-200 shadow-lg bg-slate-100 flex items-center justify-center min-h-100">
                         <img
                           :src="section.visual.src"
                           :alt="section.visual.alt"

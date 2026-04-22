@@ -6,7 +6,7 @@ export const projects = [
     title: 'Vegama',
     category: 'UX/UI',
     description: 'A comprehensive web experience for a plant-based culinary platform, focusing on intuitive recipe navigation and high-conversion content layouts.',
-    imageUrl: publicAsset('public/vegama/cover.webp'),
+    imageUrl: publicAsset('vegama/cover.webp'),
     embedUrl: 'https://embed.figma.com/proto/3r8WbkB8qu0WKBRQXul1er/VEGAMA?node-id=1-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=share&hide-ui=1',
     caseStudyComponent: 'VegamaCaseStudy',
     caseStudy: {
@@ -51,7 +51,7 @@ export const projects = [
           body: 'The prototype focuses on intuitive recipe navigation and clear storytelling to create a coherent user experience. \n By addressing the 43% demand for visual aids, the design utilizes instruction-heavy layouts for signature dishes. \n This allows users to review interactions, hierarchy, and flow decisions in a realistic cooking environment.',
           visual: {
             type: 'imageLink',
-            src: publicAsset('public/vegama/prototype.webp'),
+            src: publicAsset('vegama/prototype.webp'),
             alt: 'Vegama interactive mobile prototype',
             buttonLabel: 'Go to prototype',
           },
@@ -141,7 +141,7 @@ export const projects = [
     title: 'ITINERO',
     category: 'UX/UI',
     description: 'A personalized travel companion focused on centralized itineraries and smart scheduling.',
-    imageUrl: publicAsset('public/itinero/mockup.webp'),
+    imageUrl: publicAsset('itinero/mockup.webp'),
     embedUrl: 'https://embed.figma.com/proto/HbvZtWRpgpeHqCM7kJxubm/Ux-Travel-app?node-id=141-531&p=f&scaling=scale-down&content-scaling=fixed&page-id=115%3A9&starting-point-node-id=141%3A531&embed-host=share',
     caseStudyComponent: 'ItineroCaseStudy',
     caseStudy: {
@@ -159,9 +159,9 @@ export const projects = [
             type: 'gallery',
             title: 'Research Artifacts',
             frames: [
-              { label: 'Pain points and Opportunity Map', src: publicAsset('public/itinero/painpoints.webp') },
-              { label: 'Business Model', src: publicAsset('public/itinero/businessmodel.webp') },
-              { label: 'Moscow', src: publicAsset('public/itinero/moscow.webp') },
+              { label: 'Pain points and Opportunity Map', src: publicAsset('itinero/painpoints.webp') },
+              { label: 'Business Model', src: publicAsset('itinero/businessmodel.webp') },
+              { label: 'Moscow', src: publicAsset('itinero/moscow.webp') },
             ],
           },
         },
@@ -172,7 +172,7 @@ export const projects = [
           body: 'To solve the fragmentation issue, I developed a strategy focused on a centralized itinerary format that organizes trips by days, times, and specific activities. \n Using a MoSCoW matrix, I prioritized "Must-Have" features like an AI itinerary generator and collaborative planning tools for groups and digital nomads. \n This architecture ensures a seamless flow from a "Quick Save" inspiration list into a structured, real-time schedule that users can access even while offline.',
           visual: {
             type: 'image',
-            src: publicAsset('public/itinero/wireframes.webp'),
+            src: publicAsset('itinero/wireframes.webp'),
             alt: 'Wanderly app mockup',
           },
         },
@@ -183,7 +183,7 @@ export const projects = [
           body: 'The prototype translates complex logistics into a visual timeline where users can instantly "pin" app suggestions into a structured daily plan. \n I integrated a "Digital Concierge" system that uses smart notifications to provide contextual reminders about upcoming attractions and closing times without being rigid. \n The interactive experience also features location-based suggestions and an authentic review filtering system designed to flag tourist traps and highlight hidden local gems.',
           visual: {
             type: 'imageLink',
-            src: publicAsset('public/itinero/prototype.webp'),
+            src: publicAsset('itinero/prototype.webp'),
             alt: 'Itinero prototype mockup',
             buttonLabel: 'Go to prototype',
           },
