@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, defineAsyncComponent } from 'vue'
 import { isProject } from '@/utils/projectValidation.js'
 import ProjectCaseStudy from '@/components/cards/ProjectCaseStudy.vue'
 
@@ -15,6 +15,25 @@ const isPreviewOpen = ref(false)
 const hasPreview = computed(() => Boolean(props.project?.title))
 
 const hasEmbed = computed(() => Boolean(props.project.embedUrl))
+
+// Dynamically load the case study component for this project
+const caseStudyComponent = computed(() => {
+  if (!props.project.caseStudyComponent) {
+    return ProjectCaseStudy
+  }
+
+  try {
+    return defineAsyncComponent(() =>
+      import(`@/components/caseStudies/${props.project.caseStudyComponent}.vue`)
+    )
+  } catch {
+    return ProjectCaseStudy
+  }
+})
+
+const buttonLabel = computed(() => {
+  return props.project.category === 'Photography' ? 'Open Gallery' : 'Open Project'
+})
 
 const ensureFigmaPreconnect = () => {
   const hosts = ['https://embed.figma.com', 'https://www.figma.com']
@@ -65,7 +84,7 @@ const closePreview = () => {
         @click="openPreview"
         class="absolute bottom-4 right-4 bg-black/80 group-hover:bg-pink-800 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full hover:bg-black transition-colors"
       >
-        Open Project
+        {{ buttonLabel }}
       </button>
     </div>
 
@@ -102,7 +121,7 @@ const closePreview = () => {
           </div>
 
           <div class="flex-1 min-h-0 bg-slate-100 relative">
-            <ProjectCaseStudy :project="project" />
+            <component :is="caseStudyComponent" :project="project" />
           </div>
         </div>
       </div>

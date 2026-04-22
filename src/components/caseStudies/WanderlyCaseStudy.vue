@@ -8,72 +8,8 @@ const props = defineProps({
   },
 })
 
-const toSlug = (value, fallback) => {
-  if (!value || typeof value !== 'string') return fallback
-  return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || fallback
-}
-
-const caseStudy = computed(() => {
-  const custom = props.project.caseStudy
-
-  const defaultSections = [
-    {
-      slug: 'project-overview',
-      eyebrow: 'Project Overview',
-      title: 'Design challenge and scope',
-      body: props.project.description,
-      visual: {
-        type: 'image',
-        src: props.project.imageUrl,
-        alt: `${props.project.title} mockup`,
-      },
-    },
-    {
-      slug: 'process',
-      eyebrow: 'Process',
-      title: 'How the concept was developed',
-      body: 'The project moved from exploration to refined interface decisions, balancing visual direction, content clarity, and user flow consistency.',
-      visual: {
-        type: 'none',
-      },
-    },
-    {
-      slug: 'final-delivery',
-      eyebrow: props.project.embedUrl ? 'Interactive Prototype' : 'Final Delivery',
-      title: props.project.embedUrl ? 'Explore the final interactive prototype' : 'Final visual outcome',
-      body: props.project.embedUrl
-        ? 'Open the live prototype to review interactions, hierarchy, and flow decisions.'
-        : 'This project is presented as a final visual deliverable. Additional documentation can be added later if needed.',
-      visual: props.project.embedUrl
-        ? {
-            type: 'imageLink',
-            src: props.project.imageUrl,
-            alt: `${props.project.title} prototype mockup`,
-            buttonLabel: 'Go to prototype',
-          }
-        : {
-            type: 'image',
-            src: props.project.imageUrl,
-            alt: `${props.project.title} final preview`,
-          },
-    },
-  ]
-
-  const mergedSections = (custom?.sections?.length ? custom.sections : defaultSections).map((section, index) => ({
-    ...section,
-    slug: section.slug || toSlug(section.eyebrow, `section-${index + 1}`),
-  }))
-
-  return {
-    role: custom?.role || `${props.project.category} Designer`,
-    tools: custom?.tools?.length ? custom.tools : [props.project.category],
-    problem: custom?.problem || `Create a strong ${props.project.category} solution with clear storytelling and a coherent user experience.`,
-    outcome: custom?.outcome || props.project.description,
-    sections: mergedSections,
-  }
-})
-
-const sections = computed(() => caseStudy.value.sections)
+const caseStudy = computed(() => props.project.caseStudy)
+const sections = computed(() => caseStudy.value?.sections ?? [])
 const sectionLinks = computed(() => sections.value.map(section => ({
   label: section.eyebrow,
   slug: section.slug,
@@ -132,7 +68,7 @@ const sectionLinks = computed(() => sections.value.map(section => ({
               <a
                 v-for="(link, index) in sectionLinks"
                 :key="link.slug"
-                :href="`#case-${link.slug}`"
+                :href="`#wanderly-${link.slug}`"
                 class="block rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:border-pink-300 hover:bg-pink-50 transition-all duration-200"
               >
                 <span class="font-black tracking-widest text-slate-400">{{ String(index + 1).padStart(2, '0') }}</span>
@@ -173,7 +109,7 @@ const sectionLinks = computed(() => sections.value.map(section => ({
           <div class="space-y-12 md:space-y-14">
             <section
               v-for="(section, index) in sections"
-              :id="`case-${section.slug}`"
+              :id="`wanderly-${section.slug}`"
               :key="section.slug"
               class="scroll-mt-8 flex flex-col gap-8"
             >
@@ -203,17 +139,6 @@ const sectionLinks = computed(() => sections.value.map(section => ({
                       :alt="section.visual.alt"
                       class="w-full h-auto object-cover aspect-4/3"
                     />
-                  </div>
-
-                  <!-- Embedded prototype iframe -->
-                  <div v-else-if="section.visual?.type === 'embed'" class="overflow-hidden rounded-lg border border-slate-200 shadow-lg bg-slate-100 aspect-video relative">
-                    <iframe
-                      :src="project.embedUrl"
-                      :title="`${project.title} prototype full view`"
-                      allowfullscreen
-                      loading="eager"
-                      class="w-full h-full border-0"
-                    ></iframe>
                   </div>
 
                   <!-- Image plus CTA button -->
@@ -252,23 +177,6 @@ const sectionLinks = computed(() => sections.value.map(section => ({
                         <p class="text-slate-400 text-xs font-medium">Image placeholder</p>
                       </div>
                     </div>
-                  </div>
-
-                  <!-- Fallback: bullet list -->
-                  <div v-else class="rounded-lg border border-slate-200 bg-slate-50 p-6 shadow-sm">
-                    <p class="text-xs font-black uppercase tracking-[0.35em] text-pink-800 mb-4">
-                      {{ section.visual?.title }}
-                    </p>
-                    <ul class="space-y-3">
-                      <li
-                        v-for="item in section.visual?.items ?? []"
-                        :key="item"
-                        class="flex items-start gap-3 text-sm text-slate-700 leading-relaxed"
-                      >
-                        <span class="mt-1.5 h-1 w-1 rounded-full bg-pink-800 shrink-0"></span>
-                        <span>{{ item }}</span>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
