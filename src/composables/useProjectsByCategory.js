@@ -1,7 +1,20 @@
+/**
+ * Portfolio Projects Composable
+ * Handles project organization, filtering, and navigation logic
+ */
 import { computed, nextTick, ref } from 'vue'
 
 const ALL_CATEGORIES = 'All'
 
+/**
+ * Generates a section ID for navigation and scroll targets
+ * @param {string} category - The project category (e.g., 'UX/UI')
+ * @param {string|null} subcategory - Optional subcategory name
+ * @returns {string} URL-safe section ID
+ * @example
+ * getSectionId('UX/UI') // Returns: 'section-ux-ui'
+ * getSectionId('Graphic Design', 'Logos') // Returns: 'section-graphic-design-logos'
+ */
 export const getSectionId = (category, subcategory = null) => {
   const base = category.toLowerCase().replace(/[^a-z0-9]+/g, '-')
   return subcategory ? `section-${base}-${subcategory.toLowerCase().replace(/[^a-z0-9]+/g, '-')}` : `section-${base}`

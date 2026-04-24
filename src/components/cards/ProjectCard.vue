@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref, defineAsyncComponent } from 'vue'
 import { isProject } from '@/utils/projectValidation.js'
+import { getProjectButtonLabel } from '@/constants/ui.js'
 import ProjectCaseStudy from '@/components/cards/ProjectCaseStudy.vue'
 
 const props = defineProps({
@@ -16,7 +17,10 @@ const hasPreview = computed(() => Boolean(props.project?.title))
 
 const hasEmbed = computed(() => Boolean(props.project.embedUrl))
 
-// Dynamically load the case study component for this project
+/**
+ * Dynamically load the case study component for this project
+ * Provides component composition flexibility for different project types
+ */
 const caseStudyComponent = computed(() => {
   if (!props.project.caseStudyComponent) {
     return ProjectCaseStudy
@@ -31,9 +35,9 @@ const caseStudyComponent = computed(() => {
   }
 })
 
-const buttonLabel = computed(() => {
-  return props.project.category === 'Photography' ? 'Open Gallery' : 'Open Project'
-})
+const buttonLabel = computed(() => 
+  getProjectButtonLabel(props.project.category, props.project.caseStudyComponent)
+)
 
 const ensureFigmaPreconnect = () => {
   const hosts = ['https://embed.figma.com', 'https://www.figma.com']

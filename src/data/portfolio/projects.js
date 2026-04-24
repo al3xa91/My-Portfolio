@@ -78,7 +78,7 @@ export const projects = [
     caseStudyComponent: 'LionheartCaseStudy',
     caseStudy: {
       role: 'UX/UI Designer & Researcher',
-      tools: ['Figma', 'Adobe Illustrator', ],
+      tools: ['Figma', 'Adobe Illustrator'],
       problem: 'Skarntyden needed a promotional site for "The Brothers Lionheart" at Musikhuset Esbjerg. The challenge was designing for a dual-audience: appealing to children (8+) emotionally while giving parents the logistical clarity they need to make purchasing decisions.',
       outcome: 'A cohesive, accessible booking flow with a strong visual identity. The platform successfully bridges the gap between fantasy immersion and practical e-commerce needs for families.',
       sections: [
@@ -204,102 +204,178 @@ export const projects = [
 
   {
     id: 2,
-    title: 'Brand Identity: Vegama',
+    title: 'Posters Collection',
     category: 'Graphic Design',
-    description: 'Complete visual overhaul including logo and typography systems.',
-    imageUrl: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200',
-    caseStudyComponent: 'GraphicDesignCaseStudy',
+    description: 'Bold and impactful poster designs for cultural events and brand campaigns.',
+    imageUrl: 'https://images.unsplash.com/photo-1578432537557-37b37e9c5d22?q=80&w=1200',
+    caseStudyComponent: 'GraphicDesignSlideshow',
     caseStudy: {
-      role: 'Brand & Graphic Designer',
-      tools: ['Adobe Illustrator', 'Adobe InDesign', 'Figma'],
-      problem: 'Vegama needed a cohesive visual identity that felt fresh, modern, and trustworthy while reflecting sustainable values and natural, plant-based ingredients.',
-      outcome: 'A comprehensive brand system featuring a distinctive modern logo, carefully curated color palette, and versatile typography that works across digital and print applications.',
-      sections: [
-        {
-          slug: 'logo-exploration',
-          eyebrow: 'Identity & Logo Design',
-          title: 'Developing a distinctive mark',
-          body: 'The logo explores a minimalist leaf form combined with geometric shapes, representing both nature and the culinary aspects of the brand. The mark is versatile across scales and adaptable to various contexts—from packaging to digital applications.',
-          visual: {
-            type: 'galleryWide',
-            frames: [
-              { label: 'Primary Logo', src: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600', note: 'Full color with wordmark' },
-              { label: 'Monochrome', src: 'https://images.unsplash.com/photo-1611339555312-e607c90352fd?q=80&w=600', note: 'Black and white variations' },
-              { label: 'Icon Mark', src: 'https://images.unsplash.com/photo-1563062810-1210a35a4c7d?q=80&w=600', note: 'Standalone symbol' },
-            ],
+      gallery: {
+        images: [
+          {
+            src: 'https://images.unsplash.com/photo-1578432537557-37b37e9c5d22?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1578432537557-37b37e9c5d22?q=80&w=200',
+            title: 'Spring Festival',
+            description: 'Vibrant poster design for a cultural celebration, combining typography with dynamic color blocking.',
           },
-        },
-        {
-          slug: 'color-system',
-          eyebrow: 'Color Palette',
-          title: 'Nature-inspired hues with accessibility',
-          body: 'The color system balances vibrant accent colors with calm, neutral backgrounds. Inspired by natural ingredients and plant elements, each color was tested for accessibility and versatility across digital and print mediums.',
-          visual: {
-            type: 'paletteGrid',
-            colors: [
-              { name: 'Forest Green', hex: '#1B4332', usage: 'Primary brand color' },
-              { name: 'Leaf Accent', hex: '#52B788', usage: 'Interactive elements' },
-              { name: 'Warm Cream', hex: '#F1FAEE', usage: 'Background' },
-              { name: 'Earth Brown', hex: '#8B6F47', usage: 'Secondary accent' },
-              { name: 'Neutral Dark', hex: '#2B2D42', usage: 'Typography' },
-              { name: 'Soft Sand', hex: '#E8DCC4', usage: 'Borders & dividers' },
-            ],
+          {
+            src: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=200',
+            title: 'Music Conference',
+            description: 'Modern concert poster featuring innovative typography and layered geometric elements.',
           },
-        },
-        {
-          slug: 'typography',
-          eyebrow: 'Typography System',
-          title: 'Clear hierarchy with personality',
-          body: 'A modern sans-serif for headlines paired with a clean body typeface ensures excellent readability across all platforms. The typography system maintains personality while prioritizing accessibility and legibility.',
-          visual: {
-            type: 'typography',
-            typefaces: [
-              {
-                name: 'Headlines',
-                family: 'Inter Bold',
-                weights: '700',
-                preview: [
-                  { size: '2.5rem', weight: 700, text: 'Discover Plant-Based' },
-                  { size: '1.875rem', weight: 700, text: 'Beautiful & Sustainable' },
-                ],
-              },
-              {
-                name: 'Body Copy',
-                family: 'Inter Regular',
-                weights: '400, 500',
-                preview: [
-                  { size: '1rem', weight: 400, text: 'A clean, modern typeface that speaks to conscious living.' },
-                  { size: '0.875rem', weight: 500, text: 'Supporting text with emphasis when needed.' },
-                ],
-              },
-            ],
+          {
+            src: 'https://images.unsplash.com/photo-1581291518633-83b6b2065dba?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1581291518633-83b6b2065dba?q=80&w=200',
+            title: 'Art Exhibition',
+            description: 'Contemporary gallery poster using minimalist design with bold color accents.',
           },
-        },
-        {
-          slug: 'applications',
-          eyebrow: 'Brand Applications',
-          title: 'System in practice',
-          body: 'From packaging to digital touchpoints, the brand identity maintains consistency while adapting to different mediums. Each application was designed to reinforce the core brand values of sustainability, clarity, and approachability.',
-          visual: {
-            type: 'gallery',
-            frames: [
-              { label: 'Packaging Design', src: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800', note: 'Product packaging with brand system' },
-              { label: 'Web Interface', src: 'https://images.unsplash.com/photo-1611339555312-e607c90352fd?q=80&w=800', note: 'Digital brand expression' },
-            ],
+          {
+            src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=200',
+            title: 'Film Festival',
+            description: 'Cinematic poster design combining photography with integrated typography.',
           },
-        },
-        {
-          slug: 'brand-guidelines',
-          eyebrow: 'Brand Guidelines',
-          title: 'Documentation for consistency',
-          body: 'A comprehensive 40-page brand guidelines document ensures the identity remains cohesive across all touchpoints. Includes logo usage rules, color specifications, typography standards, imagery style, and practical examples.',
-          visual: {
-            type: 'image',
-            src: 'https://images.unsplash.com/photo-1563062810-1210a35a4c7d?q=80&w=1000',
-            alt: 'Brand guidelines documentation',
+          {
+            src: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=200',
+            title: 'Sports Campaign',
+            description: 'High-energy poster with dynamic composition and motivational messaging.',
           },
-        },
-      ],
+        ],
+      },
+    },
+  },
+  {
+    id: 2.2,
+    title: 'Brochures Collection',
+    category: 'Graphic Design',
+    description: 'Professional brochure designs for corporate communication and product marketing.',
+    imageUrl: 'https://images.unsplash.com/photo-1611339555312-e607c90352fd?q=80&w=1200',
+    caseStudyComponent: 'GraphicDesignSlideshow',
+    caseStudy: {
+      gallery: {
+        images: [
+          {
+            src: 'https://images.unsplash.com/photo-1611339555312-e607c90352fd?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1611339555312-e607c90352fd?q=80&w=200',
+            title: 'Corporate Brochure',
+            description: 'Multi-page brochure showcasing company values, services, and case studies with professional layout.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1570129477492-45202b8055b3?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1570129477492-45202b8055b3?q=80&w=200',
+            title: 'Product Catalog',
+            description: 'Elegant product brochure featuring high-quality photography and descriptive content.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200',
+            title: 'Travel Brochure',
+            description: 'Destination marketing brochure with immersive imagery and travel information.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?q=80&w=200',
+            title: 'Services Guide',
+            description: 'Comprehensive service brochure with clear hierarchy and call-to-action sections.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=200',
+            title: 'Annual Report',
+            description: 'Professional annual report brochure combining data visualization with corporate branding.',
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: 2.1,
+    title: 'Character Design',
+    category: 'Graphic Design',
+    description: 'Original character designs and illustrations for branding and storytelling.',
+    imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1200',
+    caseStudyComponent: 'GraphicDesignSlideshow',
+    caseStudy: {
+      gallery: {
+        images: [
+          {
+            src: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=200',
+            title: 'Mascot Character',
+            description: 'Friendly, approachable mascot design for brand identity and marketing materials.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=200',
+            title: 'Adventure Hero',
+            description: 'Dynamic character illustration suitable for game and entertainment branding.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1557804506-669714d2e745?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1557804506-669714d2e745?q=80&w=200',
+            title: 'Lifestyle Characters',
+            description: 'Series of characters representing diverse personas for community engagement.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=200',
+            title: 'Brand Ambassador',
+            description: 'Professional character design for corporate training and educational content.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1572007062606-b46f969c24eb?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1572007062606-b46f969c24eb?q=80&w=200',
+            title: 'Illustrated Family',
+            description: 'Cohesive character set showcasing relationships and emotional storytelling.',
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: 2.3,
+    title: 'Logos & Marks',
+    category: 'Graphic Design',
+    description: 'Professional logo designs and brand marks for diverse industries and businesses.',
+    imageUrl: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200',
+    caseStudyComponent: 'GraphicDesignSlideshow',
+    caseStudy: {
+      gallery: {
+        images: [
+          {
+            src: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=200',
+            title: 'Tech Startup Logo',
+            description: 'Modern, minimalist logo design symbolizing innovation and forward-thinking approach.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1563062810-1210a35a4c7d?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1563062810-1210a35a4c7d?q=80&w=200',
+            title: 'Sustainable Brand Mark',
+            description: 'Eco-friendly logo combining natural elements with geometric precision.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=200',
+            title: 'Creative Agency Logo',
+            description: 'Dynamic logo mark representing creativity, collaboration, and growth.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=200',
+            title: 'Fitness Brand Identity',
+            description: 'Strong, energetic logo design for health and wellness sector.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1581291518633-83b6b2065dba?q=80&w=1600',
+            thumb: 'https://images.unsplash.com/photo-1581291518633-83b6b2065dba?q=80&w=200',
+            title: 'Heritage Brand Logo',
+            description: 'Timeless logo design combining traditional elements with contemporary styling.',
+          },
+        ],
+      },
     },
   },
   {
@@ -358,13 +434,6 @@ export const projects = [
         ],
       },
     },
-  },
-  {
-    id: 5,
-    title: 'Travel Booking Flow',
-    category: 'UX/UI',
-    description: 'A conversion-focused booking journey with clear hierarchy and accessibility-first forms.',
-    imageUrl: 'https://images.unsplash.com/photo-1485217988980-11786ced9454?q=80&w=1200',
   },
   {
     id: 6,

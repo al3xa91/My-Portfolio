@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import ProjectCard from '@/components/cards/ProjectCard.vue'
 import { categoryData } from '@/data/portfolio.js'
+import { getCategoryLabel } from '@/constants/ui.js'
 
 const props = defineProps({
   section: {
@@ -35,15 +36,7 @@ const getSkills = categoryName => skillsByCategory.value[categoryName] ?? []
 
 const hasMultipleProjects = computed(() => props.section.projects.length > 1)
 
-const overlineByCategory = {
-  'Web Dev': 'Built For The Browser',
-  'Graphic Design': 'Visual Identity In Focus',
-  Photography: 'Moments, Composed',
-  Video: 'Motion And Storytelling',
-  'UX/UI': 'Experience First Decisions',
-}
-
-const overlineLabel = computed(() => overlineByCategory[props.section.category] ?? 'Selected Works')
+const overlineLabel = computed(() => getCategoryLabel(props.section.category))
 </script>
 
 <template>

@@ -1,3 +1,15 @@
+/**
+ * Project Validation Utility
+ * Validates project object structure for type safety and runtime checks
+ */
+
+/**
+ * Validates if an object is a valid project
+ * @param {*} value - The object to validate
+ * @returns {boolean} True if the value is a valid project object
+ * @example
+ * const isValid = isProject(projectObject)
+ */
 export const isProject = value => {
   return Boolean(
     value
