@@ -475,4 +475,5 @@ export const projects = [
         ],
       },
     },
-  },] 
+  },
+]
