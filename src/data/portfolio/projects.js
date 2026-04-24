@@ -345,18 +345,18 @@ export const projects = [
   }, */
   {
     id: 3,
-    title: 'Cinematic Product Promo',
+    title: 'VIDEO PRODUCTION',
     category: 'Video',
-    description: 'Motion graphics and post-production for luxury brands.',
-    imageUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80&fm=auto',
+    description: 'Creative video editing and motion graphics focused on bringing narratives to life through high-impact visuals and polished post-production.',
+    imageUrl: publicAsset('public/category-video.webp'),
     caseStudyComponent: 'VideoSlideshow',
     caseStudy: {
       gallery: {
         videos: [
           {
             src: publicAsset('videos/sea.mp4'),
-            title: 'Product Showcase',
-            description: 'High-end product visualization with motion graphics and cinematic transitions.',
+            title: 'Sea Opening Day',
+            description: 'A vibrant promotional feature designed to capture our school’s creative spirit, inviting future students and families to join us for a wonderful adventure as they discover our story and meet our team.',
           },
           /* {
             src: publicAsset('videos/cv-video.mp4'),
@@ -370,19 +370,19 @@ export const projects = [
   
   {
     id: 6,
-    title: 'Modern E-Commerce',
+    title: 'My Portfolio website',
     category: 'Web Dev',
-    description: 'A high-performance storefront built with Vue 3 and Tailwind CSS.',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fm=auto',
+    description: 'A modern, responsive portfolio website built with Vue.js and Tailwind CSS.',
+    imageUrl: publicAsset('public/webdev/webdev1.webp'),
     caseStudyComponent: 'WebDevSlideshow',
     caseStudy: {
       gallery: {
         images: [
           {
-            src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&fm=auto',
-            thumb: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80&fm=auto',
-            title: 'Homepage Hero Section',
-            description: 'Dynamic product showcase with interactive filtering and real-time inventory updates.',
+            src: publicAsset('public/webdev/webdev2.webp'),
+            thumb: publicAsset('public/webdev/webdev2.webp'),
+            title: 'COMPONENT ARCHITECTURE',
+            description:'A behind-the-scenes look at the clean, modular code powering this portfolio, utilizing Vue.js and Tailwind CSS to create a seamless and responsive user experience.',
           },
          /*  {
             src: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80&fm=auto',
