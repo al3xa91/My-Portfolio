@@ -59,7 +59,10 @@ onUnmounted(() => {
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
       <!-- Header -->
       <div class="mb-12 space-y-4">
-        <p class="text-xs font-black uppercase tracking-[0.35em] text-pink-800">{{ project.category }} Portfolio</p>
+        <p class="text-xs font-black uppercase tracking-[0.35em] text-pink-800">
+          <span class="hidden md:inline">{{ project.category }} Portfolio</span>
+          <span class="md:hidden">Photo</span>
+        </p>
         <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-black">{{ project.title }}</h1>
         <p class="text-slate-600 max-w-2xl">{{ project.description }}</p>
       </div>

@@ -348,7 +348,7 @@ export const projects = [
     title: 'VIDEO PRODUCTION',
     category: 'Video',
     description: 'Creative video editing and motion graphics focused on bringing narratives to life through high-impact visuals and polished post-production.',
-    imageUrl: publicAsset('public/category-video.webp'),
+    imageUrl: publicAsset('category-video.webp'),
     caseStudyComponent: 'VideoSlideshow',
     caseStudy: {
       gallery: {
@@ -373,14 +373,14 @@ export const projects = [
     title: 'My Portfolio website',
     category: 'Web Dev',
     description: 'A modern, responsive portfolio website built with Vue.js and Tailwind CSS.',
-    imageUrl: publicAsset('public/webdev/webdev1.webp'),
+    imageUrl: publicAsset('webdev/webdev1.webp'),
     caseStudyComponent: 'WebDevSlideshow',
     caseStudy: {
       gallery: {
         images: [
           {
-            src: publicAsset('public/webdev/webdev2.webp'),
-            thumb: publicAsset('public/webdev/webdev2.webp'),
+            src: publicAsset('webdev/webdev2.webp'),
+            thumb: publicAsset('webdev/webdev2.webp'),
             title: 'COMPONENT ARCHITECTURE',
             description:'A behind-the-scenes look at the clean, modular code powering this portfolio, utilizing Vue.js and Tailwind CSS to create a seamless and responsive user experience.',
           },
