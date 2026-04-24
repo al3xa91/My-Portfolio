@@ -133,12 +133,12 @@ const sectionLinks = computed(() => sections.value.map(section => ({
                 </div>
 
                 <!-- Image Link (Side by Side) -->
-                <div v-else-if="section.visual.type === 'imageLink'" class="max-w-sm">
+                <div v-else-if="section.visual.type === 'imageLink'" class="max-w-xs">
                   <div class="rounded-lg overflow-hidden border border-slate-200 shadow-lg mb-4">
                     <img
                       :src="section.visual.src"
                       :alt="section.visual.alt"
-                      class="w-full h-auto object-cover"
+                      class="w-auto h-auto object-cover"
                     />
                   </div>
                   <a

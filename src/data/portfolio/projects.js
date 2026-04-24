@@ -26,10 +26,10 @@ export const projects = [
             frames: [
               { label: 'Personas', src: publicAsset('vegama/personas.webp'),
               },
-               { label: 'Affinity Map', src: publicAsset('vegama/emphatymap.webp')
+               { label: 'Empathy Map', src: publicAsset('vegama/emphatymap.webp')
                  
               },
-              { label: 'Double Diamond', src: publicAsset('vegama/survey.webp')
+              { label: 'Survey Results', src: publicAsset('vegama/survey.webp')
                 ,
                },
             ],
@@ -95,7 +95,7 @@ export const projects = [
               { label: 'Affinity Map', src: publicAsset('lionheart/affinitymap.webp')
                  
               },
-              { label: 'Double Diamond', src: publicAsset('lionheart/moscow.webp')
+              { label: 'Moscow', src: publicAsset('lionheart/moscow.webp')
                 ,
                },
             ],
@@ -207,41 +207,31 @@ export const projects = [
     title: 'Posters Collection',
     category: 'Graphic Design',
     description: 'Bold and impactful poster designs for cultural events and brand campaigns.',
-    imageUrl: 'https://images.unsplash.com/photo-1578432537557-37b37e9c5d22?q=80&w=1200',
+    imageUrl: publicAsset('posters/posterscover.webp'),
     caseStudyComponent: 'GraphicDesignSlideshow',
     caseStudy: {
       gallery: {
         images: [
           {
-            src: 'https://images.unsplash.com/photo-1578432537557-37b37e9c5d22?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1578432537557-37b37e9c5d22?q=80&w=200',
-            title: 'Spring Festival',
-            description: 'Vibrant poster design for a cultural celebration, combining typography with dynamic color blocking.',
+            src: publicAsset('posters/lionheartbrothers.webp'),
+            thumb: publicAsset('posters/lionheartbrothers.webp'), 
+            title: 'THE BROTHERS LIONHEART',
+            description: 'Enchanting theatrical poster featuring storybook-style illustrations and soft textures to promote a live stage adaptation of the classic fantasy adventure.',
           },
           {
-            src: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=200',
-            title: 'Music Conference',
-            description: 'Modern concert poster featuring innovative typography and layered geometric elements.',
+            src: publicAsset('posters/sæddingposter.webp'),
+            thumb: publicAsset('posters/sæddingposter.webp'),
+            title: 'SÆDDING TOURIST GUIDE',
+            description: 'Minimalist travel poster using a striking two-tone silhouette of coastal landmarks to represent the unique character of Esbjerg’s seaside district.',
           },
           {
-            src: 'https://images.unsplash.com/photo-1581291518633-83b6b2065dba?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1581291518633-83b6b2065dba?q=80&w=200',
-            title: 'Art Exhibition',
-            description: 'Contemporary gallery poster using minimalist design with bold color accents.',
+            src: publicAsset('posters/infography.webp'),
+            thumb: publicAsset('posters/infography.webp'),
+            title: 'GLOBAL FOOD WASTE',
+                 description: 'Comprehensive infographic poster utilizing earthy tones and bold data visualization to highlight the environmental and social impact of food loss.',
+       
           },
-          {
-            src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=200',
-            title: 'Film Festival',
-            description: 'Cinematic poster design combining photography with integrated typography.',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=200',
-            title: 'Sports Campaign',
-            description: 'High-energy poster with dynamic composition and motivational messaging.',
-          },
+         
         ],
       },
     },
@@ -250,42 +240,27 @@ export const projects = [
     id: 2.2,
     title: 'Brochures Collection',
     category: 'Graphic Design',
-    description: 'Professional brochure designs for corporate communication and product marketing.',
-    imageUrl: 'https://images.unsplash.com/photo-1611339555312-e607c90352fd?q=80&w=1200',
+    description: 'Brochure designs for product marketing.',
+    imageUrl: publicAsset('brochures/brochurecover.webp'),
     caseStudyComponent: 'GraphicDesignSlideshow',
     caseStudy: {
       gallery: {
         images: [
           {
-            src: 'https://images.unsplash.com/photo-1611339555312-e607c90352fd?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1611339555312-e607c90352fd?q=80&w=200',
-            title: 'Corporate Brochure',
-            description: 'Multi-page brochure showcasing company values, services, and case studies with professional layout.',
+            src: publicAsset('brochures/sæddingmockup.webp'),
+            thumb: publicAsset('brochures/sæddingmockup.webp'),
+            title: 'SÆDDING LIGHTHOUSE GUIDE',
+            description: 'Informative layout for a local tourism guide, blending the historical context of the maritime beacon with a focus on the serene coastal environment of Esbjerg',
+            externalUrl: 'https://indd.adobe.com/view/686daddf-2960-40d1-9233-39e5fe29fdba',
           },
           {
-            src: 'https://images.unsplash.com/photo-1570129477492-45202b8055b3?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1570129477492-45202b8055b3?q=80&w=200',
-            title: 'Product Catalog',
-            description: 'Elegant product brochure featuring high-quality photography and descriptive content.',
+            src: publicAsset('brochures/lionheartmockup.jpg'),
+            thumb: publicAsset('brochures/lionheartmockup.jpg'),
+            title: 'LIONHEART THEATER PROGRAM',
+            description: 'A structured layout for a production program , focusing on the story\'s themes of courage, love, and brotherhood through a reflection on the power of moving and hopeful narratives.',
+            externalUrl: 'https://indd.adobe.com/view/4402c09a-bd1a-49a7-a694-533ed8f0205c',
           },
-          {
-            src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200',
-            title: 'Travel Brochure',
-            description: 'Destination marketing brochure with immersive imagery and travel information.',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?q=80&w=200',
-            title: 'Services Guide',
-            description: 'Comprehensive service brochure with clear hierarchy and call-to-action sections.',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=200',
-            title: 'Annual Report',
-            description: 'Professional annual report brochure combining data visualization with corporate branding.',
-          },
+          
         ],
       },
     },
@@ -294,47 +269,37 @@ export const projects = [
     id: 2.1,
     title: 'Character Design',
     category: 'Graphic Design',
-    description: 'Original character designs and illustrations for branding and storytelling.',
-    imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1200',
+    description: 'Original character designs and illustrations.',
+    imageUrl: publicAsset('characters/characterscover.webp'),
     caseStudyComponent: 'GraphicDesignSlideshow',
     caseStudy: {
       gallery: {
         images: [
           {
-            src: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=200',
-            title: 'Mascot Character',
-            description: 'Friendly, approachable mascot design for brand identity and marketing materials.',
+            src: publicAsset('characters/minime1.webp'),
+            thumb: publicAsset('characters/minime1.webp'),
+            title: 'MINI ME CHARACTER KIT',
+            description: 'A playful design sheet featuring a customizable cartoon avatar alongside a variety of modular facial expressions and limb poses for personalized digital creation.',
           },
           {
-            src: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=200',
-            title: 'Adventure Hero',
-            description: 'Dynamic character illustration suitable for game and entertainment branding.',
+            src: publicAsset('characters/characterslionheart.webp'),
+            thumb: publicAsset('characters/characterslionheart.webp'),
+            title: 'LIONHEART CHARACTER ASSETS',
+            description: 'A collection of stylized character illustrations developed for the theater production, featuring the protagonists and visual elements of the story\'s fantasy world.',
           },
           {
-            src: 'https://images.unsplash.com/photo-1557804506-669714d2e745?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1557804506-669714d2e745?q=80&w=200',
-            title: 'Lifestyle Characters',
-            description: 'Series of characters representing diverse personas for community engagement.',
+            src: publicAsset('characters/dragon.webp'),
+            thumb: publicAsset('characters/dragon.webp'),
+            title: 'KATLA THE DRAGON',
+            description: 'Detailed character illustration of a legendary creature, featuring textured digital brushwork and a classic fantasy aesthetic to serve as a key visual for the world of The Brothers Lionheart.',
           },
-          {
-            src: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=200',
-            title: 'Brand Ambassador',
-            description: 'Professional character design for corporate training and educational content.',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1572007062606-b46f969c24eb?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1572007062606-b46f969c24eb?q=80&w=200',
-            title: 'Illustrated Family',
-            description: 'Cohesive character set showcasing relationships and emotional storytelling.',
-          },
+         
+          
         ],
       },
     },
   },
-  {
+  /* {
     id: 2.3,
     title: 'Logos & Marks',
     category: 'Graphic Design',
@@ -377,7 +342,7 @@ export const projects = [
         ],
       },
     },
-  },
+  }, */
   {
     id: 3,
     title: 'Cinematic Product Promo',
@@ -387,49 +352,43 @@ export const projects = [
   },
   {
     id: 4,
-    title: 'Urban Architecture',
+    title: 'NATURAL OBSERVATIONS',
     category: 'Photography',
-    description: 'High-contrast street photography focused on brutalist structures.',
-    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200',
+    description: 'Atmospheric imagery capturing the vibrant transition of the seasons, from candid moments of joy to the quiet, intricate textures of the natural landscape.',
+    imageUrl: publicAsset('photography/redrose.webp'),
     caseStudyComponent: 'PhotographySlideshow',
     caseStudy: {
       gallery: {
         images: [
           {
-            src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=200',
-            title: 'Geometric Brutalism',
-            description: 'Concrete forms frame the urban landscape, exploring the relationship between light and shadow.',
+            src: publicAsset('photography/happiness.webp'),
+            thumb: publicAsset('photography/happiness.webp'),
+            title: 'Happiness',
+            description: 'A high-energy action photograph capturing a moment of pure childhood bliss, utilizing dynamic composition and the vibrant contrast of falling leaves against a clear blue sky.',
           },
           {
-            src: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=200',
-            title: 'Metropolitan Rise',
-            description: 'Vertical lines of steel and glass create a rhythm across the skyline.',
+            src: publicAsset('photography/fountain.webp'),
+            thumb: publicAsset('photography/fountain.webp'),
+            title: 'URBAN OASIS',
+            description: 'A serene capture of a modern park fountain, featuring symmetrical water "umbrellas" and geometric concrete spheres that create a sense of architectural calm.',
           },
           {
-            src: 'https://images.unsplash.com/photo-1497366216548-495546845299?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1497366216548-495546845299?q=80&w=200',
-            title: 'Industrial Heritage',
-            description: 'Abandoned factories reveal the textures of a bygone era.',
+            src: publicAsset('photography/woods.jpg'),
+            thumb: publicAsset('photography/woods.jpg'),
+            title: 'EMERALD CANOPY',
+            description: 'A dramatic, low-angle perspective looking up into a dense evergreen forest, capturing the towering strength of the trees against a deep twilight sky.',
           },
           {
-            src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=200',
-            title: 'Urban Contrast',
-            description: 'Modern architecture against timeless structural elements.',
+            src: publicAsset('photography/leaves.webp'),
+            thumb: publicAsset('photography/leaves.webp'),
+            title: 'THE LONE BLOOM',
+            description: 'A striking composition highlighting the contrast between the fleeting colors of fallen maple leaves and the resilient, simple beauty of a single white daisy.',
           },
           {
-            src: 'https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?q=80&w=200',
-            title: 'Glass Reflections',
-            description: 'Building facades create infinite mirrored perspectives.',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=200',
-            title: 'Skyline Symphony',
-            description: 'Layered architecture creating depth and dimension.',
+            src: publicAsset('photography/rose.webp'),
+            thumb: publicAsset('photography/rose.webp'),
+            title: 'AUTUMN’S GOLDEN ROSE',
+            description: 'A delicate close-up of a vibrant yellow rose, standing out in soft focus against a rustic carpet of fallen autumn leaves.',
           },
         ],
       },

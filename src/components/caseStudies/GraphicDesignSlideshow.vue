@@ -67,7 +67,7 @@ onUnmounted(() => {
       <!-- Main Gallery -->
       <div class="space-y-8">
         <!-- Featured Image -->
-        <div v-if="currentImage" class="relative rounded-lg overflow-hidden border border-slate-200 shadow-lg bg-slate-100 aspect-video">
+        <div v-if="currentImage" class="relative content-center rounded-lg overflow-hidden border border-slate-200 shadow-lg bg-slate-100 aspect-[21/29.7] h-full max-h-[70vh] w-auto">
           <transition name="fade-slide" mode="out-in">
             <img
               :key="currentIndex"
@@ -107,9 +107,26 @@ onUnmounted(() => {
         </div>
 
         <!-- Image Info -->
-        <div v-if="currentImage" class="space-y-3">
-          <h2 class="text-2xl font-black uppercase tracking-tight text-black">{{ currentImage.title }}</h2>
-          <p v-if="currentImage.description" class="text-slate-600 leading-relaxed max-w-2xl">{{ currentImage.description }}</p>
+        <div v-if="currentImage" class="space-y-4">
+          <div class="space-y-3">
+            <h2 class="text-2xl font-black uppercase tracking-tight text-black">{{ currentImage.title }}</h2>
+            <p v-if="currentImage.description" class="text-slate-600 leading-relaxed max-w-2xl">{{ currentImage.description }}</p>
+          </div>
+          <!-- External Link Button -->
+          <div v-if="currentImage.externalUrl" class="pt-2">
+            <a
+              :href="currentImage.externalUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-pink-800 hover:bg-pink-900 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
+              aria-label="View this brochure externally"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+              View Brochure
+            </a>
+          </div>
         </div>
 
         <!-- Thumbnail Strip -->
