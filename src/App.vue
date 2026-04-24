@@ -1,4 +1,17 @@
 <script setup>
+import { onMounted } from 'vue'
+import { setupPreconnects, observePerformanceMetrics } from '@/utils/performanceOptimization.js'
+
+// Initialize performance optimizations
+onMounted(() => {
+  // Add preconnect links for external resources
+  setupPreconnects()
+
+  // Track Core Web Vitals in development
+  if (import.meta.env.DEV) {
+    observePerformanceMetrics()
+  }
+})
 </script>
 
 <template>

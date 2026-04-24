@@ -348,9 +348,91 @@ export const projects = [
     title: 'Cinematic Product Promo',
     category: 'Video',
     description: 'Motion graphics and post-production for luxury brands.',
-    imageUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200',
+    imageUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80&fm=auto',
+    caseStudyComponent: 'VideoSlideshow',
+    caseStudy: {
+      gallery: {
+        videos: [
+          {
+            src: publicAsset('videos/sea.mp4'),
+            title: 'Product Showcase',
+            description: 'High-end product visualization with motion graphics and cinematic transitions.',
+          },
+          /* {
+            src: publicAsset('videos/cv-video.mp4'),
+            title: 'Brand Intro',
+            description: 'Dynamic brand introduction with 3D elements and visual effects.',
+          }, */
+        ],
+      },
+    },
   },
+  
   {
+    id: 6,
+    title: 'Modern E-Commerce',
+    category: 'Web Dev',
+    description: 'A high-performance storefront built with Vue 3 and Tailwind CSS.',
+    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fm=auto',
+    caseStudyComponent: 'WebDevSlideshow',
+    caseStudy: {
+      gallery: {
+        images: [
+          {
+            src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&fm=auto',
+            thumb: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80&fm=auto',
+            title: 'Homepage Hero Section',
+            description: 'Dynamic product showcase with interactive filtering and real-time inventory updates.',
+          },
+         /*  {
+            src: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80&fm=auto',
+            thumb: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80&fm=auto',
+            title: 'Product Detail Page',
+            description: 'Immersive product page with image gallery, specifications, and customer reviews.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1559056199-641a0ac8b3f4?w=1200&q=80&fm=auto',
+            thumb: 'https://images.unsplash.com/photo-1559056199-641a0ac8b3f4?w=400&q=80&fm=auto',
+            title: 'Shopping Cart & Checkout',
+            description: 'Streamlined checkout flow with multiple payment options and order tracking.',
+          }, */
+        ],
+      },
+    },
+  },
+  /* {
+    id: 7,
+    title: 'Portfolio CMS',
+    category: 'Web Dev',
+    description: 'A modular content management dashboard with reusable Vue components.',
+    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&fm=auto',
+    caseStudyComponent: 'WebDevSlideshow',
+    caseStudy: {
+      gallery: {
+        images: [
+          {
+            src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80&fm=auto',
+            thumb: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80&fm=auto',
+            title: 'Dashboard Overview',
+            description: 'Central hub for managing portfolio projects, case studies, and media assets.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80&fm=auto',
+            thumb: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80&fm=auto',
+            title: 'Content Editor',
+            description: 'Rich text editor with drag-and-drop image uploads and real-time preview.',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80&fm=auto',
+            thumb: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80&fm=auto',
+            title: 'Media Library',
+            description: 'Organized asset management with tags, search, and version history.',
+          },
+        ],
+      },
+    },
+  }, */
+ {
     id: 4,
     title: 'NATURAL OBSERVATIONS',
     category: 'Photography',
@@ -393,19 +475,4 @@ export const projects = [
         ],
       },
     },
-  },
-  {
-    id: 6,
-    title: 'Modern E-Commerce',
-    category: 'Web Dev',
-    description: 'A high-performance storefront built with Vue 3 and Tailwind CSS.',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200',
-  },
-  {
-    id: 7,
-    title: 'Portfolio CMS',
-    category: 'Web Dev',
-    description: 'A modular content management dashboard with reusable Vue components.',
-    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200',
-  },
-]
+  },] 

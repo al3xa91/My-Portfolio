@@ -1,0 +1,154 @@
+<script setup>
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+
+const props = defineProps({
+  project: {
+    type: Object,
+    required: true,
+  },
+})
+
+const currentIndex = ref(0)
+
+const videos = computed(() => {
+  if (props.project.caseStudy?.gallery?.videos) {
+    return props.project.caseStudy.gallery.videos
+  }
+  return []
+})
+
+const currentVideo = computed(() => videos.value[currentIndex.value] || null)
+
+const totalVideos = computed(() => videos.value.length)
+
+const canPrevious = computed(() => currentIndex.value > 0)
+const canNext = computed(() => currentIndex.value < totalVideos.value - 1)
+
+const goToPrevious = () => {
+  if (canPrevious.value) {
+    currentIndex.value--
+  }
+}
+
+const goToNext = () => {
+  if (canNext.value) {
+    currentIndex.value++
+  }
+}
+
+const goToVideo = (index) => {
+  currentIndex.value = index
+}
+
+const handleKeydown = (e) => {
+  if (e.key === 'ArrowLeft') goToPrevious()
+  if (e.key === 'ArrowRight') goToNext()
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown)
+})
+</script>
+
+<template>
+  <div class="w-full h-full overflow-y-auto bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <!-- Header -->
+      <div class="mb-12 space-y-4">
+        <p class="text-xs font-black uppercase tracking-[0.35em] text-pink-800">{{ project.category }}</p>
+        <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-black">{{ project.title }}</h1>
+        <p class="text-slate-600 max-w-2xl">{{ project.description }}</p>
+      </div>
+
+      <!-- Main Gallery -->
+      <div class="space-y-8">
+        <!-- Featured Video -->
+        <div v-if="currentVideo" class="relative rounded-lg overflow-hidden border border-slate-200 shadow-lg bg-slate-100 aspect-9/16 max-w-xs mx-auto">
+          <transition name="fade-slide" mode="out-in">
+            <video
+              :key="currentIndex"
+              :src="currentVideo.src"
+              controls
+              class="w-full h-full object-cover"
+            />
+          </transition>
+
+          <!-- Navigation Buttons -->
+          <button
+            @click="goToPrevious"
+            :disabled="!canPrevious"
+            class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white disabled:opacity-40 disabled:cursor-not-allowed text-slate-900 p-2.5 rounded-full transition-all duration-200 border border-slate-200 shadow-md hover:shadow-lg"
+            aria-label="Previous video"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+
+          <button
+            @click="goToNext"
+            :disabled="!canNext"
+            class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white disabled:opacity-40 disabled:cursor-not-allowed text-slate-900 p-2.5 rounded-full transition-all duration-200 border border-slate-200 shadow-md hover:shadow-lg"
+            aria-label="Next video"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+
+          <!-- Counter Badge -->
+          <div class="absolute top-4 right-4 bg-white/95 border border-slate-200 text-slate-900 px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-md">
+            {{ String(currentIndex + 1).padStart(2, '0') }} / {{ String(totalVideos).padStart(2, '0') }}
+          </div>
+        </div>
+
+        <!-- Video Info -->
+        <div v-if="currentVideo" class="space-y-3">
+          <h2 class="text-2xl font-black uppercase tracking-tight text-black">{{ currentVideo.title }}</h2>
+          <p v-if="currentVideo.description" class="text-slate-600 leading-relaxed max-w-2xl">{{ currentVideo.description }}</p>
+        </div>
+
+        <!-- Thumbnail Strip -->
+        <div class="space-y-4">
+          <p class="text-xs font-black uppercase tracking-[0.2em] text-slate-500">View All</p>
+          <div class="overflow-x-auto pb-2">
+            <div class="flex gap-4 min-w-min">
+              <button
+                v-for="(video, index) in videos"
+                :key="index"
+                @click="goToVideo(index)"
+                :class="[
+                  'relative shrink-0 w-32 h-24 rounded-lg overflow-hidden border-2 transition-all duration-200',
+                  currentIndex === index
+                    ? 'border-pink-800 ring-2 ring-pink-200'
+                    : 'border-slate-200 hover:border-slate-300'
+                ]"
+              >
+                <video
+                  :src="video.src"
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 flex items-center justify-center bg-black/30">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: opacity 0.4s ease;
+}
+</style>
