@@ -37,6 +37,7 @@ const getSkills = categoryName => skillsByCategory.value[categoryName] ?? []
 const hasMultipleProjects = computed(() => props.section.projects.length > 1)
 
 const overlineLabel = computed(() => getCategoryLabel(props.section.category))
+const mobileSectionTitle = computed(() => (props.section.category === 'Photography' ? 'Photo' : props.section.category))
 </script>
 
 <template>
@@ -47,7 +48,8 @@ const overlineLabel = computed(() => getCategoryLabel(props.section.category))
       </p>
 
       <h2 class="text-black text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none mb-6">
-        {{ subtitle || section.category }}
+        <span class="md:hidden">{{ subtitle || mobileSectionTitle }}</span>
+        <span class="hidden md:inline">{{ subtitle || section.category }}</span>
       </h2>
 
       <div :class="['flex flex-wrap gap-x-4 gap-y-1 max-w-2xl', index % 2 === 0 ? 'justify-start' : 'justify-end']">
