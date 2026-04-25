@@ -14,19 +14,19 @@ defineEmits({
     <div class="absolute top-[-10%] right-[-5%] w-[60vw] h-[60vw] bg-pink-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
     <div class="max-w-350 mx-auto relative z-10">
-      <div class="flex justify-between items-center mb-8 md:mb-16 text-[9px] md:text-[10px] font-black uppercase tracking-[0.25em] md:tracking-[0.3em] text-pink-800/60">
+      <div class="flex justify-between items-center mb-12 md:mb-16 text-[9px] md:text-[10px] font-black uppercase tracking-[0.25em] md:tracking-[0.3em] text-pink-800/60">
         <span>{{ personalInfo.location }} — {{ currentTime }}</span>
         <span class="hidden md:block italic">Currently available for hire</span>
       </div>
 
-      <h1 class="text-[12vw] md:text-[11vw] font-black tracking-tighter leading-[0.82] uppercase mb-6 md:mb-12">
+      <h1 class="mt-20 md:mt-0 text-[12vw] md:text-[11vw] font-black tracking-tighter leading-[0.82] uppercase mb-6 md:mb-12">
         <span class="block">{{ personalInfo.name.split(' ')[0] }}</span>
         <span class="block ml-[10vw]">
           <span class="inline-block text-transparent stroke-text stroke-hover-target">{{ personalInfo.name.split(' ').slice(1).join(' ') }}</span>
         </span>
       </h1>
 
-      <div class="mt-10 md:mt-0 md:ml-[45vw] max-w-xl border-l-2 border-pink-800/20 pl-4 md:pl-8">
+      <div class="mt-20 md:mt-0 md:ml-[45vw] max-w-xl border-l-2 border-pink-800/20 pl-4 md:pl-8">
         <p class="text-base sm:text-lg md:text-3xl text-pink-900 font-medium leading-relaxed md:leading-tight mb-5 md:mb-6">
           {{ personalInfo.bio }}
         </p>
