@@ -26,7 +26,7 @@ defineEmits({
         </span>
       </h1>
 
-      <div class="md:ml-[45vw] max-w-xl border-l-2 border-pink-800/20 pl-4 md:pl-8">
+      <div class="mt-10 md:mt-0 md:ml-[45vw] max-w-xl border-l-2 border-pink-800/20 pl-4 md:pl-8">
         <p class="text-base sm:text-lg md:text-3xl text-pink-900 font-medium leading-relaxed md:leading-tight mb-5 md:mb-6">
           {{ personalInfo.bio }}
         </p>
