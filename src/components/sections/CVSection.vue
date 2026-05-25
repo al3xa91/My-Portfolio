@@ -13,13 +13,13 @@ const flattenedSkills = computed(() => {
 </script>
 
 <template>
-  <section id="cv" class="py-32 px-6 md:px-10 safe-px max-w-350 mx-auto border-t border-cv scroll-mt-24">
+  <section id="cv" class="py-12 safe-px max-w-350 mx-auto border-t border-cv scroll-mt-24">
     <!-- Header -->
-    <div class="mb-20">
+    <div class="mb-10">
       <span class="text-accent font-black text-[10px] tracking-[0.3em] uppercase mb-4 ml-2 block">CV</span>
       <h2 class="text-[13vw] md:text-[11vw] font-black tracking-tighter leading-[0.8] uppercase mb-12">
-        <span class="block">Professional</span>
-        <span class="inline-block ml-[10vw] text-transparent stroke-text">Profile</span>
+        <p class="text-3xl sm:text-6xl font-black uppercase tracking-tight text-black">Professional</p>
+        <p class="text-3xl sm:text-6xl font-black uppercase tracking-tight text-black">Profile</p>
       </h2>
     </div>
 
@@ -81,7 +81,7 @@ const flattenedSkills = computed(() => {
 
     <!-- Skills Grid -->
     <div class="border-t border-cv pt-20">
-      <h3 class="text-2xl font-black uppercase tracking-wider mb-10 text-cv-heading">Skills & Tools</h3>
+      <h3 class="text-lg font-black uppercase tracking-wider mb-10 text-cv-heading">Skills & Tools</h3>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <span 
           v-for="skill in flattenedSkills" 
