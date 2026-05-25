@@ -44,6 +44,8 @@ const handleExploreWork = () => {
     <main class="w-full">
       <HeroComponent @exploreWork="handleExploreWork" />
 
+      <CVSection />
+
       <div id="category-index">
         <CategoryIndex
           :sections="sections"
@@ -63,8 +65,6 @@ const handleExploreWork = () => {
           :section-id="getSectionId(section.category)"
         />
       </section>
-
-      <CVSection />
     </main>
 
     <TheFooter />
