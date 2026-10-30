@@ -38,9 +38,10 @@ export const aboutData = {
         title: 'Window painting',
         text: '[A sentence about your window painting: where you paint, for which occasions, what you enjoy about it.]',
         photos: [
-          { src: publicAsset('about/window-1.webp'), caption: '[Window caption 1]' },
-          { src: publicAsset('about/window-2.webp'), caption: '[Window caption 2]' },
-          { src: publicAsset('about/window-3.webp'), caption: '[Window caption 3]' },
+          { src: publicAsset('about/window-1.webp'), caption: 'Christmas is coming' },
+          { src: publicAsset('about/window-2.webp'), caption: 'Winter village & Christmas tree' },
+          { src: publicAsset('about/window-3.webp'), caption: 'Nutcrackers' },
+          { src: publicAsset('about/window-4.webp'), caption: 'Nutcrackers at night' },
         ],
       },
       {
