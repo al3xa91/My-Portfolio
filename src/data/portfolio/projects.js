@@ -231,6 +231,16 @@ export const projects = [
                  description: 'Comprehensive infographic poster utilizing earthy tones and bold data visualization to highlight the environmental and social impact of food loss.',
        
           },
+          {
+            src: publicAsset('posters/lego-application.webp'),
+            title: 'BUILDING MY STORY',
+            description: 'A personal poster created for my internship application at the LEGO Group. The Colosseum is partly rebuilt in bricks with me sitting on top, surrounded by hand-cut collage letters spelling the qualities I bring: curious, kind, focused, brave, creative and passionate.',
+          },
+          {
+            src: publicAsset('posters/esbjerg-jazz.webp'),
+            title: 'ESBJERG JAZZ FESTIVAL',
+            description: 'I designed this poster for the Esbjerg Jazz Festival. The four musicians are inspired by Men at Sea, the big white figures sitting by the water in Esbjerg: I imagined them coming to life and playing together as a jazz band. The piano keys curve around them like a stage, and I kept the colours warm, like a jazz club at night.',
+          },
          
         ],
       },
@@ -263,6 +273,93 @@ export const projects = [
           
         ],
       },
+    },
+  },
+  {
+    id: 2.3,
+    title: 'Logo Design',
+    category: 'Graphic Design',
+    description: 'Logos and visual identities, from the first idea to colours, typography and real-life use.',
+    imageUrl: publicAsset('logos/cover.webp'),
+    caseStudyComponent: 'LogoShowcase',
+    caseStudy: {
+      // One entry per logo: it appears as a slide in the gallery (hero + summary),
+      // and "View full presentation" opens the full page.
+      // Every section except name, hero, summary and brief is optional:
+      // remove variations, colors, typography or mockups if a logo doesn't have them.
+      logos: [
+        {
+          name: 'Vegama',
+          hero: publicAsset('logos/vegama/hero.webp'),
+          thumb: publicAsset('logos/vegama/icon.webp'),
+          // Short text shown in the gallery overview
+          summary: 'A warm, friendly identity for a plant-based cooking brand in Esbjerg: a heart that grows like a root vegetable, with hand-drawn lettering.',
+          brief: 'Vegama is a plant-based cooking brand from Esbjerg with a simple message: one dinner counts. I wanted the logo to feel warm and welcoming, not strict or preachy. The mark is a heart that grows like a root vegetable, with leaves sprouting on top, so love for food and for the planet live in one shape. The hand-drawn lettering and the soft greens and terracotta keep it friendly, like cooking at home.',
+          details: {
+            Client: 'Vegama',
+            Year: '', // ← add the year
+            Tools: 'Illustrator',
+            Deliverables: 'Logo, icon, colours, typography',
+          },
+          variations: [
+            { label: 'Primary', src: publicAsset('logos/vegama/primary.webp') },
+            { label: 'Icon', src: publicAsset('logos/vegama/icon.webp') },
+            { label: 'Black', src: publicAsset('logos/vegama/black.webp') },
+            { label: 'White', src: publicAsset('logos/vegama/white.webp') },
+          ],
+          colors: [
+            { name: 'Forest green', hex: '#185F30' },
+            { name: 'Fresh green', hex: '#A6CE81' },
+            { name: 'Terracotta', hex: '#E2775A' },
+            { name: 'Oat cream', hex: '#F4EEDC' },
+          ],
+          typography: {
+            name: 'Barriecito',
+            src: publicAsset('logos/vegama/type.webp'),
+            note: 'A hand-drawn typeface with uneven, playful letters, used for the wordmark and headlines.',
+          },
+          mockups: [
+            { label: 'Website', src: publicAsset('vegama-web/overview.webp'), wide: true },
+            { label: 'Business cards, tote bag & T-shirt', src: publicAsset('logos/vegama/merch.webp'), wide: true },
+          ],
+        },
+        {
+          name: 'Mikkelborg Kro',
+          hero: publicAsset('logos/mikkelborg/hero.webp'),
+          thumb: publicAsset('logos/mikkelborg/primary.webp'),
+          // Short text shown in the gallery overview
+          summary: 'A rebranding proposal for an inn from 1907 in Rødding, keeping the roof-shaped emblem from the original facade in a calm charcoal and ivory palette.',
+          brief: 'Mikkelborg Kro is an old inn in Rødding, built in 1907 and today a restaurant and Kulturhus. My idea was to give it a modern look without losing the history of the house. I kept the roof-shaped emblem and the year 1907 from the original facade, so the new logo still points back to the building itself.\n\nThe charcoal and ivory colours feel calm and timeless next to the red brick walls. I then tried the logo on everything from the facade and windows to aprons, menus and candles, to make sure the whole place feels like one identity.',
+          details: {
+            Client: 'Mikkelborg Kro, Rødding',
+            Type: 'Rebranding proposal',
+            Year: '2026',
+            Tools: '', // ← add the tools you used
+            Deliverables: 'Logo, colours, facade signage, business cards, apron, menu, tableware',
+          },
+          variations: [
+            { label: 'Primary', src: publicAsset('logos/mikkelborg/primary.webp') },
+            { label: 'Charcoal', src: publicAsset('logos/mikkelborg/charcoal.webp') },
+            { label: 'Black', src: publicAsset('logos/mikkelborg/black.webp') },
+            { label: 'White', src: publicAsset('logos/mikkelborg/white.webp') },
+          ],
+          colors: [
+            { name: 'Charcoal', hex: '#3B3433' },
+            { name: 'Ivory', hex: '#FFF6E7' },
+            { name: 'Black', hex: '#000000' },
+            { name: 'White', hex: '#FFFFFF' },
+          ],
+          mockups: [
+            { label: 'From the facade to the logo', src: publicAsset('logos/mikkelborg/before-after.webp'), wide: true },
+            { label: 'Facade', src: publicAsset('logos/mikkelborg/facade.webp'), wide: true },
+            { label: 'Windows', src: publicAsset('logos/mikkelborg/windows.webp'), wide: true },
+            { label: 'Business cards', src: publicAsset('logos/mikkelborg/business-cards.webp'), wide: true },
+            { label: 'Apron & menu', src: publicAsset('logos/mikkelborg/apron-menu.webp'), wide: true },
+            { label: 'Table setting', src: publicAsset('logos/mikkelborg/table.webp') },
+            { label: 'Candles & coasters', src: publicAsset('logos/mikkelborg/candles.webp') },
+          ],
+        },
+      ],
     },
   },
   {
@@ -350,7 +447,7 @@ export const projects = [
     label: 'Video',
     description: 'Creative video editing and motion graphics focused on bringing narratives to life through high-impact visuals and polished post-production.',
     imageUrl: publicAsset('category-video.webp'),
-    caseStudyComponent: 'VideoSlideshow',
+    caseStudyComponent: 'GraphicDesignSlideshow',
     caseStudy: {
       gallery: {
         videos: [
@@ -370,33 +467,75 @@ export const projects = [
   },
   
   {
-    id: 6,
-    title: 'My Portfolio website',
+    id: 5.5,
+    title: 'Vegama Website',
     category: 'Web Dev',
-    description: 'A modern, responsive portfolio website built with Vue.js and Tailwind CSS.',
-    imageUrl: publicAsset('webdev/webdev1.webp'),
-    caseStudyComponent: 'WebDevSlideshow',
+    description: 'A live WordPress and WooCommerce site for a plant-based cooking brand in Esbjerg, with masterclass booking, an online shop, recipes and a newsletter.',
+    imageUrl: publicAsset('vegama-web/cover.webp'),
+    caseStudyComponent: 'GraphicDesignSlideshow',
     caseStudy: {
+      // Links shown on every slide. Leave a link empty ('') to hide its button.
+      liveUrl: 'https://vegama.dk',
+      codeUrl: '',
       gallery: {
         images: [
           {
-            src: publicAsset('webdev/webdev2.webp'),
-            thumb: publicAsset('webdev/webdev2.webp'),
-            title: 'COMPONENT ARCHITECTURE',
-            description:'A behind-the-scenes look at the clean, modular code powering this portfolio, utilizing Vue.js and Tailwind CSS to create a seamless and responsive user experience.',
-          },
-         /*  {
-            src: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80&fm=auto',
-            thumb: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80&fm=auto',
-            title: 'Product Detail Page',
-            description: 'Immersive product page with image gallery, specifications, and customer reviews.',
+            src: publicAsset('vegama-web/overview.webp'),
+            title: 'ONE DINNER COUNTS',
+            description: 'The Vegama brand brought to life online: a warm, food-first homepage with a clear message and two direct paths, free recipes or booking a masterclass. [Add your role here, e.g. designed and built in WordPress.]',
           },
           {
-            src: 'https://images.unsplash.com/photo-1559056199-641a0ac8b3f4?w=1200&q=80&fm=auto',
-            thumb: 'https://images.unsplash.com/photo-1559056199-641a0ac8b3f4?w=400&q=80&fm=auto',
-            title: 'Shopping Cart & Checkout',
-            description: 'Streamlined checkout flow with multiple payment options and order tracking.',
-          }, */
+            src: publicAsset('vegama-web/masterclasses.webp'),
+            title: 'MASTERCLASS BOOKING',
+            description: 'Cooking classes presented as cards with date, description and price, plus a gift card option. Visitors can book a seat directly on the site through WooCommerce.',
+          },
+          {
+            src: publicAsset('vegama-web/shop.webp'),
+            title: 'ONLINE SHOP',
+            description: 'A product carousel with e-books, kitchen merchandise and cookbooks, connected to a full WooCommerce shop with cart and checkout.',
+          },
+          {
+            src: publicAsset('vegama-web/responsive.webp'),
+            title: 'RESPONSIVE',
+            description: 'Every section adapts to phones: a compact header with menu, stacked class cards and a swipeable product row.',
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: 6,
+    title: 'My Portfolio Website',
+    category: 'Web Dev',
+    description: 'The site you are looking at: a responsive portfolio built from scratch with Vue 3, Tailwind CSS and Vite, deployed on Vercel.',
+    imageUrl: publicAsset('webdev/cover.webp'),
+    caseStudyComponent: 'GraphicDesignSlideshow',
+    caseStudy: {
+      // Links shown on every slide. Leave a link empty ('') to hide its button.
+      liveUrl: '', // ← add your Vercel address here, e.g. 'https://your-site.vercel.app'
+      codeUrl: 'https://github.com/al3xa91/My-Portfolio',
+      gallery: {
+        images: [
+          {
+            src: publicAsset('webdev/overview.webp'),
+            title: 'OVERVIEW',
+            description: 'A single-page portfolio designed and coded by me, from the bold typographic hero to the project galleries. Built with Vue 3 components and Tailwind CSS, with all content kept in simple data files so new projects can be added without touching the layout.',
+          },
+          {
+            src: publicAsset('webdev/interactions.webp'),
+            title: 'INTERACTIONS',
+            description: 'Category panels that expand on hover and become tappable bands on phones. Projects open in a full-screen view with their own link, and the browser back button returns visitors to exactly where they were.',
+          },
+          {
+            src: publicAsset('webdev/project-view.webp'),
+            title: 'PROJECT VIEW',
+            description: 'One reusable gallery component for every project type: images, posters and videos. The main image loads first, neighbouring images are preloaded, and the gallery code only downloads when it is needed.',
+          },
+          {
+            src: publicAsset('webdev/responsive.webp'),
+            title: 'RESPONSIVE',
+            description: 'Designed mobile-first: layouts, type sizes and interactions adapt from phone to large desktop screens, including safe areas for notched phones.',
+          },
         ],
       },
     },
@@ -407,7 +546,7 @@ export const projects = [
     category: 'Web Dev',
     description: 'A modular content management dashboard with reusable Vue components.',
     imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&fm=auto',
-    caseStudyComponent: 'WebDevSlideshow',
+    caseStudyComponent: 'GraphicDesignSlideshow',
     caseStudy: {
       gallery: {
         images: [
@@ -440,7 +579,7 @@ export const projects = [
     label: 'Photography',
     description: 'Atmospheric imagery capturing the vibrant transition of the seasons, from candid moments of joy to the quiet, intricate textures of the natural landscape.',
     imageUrl: publicAsset('photography/redrose.webp'),
-    caseStudyComponent: 'PhotographySlideshow',
+    caseStudyComponent: 'GraphicDesignSlideshow',
     caseStudy: {
       gallery: {
         images: [

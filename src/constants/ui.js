@@ -18,6 +18,7 @@ export const PROJECT_BUTTONS = {
 export const GALLERY_COMPONENTS = {
   PHOTOGRAPHY: 'PhotographySlideshow',
   GRAPHIC_DESIGN: 'GraphicDesignSlideshow',
+  LOGO_DESIGN: 'LogoShowcase',
 }
 
 export const getProjectButtonLabel = (category, componentName) => {

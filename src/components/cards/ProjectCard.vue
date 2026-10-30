@@ -79,7 +79,7 @@ const closePreview = () => {
   if (window.history.state?.back) {
     router.back()
   } else {
-    const { project, ...rest } = route.query
+    const { project, logo, ...rest } = route.query
     router.replace({ query: rest })
   }
 }
