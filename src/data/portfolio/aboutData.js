@@ -48,9 +48,10 @@ export const aboutData = {
         title: 'Family',
         text: '[A sentence about your family and what they mean to you.]',
         photos: [
-          { src: publicAsset('about/family-1.webp'), caption: '[Family caption 1]' },
-          { src: publicAsset('about/family-2.webp'), caption: '[Family caption 2]' },
-          { src: publicAsset('about/family-3.webp'), caption: '[Family caption 3]' },
+          { src: publicAsset('about/family-1.webp'), caption: 'Up, up and away' },
+          { src: publicAsset('about/family-2.webp'), caption: 'A letter for Santa' },
+          { src: publicAsset('about/family-3.webp'), caption: 'Family tower' },
+          { src: publicAsset('about/family-4.webp'), caption: 'Christmas lights' },
         ],
       },
     ],
