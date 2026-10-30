@@ -249,36 +249,30 @@ onUnmounted(() => {
             v-if="currentImage.detailsLabel"
             type="button"
             @click="emit('openItem', currentIndex)"
-            class="mt-6 inline-flex items-center gap-2 rounded-full bg-pink-800 px-5 py-2.5 text-[10px] font-black uppercase tracking-widest text-white transition-colors hover:bg-black"
+            class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-pink-800 px-5 py-2.5 text-[10px] font-black uppercase tracking-widest text-white transition-colors hover:bg-black"
           >
             {{ currentImage.detailsLabel }}
             <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
           </button>
 
           <!-- Optional links: each one only shows when its address is filled in -->
-          <div v-if="links.length" class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+          <div v-if="links.length" class="mt-6 flex flex-wrap gap-3">
             <a
-              v-for="link in links"
+              v-for="(link, index) in links"
               :key="link.label"
               :href="link.url"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-pink-800 transition hover:text-black"
+              :class="[
+                'inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-[10px] font-black uppercase tracking-widest transition-colors',
+                index === 0 && !currentImage.detailsLabel
+                  ? 'bg-pink-800 text-white hover:bg-black'
+                  : 'border border-pink-800 text-pink-800 hover:border-black hover:bg-black hover:text-white',
+              ]"
             >
               {{ link.label }}
-              <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8" />
               </svg>
             </a>
           </div>

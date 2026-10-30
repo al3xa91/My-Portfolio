@@ -229,9 +229,10 @@ const sectionLinks = computed(() => sections.value.map(section => ({
                       :href="project.embedUrl"
                       target="_blank"
                       rel="noreferrer"
-                      class="inline-flex items-center justify-center w-full rounded-lg bg-pink-800 text-white text-xs font-black uppercase tracking-widest px-6 py-3 hover:bg-black transition-all duration-200 shadow-md hover:shadow-lg"
+                      class="inline-flex items-center justify-center gap-2 rounded-full bg-pink-800 px-5 py-2.5 text-[10px] font-black uppercase tracking-widest text-white transition-colors hover:bg-black"
                     >
                       {{ section.visual.buttonLabel }}
+                      <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8" /></svg>
                     </a>
                   </div>
 
