@@ -94,10 +94,10 @@ const closePreview = () => {
 
     <div class="flex justify-between items-start">
       <div>
-        <p class="text-indigo-600 font-bold text-[10px] uppercase tracking-widest mb-2">
+        <p class="text-pink-800 font-bold text-[10px] uppercase tracking-widest mb-2">
           {{ project.category }}
         </p>
-        <h3 class="text-4xl font-bold tracking-tighter mb-4 uppercase">
+        <h3 class="text-2xl font-bold tracking-tighter mb-2 uppercase">
           {{ project.title }}
         </h3>
       </div>

@@ -22,7 +22,7 @@ defineEmits({
       <h1 class="mt-20 md:mt-0 text-[12vw] md:text-[11vw] font-black tracking-tighter leading-[0.82] uppercase mb-6 md:mb-12">
         <span class="block">{{ personalInfo.name.split(' ')[0] }}</span>
         <span class="block ml-[10vw]">
-          <span class="inline-block text-transparent stroke-text stroke-hover-target">{{ personalInfo.name.split(' ').slice(1).join(' ') }}</span>
+          <span class="inline-block text-transparent stroke-text">{{ personalInfo.name.split(' ').slice(1).join(' ') }}</span>
         </span>
       </h1>
 
