@@ -54,7 +54,7 @@ const handleExploreWork = () => {
         />
       </div>
 
-      <section class="py-20 px-6 md:px-10 safe-px max-w-350 mx-auto">
+      <section class="pt-12 pb-8 px-6 md:px-10 safe-px max-w-350 mx-auto">
         <ProjectSection
           v-for="(section, index) in flattenedSections"
           :key="section.category"

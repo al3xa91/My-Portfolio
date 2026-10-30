@@ -10,12 +10,12 @@ const getSocialUrl = link => {
 </script>
 
 <template>
-  <footer id="contact" class="footer-mesh footer-mesh-animated text-white pt-70 pb-20 px-6 md:px-10 safe-px relative overflow-hidden">
+  <footer id="contact" class="footer-mesh footer-mesh-animated text-white pt-24 md:pt-32 pb-16 px-6 md:px-10 safe-px relative overflow-hidden">
     
     <div class="absolute bottom-[-10%] left-[-5%] w-[50vw] h-[50vw] bg-pink-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
     <div class="max-w-screen-2xl mx-auto relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end mb-32">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-end mb-20">
         
         <div>
           <p class="text-accent font-black text-[10px] uppercase tracking-[0.4em] mb-8">Next Step</p>

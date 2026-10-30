@@ -1,20 +1,24 @@
 <script setup>
+import { ref } from 'vue'
 import { cvData, expertiseData, toolsData } from '@/data/portfolio.js'
+
+// The video shows in colour while it plays (and always in full screen)
+const isPlaying = ref(false)
 </script>
 
 <template>
-  <section id="cv" class="py-12 safe-px max-w-350 mx-auto border-t border-cv scroll-mt-24">
+  <section id="cv" class="py-10 safe-px max-w-350 mx-auto border-t border-cv scroll-mt-24">
     <!-- Header -->
     <div class="mb-10">
       <span class="text-accent font-black text-[10px] tracking-[0.3em] uppercase mb-4 ml-2 block">CV</span>
-      <h2 class="text-[13vw] md:text-[11vw] font-black tracking-tighter leading-[0.8] uppercase mb-12">
+      <h2 class="text-[13vw] md:text-[11vw] font-black tracking-tighter leading-[0.8] uppercase mb-8">
         <p class="text-3xl sm:text-6xl font-black uppercase tracking-tight text-black">Professional</p>
         <p class="text-3xl sm:text-6xl font-black uppercase tracking-tight text-black">Profile</p>
       </h2>
     </div>
 
     <!-- Video CV Section -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start mb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-14">
       <div class="space-y-8">
         <div>
           <h3 class="text-2xl font-black uppercase tracking-wider mb-3 text-cv-heading">Motion CV</h3>
@@ -28,7 +32,13 @@ import { cvData, expertiseData, toolsData } from '@/data/portfolio.js'
             controls 
             playsinline
             preload="metadata"
-            class="w-full h-full object-cover grayscale group-hover:grayscale-0 touch-fullcolor opacity-90 group-hover:opacity-100 touch-fullopacity transition-all duration-700 ease-out"
+            :class="[
+              'cv-video w-full h-full object-cover touch-fullcolor touch-fullopacity transition-all duration-700 ease-out',
+              isPlaying ? '' : 'grayscale group-hover:grayscale-0 opacity-90 group-hover:opacity-100',
+            ]"
+            @play="isPlaying = true"
+            @pause="isPlaying = false"
+            @ended="isPlaying = false"
           >
             <source :src="cvData.videoUrl" type="video/mp4">
             Your browser does not support the video tag.
@@ -71,7 +81,7 @@ import { cvData, expertiseData, toolsData } from '@/data/portfolio.js'
     </div>
 
     <!-- Skills & Tools -->
-    <div class="border-t border-cv pt-20">
+    <div class="border-t border-cv pt-12">
       <h3 class="text-lg font-black uppercase tracking-wider mb-10 text-cv-heading">Skills & Tools</h3>
 
       <ul class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-x-4 gap-y-10">
@@ -115,3 +125,12 @@ import { cvData, expertiseData, toolsData } from '@/data/portfolio.js'
     </div>
   </section>
 </template>
+
+<style scoped>
+/* Always full colour in full screen */
+.cv-video:fullscreen,
+.cv-video:-webkit-full-screen {
+  filter: none !important;
+  opacity: 1 !important;
+}
+</style>

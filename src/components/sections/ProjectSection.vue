@@ -39,8 +39,8 @@ const mobileSectionTitle = computed(() => (props.section.category))
 </script>
 
 <template>
-  <div :id="sectionId" class="mb-40 scroll-mt-24">
-    <div :class="['flex flex-col mb-12', index % 2 === 0 ? 'items-start' : 'items-end text-right']">
+  <div :id="sectionId" class="mb-24 md:mb-28 scroll-mt-24">
+    <div :class="['flex flex-col mb-10', index % 2 === 0 ? 'items-start' : 'items-end text-right']">
       <p class="text-pink-800 font-black text-[10px] tracking-[0.3em] uppercase mb-4">
         {{ overlineLabel }}
       </p>
