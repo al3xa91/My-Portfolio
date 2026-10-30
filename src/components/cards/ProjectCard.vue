@@ -132,7 +132,7 @@ const preloadCaseStudy = () => {
     <div class="flex justify-between items-start">
       <div>
         <p class="text-pink-800 font-bold text-[10px] uppercase tracking-widest mb-2">
-          {{ project.category }}
+          {{ project.label || project.category }}
         </p>
         <h3 class="text-xl font-bold tracking-tighter mb-2 uppercase">
           {{ project.title }}

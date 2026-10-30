@@ -60,7 +60,7 @@ onUnmounted(() => {
       <!-- Header -->
       <div class="mb-12 space-y-4">
         <p class="text-xs font-black uppercase tracking-[0.35em] text-pink-800">
-          <span class="hidden md:inline">{{ project.category }} Portfolio</span>
+          <span class="hidden md:inline">{{ project.label || project.category }} Portfolio</span>
           <span class="md:hidden">Photo</span>
         </p>
         <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-black">{{ project.title }}</h1>

@@ -346,7 +346,8 @@ export const projects = [
   {
     id: 3,
     title: 'VIDEO PRODUCTION',
-    category: 'Video',
+    category: 'Photo & Video',
+    label: 'Video',
     description: 'Creative video editing and motion graphics focused on bringing narratives to life through high-impact visuals and polished post-production.',
     imageUrl: publicAsset('category-video.webp'),
     caseStudyComponent: 'VideoSlideshow',
@@ -435,7 +436,8 @@ export const projects = [
  {
     id: 4,
     title: 'NATURAL OBSERVATIONS',
-    category: 'Photography',
+    category: 'Photo & Video',
+    label: 'Photography',
     description: 'Atmospheric imagery capturing the vibrant transition of the seasons, from candid moments of joy to the quiet, intricate textures of the natural landscape.',
     imageUrl: publicAsset('photography/redrose.webp'),
     caseStudyComponent: 'PhotographySlideshow',

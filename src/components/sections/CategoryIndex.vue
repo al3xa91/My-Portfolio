@@ -36,7 +36,7 @@ const showSubcategories = computed(() => {
   return currentCategory.value && currentCategory.value.hasSubcategories
 })
 
-const mobileCategoryLabel = category => (category === 'Photography' ? 'Photo' : category)
+const mobileCategoryLabel = category => (category)
 </script>
 
 <template>
@@ -44,7 +44,7 @@ const mobileCategoryLabel = category => (category === 'Photography' ? 'Photo' : 
     <!-- Main Category Index -->
     <div v-if="!showSubcategories">
       <p class="text-slate-400 uppercase tracking-[0.4em] text-[9px] font-black mb-12 text-center md:text-left">Categories</p>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <button
           v-for="section in sections"
           :key="section.category"

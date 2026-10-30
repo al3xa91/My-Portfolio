@@ -6,8 +6,7 @@
 export const PROJECT_CATEGORY_LABELS = {
   'Web Dev': 'Built For The Browser',
   'Graphic Design': 'Visual Identity In Focus',
-  'Photography': 'Moments, Composed',
-  'Video': 'Motion And Storytelling',
+  'Photo & Video': 'Moments, Composed And In Motion',
   'UX/UI': 'Experience First Decisions',
 }
 
@@ -22,7 +21,7 @@ export const GALLERY_COMPONENTS = {
 }
 
 export const getProjectButtonLabel = (category, componentName) => {
-  const isGalleryStyle = category === 'Photography' || componentName === GALLERY_COMPONENTS.GRAPHIC_DESIGN
+  const isGalleryStyle = Object.values(GALLERY_COMPONENTS).includes(componentName)
   return isGalleryStyle ? PROJECT_BUTTONS.GALLERY : PROJECT_BUTTONS.PROJECT
 }
 

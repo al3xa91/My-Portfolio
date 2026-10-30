@@ -35,7 +35,7 @@ const skillsByCategory = computed(() => {
 const getSkills = categoryName => skillsByCategory.value[categoryName] ?? []
 
 const overlineLabel = computed(() => getCategoryLabel(props.section.category))
-const mobileSectionTitle = computed(() => (props.section.category === 'Photography' ? 'Photo' : props.section.category))
+const mobileSectionTitle = computed(() => (props.section.category))
 </script>
 
 <template>
