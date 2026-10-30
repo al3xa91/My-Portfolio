@@ -30,13 +30,6 @@ const handleSelectSubcategory = ({ category, subcategory }) => {
 // --- Navigation between categories -------------------------------------
 const categoryNames = computed(() => flattenedSections.value.map(section => section.category))
 
-// What comes after each section: the next category, or back to the first one
-const nextFor = index => {
-  const names = categoryNames.value
-  const isLast = index === names.length - 1
-  return { category: isLast ? names[0] : names[index + 1], isLast }
-}
-
 // Show the sticky bar once the big category panels are scrolled past,
 // and highlight the section currently on screen
 const showCategoryNav = ref(false)
@@ -46,7 +39,7 @@ const updateCategoryNav = () => {
   const panels = document.getElementById('category-index')
   const footer = document.getElementById('contact')
   const pastPanels = panels ? panels.getBoundingClientRect().bottom < 160 : false
-  const atFooter = footer ? footer.getBoundingClientRect().top < window.innerHeight * 0.5 : false
+  const atFooter = footer ? footer.getBoundingClientRect().top < window.innerHeight * 0.15 : false
   showCategoryNav.value = pastPanels && !atFooter
 
   let current = ''
@@ -103,9 +96,6 @@ const handleExploreWork = () => {
           :section="{ category: section.category, projects: section.projects }"
           :index="index"
           :section-id="getSectionId(section.category)"
-          :next-category="nextFor(index).category"
-          :is-last="nextFor(index).isLast"
-          @go-to-category="handleSelectCategory"
         />
       </section>
     </main>

@@ -23,18 +23,7 @@ const props = defineProps({
     type: String,
     default: null,
   },
-  // Link at the end of the section: next category, or back to the first after the last one
-  nextCategory: {
-    type: String,
-    default: '',
-  },
-  isLast: {
-    type: Boolean,
-    default: false,
-  },
 })
-
-defineEmits(['goToCategory'])
 
 const skillsByCategory = computed(() => {
   return categoryData.reduce((acc, item) => {
@@ -79,22 +68,6 @@ const mobileSectionTitle = computed(() => (props.section.category))
         :key="project.id"
         :project="project"
       />
-    </div>
-
-    <!-- Keep visitors moving through the portfolio -->
-    <div v-if="nextCategory" class="mt-16 flex justify-start">
-      <button
-        type="button"
-        @click="$emit('goToCategory', nextCategory)"
-        class="group/next inline-flex items-center gap-3 rounded-full border border-pink-800 px-6 py-3 text-[10px] font-black uppercase tracking-widest text-pink-800 transition-colors hover:border-black hover:bg-black hover:text-white"
-      >
-        <span class="text-slate-400 group-hover/next:text-white/60">{{ isLast ? 'Back to' : 'Next' }}</span>
-        {{ nextCategory }}
-        <svg class="h-3.5 w-3.5 transition-transform group-hover/next:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-          <path v-if="isLast" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m-6 6l6-6 6 6" />
-          <path v-else stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
-        </svg>
-      </button>
     </div>
   </div>
 </template>
