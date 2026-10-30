@@ -73,6 +73,13 @@ watch(images, () => {
   }
 })
 
+watch(currentIndex, index => {
+  ;[index - 1, index + 1].forEach(i => {
+    const src = images.value[i]?.src
+    if (src) new Image().src = src
+  })
+}, { immediate: true })
+
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown)
 })
@@ -123,6 +130,7 @@ onUnmounted(() => {
               :key="currentIndex"
               :src="currentImage.src"
               :alt="currentImage.title"
+              fetchpriority="high"
               class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
             />
           </transition>
@@ -254,6 +262,7 @@ onUnmounted(() => {
               <img
                 :src="image.thumb || image.src"
                 :alt="image.title"
+                fetchpriority="low"
                 class="h-full w-full object-cover"
               />
             </button>
@@ -362,7 +371,7 @@ onUnmounted(() => {
 <style scoped>
 .fade-slide-enter-active,
 .fade-slide-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.15s ease;
 }
 
 .fade-slide-enter-from,

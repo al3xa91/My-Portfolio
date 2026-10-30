@@ -70,6 +70,12 @@ const openPreview = () => {
 const closePreview = () => {
   isPreviewOpen.value = false
 }
+
+const preloadCaseStudy = () => {
+  if (props.project.caseStudyComponent) {
+    import(`@/components/caseStudies/${props.project.caseStudyComponent}.vue`).catch(() => {})
+  }
+}
 </script>
 
 <template>
@@ -86,6 +92,8 @@ const closePreview = () => {
         v-if="hasPreview"
         type="button"
         @click="openPreview"
+         @mouseenter="preloadCaseStudy"
+        @focus="preloadCaseStudy"
         class="absolute bottom-4 right-4 bg-black/80 group-hover:bg-pink-800 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full hover:bg-black transition-colors"
       >
         {{ buttonLabel }}
