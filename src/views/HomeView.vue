@@ -3,6 +3,7 @@ import CategoryIndex from '@/components/sections/CategoryIndex.vue'
 import HeroComponent from '@/components/sections/HeroComponent.vue'
 import ProjectSection from '@/components/sections/ProjectSection.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
+import AboutHeart from '@/components/layout/AboutHeart.vue'
 import { getSectionId, useProjectsByCategory } from '@/composables/useProjectsByCategory.js'
 import { projects as allProjects, categoryData } from '@/data/portfolio.js'
 import { computed, nextTick } from 'vue'
@@ -65,5 +66,7 @@ const handleExploreWork = () => {
     </main>
 
     <TheFooter />
+
+    <AboutHeart />
   </div>
 </template>
