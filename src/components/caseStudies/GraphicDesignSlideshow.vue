@@ -156,9 +156,12 @@ onUnmounted(() => {
         <button
           v-else
           type="button"
-          class="group relative flex h-full min-h-0 w-full cursor-zoom-in items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-800 focus-visible:ring-offset-4"
-          @click="openImageFullscreen"
-          aria-label="Open image fullscreen"
+          :class="[
+            'group relative flex h-full min-h-0 w-full items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-800 focus-visible:ring-offset-4',
+            currentImage.detailsLabel ? 'cursor-pointer' : 'cursor-zoom-in',
+          ]"
+          @click="currentImage.detailsLabel ? emit('openItem', currentIndex) : openImageFullscreen()"
+          :aria-label="currentImage.detailsLabel ? `${currentImage.detailsLabel}: ${currentImage.title}` : 'Open image fullscreen'"
         >
           <img
             :key="currentIndex"
@@ -171,7 +174,7 @@ onUnmounted(() => {
           <span
             class="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-600 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100"
           >
-            Click to enlarge
+            {{ currentImage.detailsLabel ? 'Click to open' : 'Click to enlarge' }}
           </span>
         </button>
 
