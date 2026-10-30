@@ -1,6 +1,6 @@
 <script setup>
 import { useCurrentTime } from '@/composables/useCurrentTime.js'
-import { personalInfo } from '@/data/portfolio.js'
+import { cvData, personalInfo } from '@/data/portfolio.js'
 
 const { currentTime } = useCurrentTime('en-GB')
 
@@ -38,7 +38,20 @@ defineEmits({
           >
             Explore Work
           </button>
+          <RouterLink
+            to="/about"
+            class="text-[10px] font-black uppercase tracking-widest border border-pink-800 text-pink-800 px-6 py-3 rounded-full hover:bg-black hover:border-black hover:text-white transition-colors"
+          >
+            About Me
+          </RouterLink>
         </div>
+        <a
+          :href="cvData.resumeUrl"
+          :download="cvData.resumeDownloadName"
+          class="inline-block mt-5 text-[10px] font-black uppercase tracking-widest text-pink-800/70 border-b border-pink-800/30 pb-1 hover:text-black hover:border-black transition-colors"
+        >
+          Download CV ↓
+        </a>
       </div>
     </div>
   </section>

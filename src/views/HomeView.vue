@@ -1,5 +1,4 @@
 <script setup>
-import CVSection from '@/components/sections/CVSection.vue'
 import CategoryIndex from '@/components/sections/CategoryIndex.vue'
 import HeroComponent from '@/components/sections/HeroComponent.vue'
 import ProjectSection from '@/components/sections/ProjectSection.vue'
@@ -43,8 +42,6 @@ const handleExploreWork = () => {
   <div class="w-full bg-white selection:bg-pink-200">
     <main class="w-full">
       <HeroComponent @exploreWork="handleExploreWork" />
-
-      <CVSection />
 
       <div id="category-index">
         <CategoryIndex

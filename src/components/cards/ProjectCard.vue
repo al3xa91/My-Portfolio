@@ -1,5 +1,6 @@
 <script setup>
-import { computed, onMounted, ref, defineAsyncComponent } from 'vue'
+import { computed, onMounted, onUnmounted, defineAsyncComponent } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { isProject } from '@/utils/projectValidation.js'
 import { getProjectButtonLabel } from '@/constants/ui.js'
 import ProjectCaseStudy from '@/components/cards/ProjectCaseStudy.vue'
@@ -12,7 +13,13 @@ const props = defineProps({
   },
 })
 
-const isPreviewOpen = ref(false)
+const route = useRoute()
+const router = useRouter()
+
+// The open project lives in the URL (e.g. /?project=1), so the browser's
+// back button and the phone's back gesture return to the project list,
+// and each project has its own link that can be shared.
+const isPreviewOpen = computed(() => route.query.project === String(props.project.id))
 const hasPreview = computed(() => Boolean(props.project?.title))
 
 const hasEmbed = computed(() => Boolean(props.project.embedUrl))
@@ -63,13 +70,29 @@ onMounted(() => {
 
 const openPreview = () => {
   if (hasPreview.value) {
-    isPreviewOpen.value = true
+    router.push({ query: { ...route.query, project: String(props.project.id) } })
   }
 }
 
 const closePreview = () => {
-  isPreviewOpen.value = false
+  // Opened from the list: go back one step. Opened from a shared link: just remove the project from the URL.
+  if (window.history.state?.back) {
+    router.back()
+  } else {
+    const { project, ...rest } = route.query
+    router.replace({ query: rest })
+  }
 }
+
+const handleKeydown = event => {
+  // Only close if no fullscreen image is open on top of the project
+  if (event.key === 'Escape' && isPreviewOpen.value && !document.querySelector('.z-\\[100\\]')) {
+    closePreview()
+  }
+}
+
+onMounted(() => window.addEventListener('keydown', handleKeydown))
+onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 
 const preloadCaseStudy = () => {
   if (props.project.caseStudyComponent) {
@@ -80,37 +103,43 @@ const preloadCaseStudy = () => {
 
 <template>
   <div class="group">
-    <div class="aspect-16/10 bg-slate-100 mb-8 overflow-hidden rounded-sm relative">
+    <!-- The whole image opens the project -->
+    <button
+      type="button"
+      :disabled="!hasPreview"
+      :aria-label="`${buttonLabel}: ${project.title}`"
+      @click="openPreview"
+      @mouseenter="preloadCaseStudy"
+      @focus="preloadCaseStudy"
+      class="block w-full aspect-16/10 bg-slate-100 mb-6 overflow-hidden rounded-sm relative cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-800 focus-visible:ring-offset-4"
+    >
       <img
-        :src="project.imageUrl" 
+        :src="project.imageUrl"
         :alt="project.title"
         loading="lazy"
         class="w-full h-full object-cover grayscale group-hover:grayscale-0 touch-fullcolor group-hover:scale-105 transition-all duration-700 ease-out"
       />
 
-      <button
+      <span
         v-if="hasPreview"
-        type="button"
-        @click="openPreview"
-         @mouseenter="preloadCaseStudy"
-        @focus="preloadCaseStudy"
-        class="absolute bottom-4 right-4 bg-black/80 group-hover:bg-pink-800 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full hover:bg-black transition-colors"
+        aria-hidden="true"
+        class="absolute bottom-4 right-4 bg-black/80 group-hover:bg-pink-800 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full transition-colors"
       >
         {{ buttonLabel }}
-      </button>
-    </div>
+      </span>
+    </button>
 
     <div class="flex justify-between items-start">
       <div>
         <p class="text-pink-800 font-bold text-[10px] uppercase tracking-widest mb-2">
           {{ project.category }}
         </p>
-        <h3 class="text-2xl font-bold tracking-tighter mb-2 uppercase">
+        <h3 class="text-xl font-bold tracking-tighter mb-2 uppercase">
           {{ project.title }}
         </h3>
       </div>
     </div>
-    <p class="text-slate-500 text-lg leading-relaxed max-w-md">
+    <p class="text-slate-500 text-base leading-relaxed">
       {{ project.description }}
     </p>
 
@@ -121,15 +150,20 @@ const preloadCaseStudy = () => {
         @click.self="closePreview"
       >
         <div class="w-full h-full bg-white overflow-hidden shadow-2xl flex flex-col">
-          <div class="flex items-center justify-between px-5 py-3 border-b border-slate-200">
-            <h4 class="font-black uppercase tracking-wider text-sm text-slate-800">{{ project.title }}</h4>
+          <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-5 py-3 border-b border-slate-200">
             <button
               type="button"
               @click="closePreview"
-              class="bg-pink-800 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full hover:bg-black transition-colors"
+              class="justify-self-start inline-flex items-center gap-2 -ml-2 px-2 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-pink-800 hover:text-black transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-800"
+              aria-label="Back to all projects"
             >
-              Close
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              Back
             </button>
+            <h4 class="font-black uppercase tracking-wider text-sm text-slate-800 truncate text-center">{{ project.title }}</h4>
+            <span aria-hidden="true"></span>
           </div>
 
           <div class="flex-1 min-h-0 bg-slate-100 relative">

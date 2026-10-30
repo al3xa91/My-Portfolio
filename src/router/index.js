@@ -18,6 +18,13 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
   ],
+  // Start each new page at the top, restore position with the back button,
+  // and stay in place when only a project opens or closes on the same page.
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) return savedPosition
+    if (to.path === from.path) return false
+    return { top: 0 }
+  },
 })
 
 export default router

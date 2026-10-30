@@ -1,15 +1,5 @@
 <script setup>
-import { computed } from 'vue'
-import { categoryData, cvData } from '@/data/portfolio.js'
-
-// Flatten all skills from categories
-const flattenedSkills = computed(() => {
-  const allSkills = new Set()
-  categoryData.forEach(cat => {
-    cat.skills.forEach(skill => allSkills.add(skill))
-  })
-  return Array.from(allSkills).sort()
-})
+import { cvData, expertiseData, toolsData } from '@/data/portfolio.js'
 </script>
 
 <template>
@@ -37,6 +27,7 @@ const flattenedSkills = computed(() => {
           <video 
             controls 
             playsinline
+            preload="metadata"
             class="w-full h-full object-cover grayscale group-hover:grayscale-0 touch-fullcolor opacity-90 group-hover:opacity-100 touch-fullopacity transition-all duration-700 ease-out"
           >
             <source :src="cvData.videoUrl" type="video/mp4">
@@ -79,14 +70,44 @@ const flattenedSkills = computed(() => {
       </div>
     </div>
 
-    <!-- Skills Grid -->
+    <!-- Skills & Tools -->
     <div class="border-t border-cv pt-20">
       <h3 class="text-lg font-black uppercase tracking-wider mb-10 text-cv-heading">Skills & Tools</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <span 
-          v-for="skill in flattenedSkills" 
+
+      <ul class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-x-4 gap-y-10">
+        <li
+          v-for="tool in toolsData"
+          :key="tool.name"
+          class="group flex flex-col items-center gap-3 text-center"
+        >
+          <img
+            v-if="tool.icon"
+            :src="tool.icon"
+            :alt="tool.name"
+            width="48"
+            height="48"
+            loading="lazy"
+            class="w-12 h-12 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:-translate-y-1 touch-fullcolor transition-all duration-500"
+          />
+          <span
+            v-else
+            aria-hidden="true"
+            class="w-12 h-12 rounded-xl border-2 border-cv flex items-center justify-center text-lg font-black text-cv-body group-hover:border-pink-800 group-hover:text-pink-800 group-hover:-translate-y-1 transition-all duration-500"
+          >
+            {{ tool.name.charAt(0) }}
+          </span>
+          <span class="text-[10px] font-black uppercase tracking-[0.14em] text-cv-body group-hover:text-cv-heading transition-colors">
+            {{ tool.name }}
+          </span>
+        </li>
+      </ul>
+
+      <div class="mt-14 flex flex-wrap items-center gap-3">
+        <span class="text-[10px] font-black uppercase tracking-[0.3em] text-cv-muted mr-2">Expertise</span>
+        <span
+          v-for="skill in expertiseData"
           :key="skill"
-          class="text-sm font-black uppercase tracking-[0.14em] text-cv-body text-center py-1"
+          class="px-3 py-1.5 rounded-md border border-pink-100 bg-white text-xs font-semibold uppercase tracking-wider text-slate-700"
         >
           {{ skill }}
         </span>

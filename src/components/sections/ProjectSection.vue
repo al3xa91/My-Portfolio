@@ -34,8 +34,6 @@ const skillsByCategory = computed(() => {
 
 const getSkills = categoryName => skillsByCategory.value[categoryName] ?? []
 
-const hasMultipleProjects = computed(() => props.section.projects.length > 1)
-
 const overlineLabel = computed(() => getCategoryLabel(props.section.category))
 const mobileSectionTitle = computed(() => (props.section.category === 'Photography' ? 'Photo' : props.section.category))
 </script>
@@ -63,12 +61,12 @@ const mobileSectionTitle = computed(() => (props.section.category === 'Photograp
       </div>
     </div>
 
-    <div :class="['grid gap-20', hasMultipleProjects ? 'md:grid-cols-2' : 'grid-cols-1']">
+    <!-- Three projects per row on large screens, two on tablets, one on phones -->
+    <div class="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
       <ProjectCard
         v-for="project in section.projects"
         :key="project.id"
         :project="project"
-        :class="hasMultipleProjects ? '' : 'max-w-4xl mx-auto'"
       />
     </div>
   </div>
