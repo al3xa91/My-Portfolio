@@ -28,9 +28,10 @@ export const aboutData = {
         title: 'Cake design',
         text: '[A sentence about your cake designing: how you started, what you loved making, how long you did it.]',
         photos: [
-          { src: publicAsset('about/cake-1.webp'), caption: '[Cake caption 1]' },
-          { src: publicAsset('about/cake-2.webp'), caption: '[Cake caption 2]' },
-          { src: publicAsset('about/cake-3.webp'), caption: '[Cake caption 3]' },
+          { src: publicAsset('about/cake-1.webp'), caption: 'Mickey birthday cake & cupcakes' },
+          { src: publicAsset('about/cake-2.webp'), caption: 'Bento cakes' },
+          { src: publicAsset('about/cake-3.webp'), caption: 'Unicorn buttercream cake' },
+          { src: publicAsset('about/cake-4.webp'), caption: 'Boss Baby birthday cake' },
         ],
       },
       {

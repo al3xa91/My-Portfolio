@@ -120,12 +120,12 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
                 <p class="text-sm text-slate-600 leading-relaxed">{{ group.text }}</p>
               </div>
 
-              <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
+              <div :class="['grid grid-cols-2 gap-3 md:gap-4', group.photos.length === 4 ? 'sm:grid-cols-4' : 'sm:grid-cols-3']">
                 <button
                   v-for="(photo, index) in group.photos"
                   :key="photo.src"
                   type="button"
-                  class="group relative aspect-square overflow-hidden rounded-sm bg-pink-50 border border-pink-100 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-800"
+                  class="group relative aspect-4/5 overflow-hidden rounded-sm bg-pink-50 border border-pink-100 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-800"
                   :aria-label="`Open photo: ${photo.caption}`"
                   @click="openPhoto(groupIndex, index)"
                 >
