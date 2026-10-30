@@ -5,6 +5,10 @@
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Vite App</title>
+      <script>
+      // Apple devices keep their own SF Pro font; everyone else gets Schibsted Grotesk
+      if (/Mac|iPhone|iPad|iPod/.test(navigator.userAgent)) document.documentElement.classList.add('apple')
+    </script>
   </head>
   <body>
     <div id="app"></div>

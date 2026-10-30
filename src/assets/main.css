@@ -1,6 +1,19 @@
 
 @import "tailwindcss";
 
+/*
+ * Font: Schibsted Grotesk (loaded with the site) on Windows, Android and Linux,
+ * and SF Pro (the visitor's own system font) on Apple devices.
+ * The "apple" class is added in index.html.
+ */
+@theme {
+  --font-sans: "Schibsted Grotesk Variable", sans-serif;
+}
+
+html.apple {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+}
+
 :root {
   --color-bg: #ffffff;
   --color-surface: #fdfdff;
@@ -24,7 +37,7 @@ body {
   margin: 0;
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   /* Removed display: flex to prevent layout squishing */
 }
 
