@@ -1,0 +1,1 @@
+import e from"./BaseCaseStudy-BeCeDNbX.js";import{b as r,l as t}from"./vue-vendor-CDbKk7KF.js";import"./index-CDKuR5L6.js";const o={__name:"WanderlyCaseStudy",props:{project:{type:Object,required:!0}},setup:o=>(p,s)=>(r(),t(e,{project:o.project},null,8,["project"]))};export{o as default};
