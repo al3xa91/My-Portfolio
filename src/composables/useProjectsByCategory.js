@@ -45,6 +45,12 @@ export function useProjectsByCategory(projects, categoryData = []) {
       categoryMap.get(subcategory).push(project)
     })
 
+    // Sections follow the order of categoryData (categories not listed there go last)
+    const orderOf = category => {
+      const index = categoryData.findIndex(cat => cat.name === category)
+      return index === -1 ? Infinity : index
+    }
+
     return Array.from(sectionMap, ([category, subcategoryMap]) => {
       const categoryInfo = categoryData.find(cat => cat.name === category)
       const subcategories = Array.from(subcategoryMap, ([name, categoryProjects]) => ({
@@ -58,7 +64,7 @@ export function useProjectsByCategory(projects, categoryData = []) {
         subcategories,
         hasSubcategories: subcategories.length > 1,
       }
-    })
+    }).sort((a, b) => orderOf(a.category) - orderOf(b.category))
   })
 
   const visibleSections = computed(() => {
