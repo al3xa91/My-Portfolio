@@ -44,12 +44,12 @@ const projectCount = section => section.subcategories.reduce((total, sub) => tot
 </script>
 
 <template>
-  <section class="py-24 px-6 md:px-10 safe-px border-t border-slate-100 max-w-screen-2xl mx-auto">
+  <section class="py-20 px-6 md:px-10 safe-px border-t border-slate-100 max-w-screen-2xl mx-auto">
     <!-- Main Category Index -->
     <div v-if="!showSubcategories">
       <p class="text-slate-400 uppercase tracking-[0.4em] text-[9px] font-black mb-12 text-center md:text-left">Categories</p>
       <!-- Phones/tablets: stacked bands. Large screens: panels that expand on hover. -->
-      <div class="flex flex-col gap-3 lg:flex-row lg:h-130" @mouseleave="activePanel = 0">
+      <div class="flex flex-col gap-3 lg:flex-row lg:h-100" @mouseleave="activePanel = 0">
         <button
           v-for="(section, index) in sections"
           :key="section.category"
@@ -58,7 +58,7 @@ const projectCount = section => section.subcategories.reduce((total, sub) => tot
           @mouseenter="activePanel = index"
           @focus="activePanel = index"
           :class="[
-            'group relative h-28 sm:h-36 lg:h-auto overflow-hidden rounded-sm text-left transition-all duration-700 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-800 focus-visible:ring-offset-4',
+            'group relative h-24 sm:h-32 lg:h-auto overflow-hidden rounded-sm text-left transition-all duration-700 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-800 focus-visible:ring-offset-4',
             activePanel === index ? 'lg:flex-[3.2]' : 'lg:flex-1',
           ]"
         >
@@ -84,7 +84,7 @@ const projectCount = section => section.subcategories.reduce((total, sub) => tot
             <span class="block text-[9px] lg:text-[10px] font-black uppercase tracking-[0.25em] text-pink-200 mb-1 lg:mb-2">
               {{ String(index + 1).padStart(2, '0') }} · {{ projectCount(section) }} {{ projectCount(section) === 1 ? 'project' : 'projects' }}
             </span>
-            <span class="block text-2xl lg:text-5xl font-black uppercase tracking-tighter leading-none whitespace-nowrap">
+            <span class="block text-xl lg:text-4xl font-black uppercase tracking-tighter leading-none whitespace-nowrap">
               {{ mobileCategoryLabel(section.category) }}
             </span>
           </span>
