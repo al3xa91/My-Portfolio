@@ -26,7 +26,7 @@ export const aboutData = {
     groups: [
       {
         title: 'Cake design',
-        text: '[A sentence about your cake designing: how you started, what you loved making, how long you did it.]',
+        text: 'Cake design started as a hobby in my free time in Spain, and it quickly became one of the things that makes me happiest. I taught myself everything, one cake at a time, and every new order was a chance to try something I hadn\'t done before.',
         photos: [
           { src: publicAsset('about/cake-1.webp'), caption: 'Mickey birthday cake & cupcakes' },
           { src: publicAsset('about/cake-2.webp'), caption: 'Bento cakes' },
@@ -36,7 +36,7 @@ export const aboutData = {
       },
       {
         title: 'Window painting',
-        text: '[A sentence about your window painting: where you paint, for which occasions, what you enjoy about it.]',
+        text: 'During my lunch breaks at the LEGO Campus in Billund, I started drawing on the big windows. What began as a few doodles turned into little winter villages, Christmas trees and nutcrackers that colleagues could enjoy as they walked by.',
         photos: [
           { src: publicAsset('about/window-1.webp'), caption: 'Christmas is coming' },
           { src: publicAsset('about/window-2.webp'), caption: 'Winter village & Christmas tree' },
@@ -46,7 +46,7 @@ export const aboutData = {
       },
       {
         title: 'Family',
-        text: '[A sentence about your family and what they mean to you.]',
+        text: 'Family is everything to me. They are my biggest inspiration, and nothing makes me happier than spending quality time together. Whatever we do, I just love being with them.',
         photos: [
           { src: publicAsset('about/family-1.webp'), caption: 'Up, up and away' },
           { src: publicAsset('about/family-2.webp'), caption: 'A letter for Santa' },
