@@ -45,7 +45,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 
     <main>
       <!-- 1. Intro: photo + heading -->
-      <section class="hero-mesh safe-px px-6 md:px-10 py-12 md:py-20">
+      <section class="hero-mesh safe-px px-6 md:px-10 py-16 md:py-24">
         <div class="max-w-350 mx-auto grid grid-cols-1 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-12 md:gap-20 items-center">
           <div class="aspect-[4/5] w-full max-w-md rounded-sm overflow-hidden bg-pink-50 border border-pink-100">
             <img
@@ -75,7 +75,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
       </section>
 
       <!-- 2. Story -->
-      <section class="safe-px px-6 md:px-10 py-14 md:py-20 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-[280px_minmax(0,1fr)] gap-8 lg:gap-16">
+      <section class="safe-px px-6 md:px-10 py-20 md:py-28 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-[280px_minmax(0,1fr)] gap-8 lg:gap-16">
         <div>
           <p class="text-pink-800 font-black text-[10px] uppercase tracking-[0.35em] mb-3">My story</p>
           <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight leading-tight">From people to pixels</h2>
@@ -97,8 +97,8 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 
       <!-- 4. Outside of work -->
       <section class="border-t border-cv">
-        <div class="safe-px px-6 md:px-10 py-14 md:py-20 max-w-350 mx-auto">
-          <div class="grid grid-cols-1 lg:grid-cols-[280px_minmax(0,1fr)] gap-8 lg:gap-16 mb-12">
+        <div class="safe-px px-6 md:px-10 py-20 md:py-28 max-w-350 mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-[280px_minmax(0,1fr)] gap-8 lg:gap-16 mb-16">
             <div>
               <p class="text-pink-800 font-black text-[10px] uppercase tracking-[0.35em] mb-3">Personal</p>
               <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight leading-tight">{{ aboutData.personal.title }}</h2>
@@ -108,7 +108,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
             </p>
           </div>
 
-          <div class="space-y-12 md:space-y-16">
+          <div class="space-y-16 md:space-y-20">
             <div
               v-for="(group, groupIndex) in aboutData.personal.groups"
               :key="group.title"
