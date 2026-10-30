@@ -23,9 +23,10 @@ import { RouterLink } from 'vue-router'
 </template>
 
 <style scoped>
-/* A gentle heartbeat every few seconds, so the eye finds it without it being distracting */
+/* A lively double heartbeat ("lub-dub") about once a second and a half */
 .about-heart svg {
-  animation: heartbeat 4s ease-in-out infinite;
+  animation: heartbeat 1.6s ease-in-out infinite;
+  transform-origin: center;
 }
 
 .about-heart:hover svg,
@@ -34,10 +35,10 @@ import { RouterLink } from 'vue-router'
 }
 
 @keyframes heartbeat {
-  0%, 80%, 100% { transform: scale(1); }
-  85% { transform: scale(1.08); }
-  90% { transform: scale(0.98); }
-  95% { transform: scale(1.06); }
+  0%, 55%, 100% { transform: scale(1); }
+  12% { transform: scale(1.16); }
+  24% { transform: scale(0.97); }
+  36% { transform: scale(1.12); }
 }
 
 @media (prefers-reduced-motion: reduce) {
