@@ -1,14 +1,12 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import GraphicDesignSlideshow from '@/components/caseStudies/GraphicDesignSlideshow.vue'
 
 /**
  * Logo Design project.
- * Opens as the same gallery as the other projects (one slide per logo).
- * "View full presentation" opens that logo's detailed page: hero, brief,
- * variations, colours, typography and mockups. The open logo lives in the
- * URL (?logo=1), so the Back button and browser back return to the gallery.
+ * Opens straight into the first logo's presentation: hero, brief, variations,
+ * colours, typography and mockups. Arrows and "More logos" switch between logos.
+ * The open logo lives in the URL (?logo=2), so each one has its own link.
  */
 const props = defineProps({
   project: {
@@ -22,43 +20,24 @@ const router = useRouter()
 
 const logos = computed(() => props.project.caseStudy?.logos ?? [])
 
-// Overview gallery: same component and layout as Posters, Photo & Video, etc.
-const galleryProject = computed(() => ({
-  ...props.project,
-  caseStudy: {
-    gallery: {
-      images: logos.value.map(item => ({
-        src: item.hero,
-        thumb: item.thumb,
-        title: item.name,
-        description: item.summary,
-        detailsLabel: 'View full presentation',
-      })),
-    },
-  },
-}))
-
 const openIndex = computed(() => {
   const index = Number(route.query.logo) - 1
-  return Number.isInteger(index) && index >= 0 && index < logos.value.length ? index : null
+  // No logo chosen yet: show the first one
+  return Number.isInteger(index) && index >= 0 && index < logos.value.length ? index : 0
 })
-const logo = computed(() => (openIndex.value === null ? null : logos.value[openIndex.value]))
+const logo = computed(() => logos.value[openIndex.value] ?? null)
 
-const openLogo = index => {
-  router.push({ query: { ...route.query, logo: String(index + 1) } })
-}
-
-// Move between logos inside the presentation (replace, so Back still returns to the gallery)
+// Move between logos (replace, so one Back closes the project)
 const goTo = index => {
   if (index >= 0 && index < logos.value.length) {
     router.replace({ query: { ...route.query, logo: String(index + 1) } })
   }
 }
 const canPrevious = computed(() => openIndex.value > 0)
-const canNext = computed(() => openIndex.value !== null && openIndex.value < logos.value.length - 1)
+const canNext = computed(() => openIndex.value < logos.value.length - 1)
 
 const handleKeydown = event => {
-  if (openIndex.value === null) return
+  if (!logo.value) return
   if (event.key === 'ArrowLeft') goTo(openIndex.value - 1)
   if (event.key === 'ArrowRight') goTo(openIndex.value + 1)
 }
@@ -73,15 +52,8 @@ watch(openIndex, () => scroller.value?.scrollTo({ top: 0 }))
 </script>
 
 <template>
-  <!-- Overview: one slide per logo -->
-  <GraphicDesignSlideshow
-    v-if="!logo"
-    :project="galleryProject"
-    @open-item="openLogo"
-  />
-
   <!-- Full presentation of one logo -->
-  <div v-else class="relative h-full w-full overflow-hidden bg-white text-black">
+  <div v-if="logo" class="relative h-full w-full overflow-hidden bg-white text-black">
     <header class="flex items-center justify-between border-b border-slate-200 px-5 py-4 sm:px-8">
       <div class="min-w-0">
         <p class="mb-1 text-[10px] font-bold uppercase tracking-[0.3em] text-pink-800">{{ project.title }}</p>
