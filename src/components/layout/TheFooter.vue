@@ -10,12 +10,13 @@ const getSocialUrl = link => {
 </script>
 
 <template>
-  <footer id="contact" class="footer-mesh footer-mesh-animated text-white pt-70 pb-20 px-6 md:px-10 safe-px relative overflow-hidden">
+  <!-- Full-screen coloured area: text sits near the top, copyright line at the bottom -->
+  <footer id="contact" class="footer-mesh footer-mesh-animated text-white min-h-svh flex flex-col pt-20 md:pt-28 pb-12 md:pb-16 px-6 md:px-10 safe-px relative overflow-hidden">
     
     <div class="absolute bottom-[-10%] left-[-5%] w-[50vw] h-[50vw] bg-pink-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-    <div class="max-w-screen-2xl mx-auto relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end mb-32">
+    <div class="max-w-screen-2xl w-full mx-auto relative z-10 flex flex-1 flex-col">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end mb-20">
         
         <div>
           <p class="text-accent font-black text-[10px] uppercase tracking-[0.4em] mb-8">Next Step</p>
@@ -54,7 +55,7 @@ const getSocialUrl = link => {
         </div>
       </div>
 
-      <div class="pt-10 border-t border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-[9px] text-slate-500 uppercase tracking-[0.3em] font-black">
+      <div class="mt-auto pt-10 border-t border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-[9px] text-slate-500 uppercase tracking-[0.3em] font-black">
         <span>© {{ new Date().getFullYear() }} {{ personalInfo.name }}</span>
         <div class="flex items-center gap-3">
           <div class="w-1 h-1 bg-accent rounded-full"></div>
