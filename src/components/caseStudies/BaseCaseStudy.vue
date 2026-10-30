@@ -1,9 +1,8 @@
-/**
- * BaseCaseStudy Component
- * Reusable base component for case study layouts
- * Used by: VegamaCaseStudy, ItineroCaseStudy, LionheartCaseStudy, WanderlyCaseStudy
- */
 <script setup>
+/**
+ * Written case study layout (sidebar + numbered sections).
+ * Used for every project that has no `caseStudy.gallery`.
+ */
 import { computed } from 'vue'
 
 const props = defineProps({
@@ -73,7 +72,7 @@ const sectionLinks = computed(() => sections.value.map(section => ({
               <a
                 v-for="(link, index) in sectionLinks"
                 :key="link.slug"
-                :href="`#graphic-${link.slug}`"
+                :href="`#case-${link.slug}`"
                 class="block rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:border-pink-300 hover:bg-pink-50 transition-all duration-200"
               >
                 <span class="font-black tracking-widest text-slate-400">{{ String(index + 1).padStart(2, '0') }}</span>
@@ -103,7 +102,7 @@ const sectionLinks = computed(() => sections.value.map(section => ({
             <section
               v-for="(section, sectionIndex) in sections"
               :key="section.slug"
-              :id="`graphic-${section.slug}`"
+              :id="`case-${section.slug}`"
               class="scroll-mt-24"
             >
               <div class="space-y-4 md:space-y-6">
@@ -228,10 +227,3 @@ const sectionLinks = computed(() => sections.value.map(section => ({
     </div>
   </div>
 </template>
-
-<style scoped>
-/* Smooth scrolling for jump navigation */
-html {
-  scroll-behavior: smooth;
-}
-</style>

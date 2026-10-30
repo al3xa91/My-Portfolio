@@ -8,7 +8,6 @@ const props = defineProps({
   section: {
     type: Object,
     required: true,
-    default: () => ({ category: '', projects: [] }),
     validator: value => typeof value.category === 'string' && Array.isArray(value.projects),
   },
   index: {
@@ -18,10 +17,6 @@ const props = defineProps({
   sectionId: {
     type: String,
     default: '',
-  },
-  subtitle: {
-    type: String,
-    default: null,
   },
 })
 
@@ -48,8 +43,8 @@ const mobileSectionTitle = computed(() => (props.section.category === 'Photograp
       </p>
 
       <h2 class="text-black text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none mb-6">
-        <span class="md:hidden">{{ subtitle || mobileSectionTitle }}</span>
-        <span class="hidden md:inline">{{ subtitle || section.category }}</span>
+        <span class="md:hidden">{{ mobileSectionTitle }}</span>
+        <span class="hidden md:inline">{{ section.category }}</span>
       </h2>
 
       <div :class="['flex flex-wrap gap-x-4 gap-y-1 max-w-2xl', index % 2 === 0 ? 'justify-start' : 'justify-end']">

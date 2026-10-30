@@ -1,5 +1,0 @@
-export { publicAsset } from './shared.js'
-export { personalInfo } from './personalInfo.js'
-export { projects } from './projects.js'
-export { categoryData } from './categoryData.js'
-export { cvData } from './cvData.js'

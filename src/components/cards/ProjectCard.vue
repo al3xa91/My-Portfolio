@@ -1,8 +1,10 @@
 <script setup>
-import { computed, onMounted, ref, defineAsyncComponent } from 'vue'
+import { computed, defineAsyncComponent, onUnmounted, ref, watch } from 'vue'
 import { isProject } from '@/utils/projectValidation.js'
 import { getProjectButtonLabel } from '@/constants/ui.js'
-import ProjectCaseStudy from '@/components/cards/ProjectCaseStudy.vue'
+
+const BaseCaseStudy = defineAsyncComponent(() => import('@/components/caseStudies/BaseCaseStudy.vue'))
+const GallerySlideshow = defineAsyncComponent(() => import('@/components/caseStudies/GallerySlideshow.vue'))
 
 const props = defineProps({
   project: {
@@ -13,63 +15,40 @@ const props = defineProps({
 })
 
 const isPreviewOpen = ref(false)
-const hasPreview = computed(() => Boolean(props.project?.title))
 
-const hasEmbed = computed(() => Boolean(props.project.embedUrl))
-
-/**
- * Dynamically load the case study component for this project
- * Provides component composition flexibility for different project types
- */
-const caseStudyComponent = computed(() => {
-  if (!props.project.caseStudyComponent) {
-    return ProjectCaseStudy
-  }
-
-  try {
-    return defineAsyncComponent(() =>
-      import(`@/components/caseStudies/${props.project.caseStudyComponent}.vue`)
-    )
-  } catch {
-    return ProjectCaseStudy
-  }
-})
-
-const buttonLabel = computed(() => 
-  getProjectButtonLabel(props.project.category, props.project.caseStudyComponent)
+// Projects with a gallery open as a slideshow, everything else as a written case study.
+const caseStudyComponent = computed(() =>
+  props.project.caseStudy?.gallery ? GallerySlideshow : BaseCaseStudy
 )
 
-const ensureFigmaPreconnect = () => {
-  const hosts = ['https://embed.figma.com', 'https://www.figma.com']
-
-  hosts.forEach(host => {
-    const exists = document.querySelector(`link[data-preconnect="${host}"]`)
-    if (!exists) {
-      const link = document.createElement('link')
-      link.rel = 'preconnect'
-      link.href = host
-      link.crossOrigin = 'anonymous'
-      link.setAttribute('data-preconnect', host)
-      document.head.appendChild(link)
-    }
-  })
-}
-
-onMounted(() => {
-  if (hasEmbed.value) {
-    ensureFigmaPreconnect()
-  }
-})
+const buttonLabel = computed(() => getProjectButtonLabel(props.project.category))
 
 const openPreview = () => {
-  if (hasPreview.value) {
-    isPreviewOpen.value = true
-  }
+  isPreviewOpen.value = true
 }
 
 const closePreview = () => {
   isPreviewOpen.value = false
 }
+
+const handleKeydown = (e) => {
+  if (e.key === 'Escape') closePreview()
+}
+
+// Lock page scroll and listen for Escape while the overlay is open.
+watch(isPreviewOpen, (open) => {
+  document.body.style.overflow = open ? 'hidden' : ''
+  if (open) {
+    window.addEventListener('keydown', handleKeydown)
+  } else {
+    window.removeEventListener('keydown', handleKeydown)
+  }
+})
+
+onUnmounted(() => {
+  document.body.style.overflow = ''
+  window.removeEventListener('keydown', handleKeydown)
+})
 </script>
 
 <template>
@@ -83,7 +62,6 @@ const closePreview = () => {
       />
 
       <button
-        v-if="hasPreview"
         type="button"
         @click="openPreview"
         class="absolute bottom-4 right-4 bg-black/80 group-hover:bg-pink-800 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full hover:bg-black transition-colors"
@@ -110,6 +88,9 @@ const closePreview = () => {
       <div
         v-if="isPreviewOpen"
         class="fixed inset-0 z-50 bg-black/80 p-0 flex items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+        :aria-label="project.title"
         @click.self="closePreview"
       >
         <div class="w-full h-full bg-white overflow-hidden shadow-2xl flex flex-col">

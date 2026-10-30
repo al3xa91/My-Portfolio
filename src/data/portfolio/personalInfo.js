@@ -1,5 +1,3 @@
-import { publicAsset } from './shared.js'
-
 export const personalInfo = {
   name: 'Alexa Cattaneo Piazza',
   role: 'Multimedia Designer',

@@ -1,5 +1,6 @@
 import { publicAsset } from './shared.js'
 
+// Projects are shown in this order; categories appear in the order they first show up.
 export const projects = [
   {
     id: 1,
@@ -8,10 +9,9 @@ export const projects = [
     description: 'A comprehensive web experience for a plant-based culinary platform, focusing on intuitive recipe navigation and high-conversion content layouts.',
     imageUrl: publicAsset('vegama/cover.webp'),
     embedUrl: 'https://embed.figma.com/proto/3r8WbkB8qu0WKBRQXul1er/VEGAMA?node-id=1-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=share&hide-ui=1',
-    caseStudyComponent: 'VegamaCaseStudy',
     caseStudy: {
       role: 'UX Researcher & UI Designer',
-      tools: ['Figma', 'Adobe Illustrator'], 
+      tools: ['Figma', 'Adobe Illustrator'],
       problem: 'Many users want to cook plant-based meals but find it complicated, time-consuming, or are frustrated by unclear online recipes.',
       outcome: 'A friendly experience designed to help users explore and cook vegan dishes with ease and confidence.',
       sections: [
@@ -24,14 +24,9 @@ export const projects = [
             type: 'gallery',
             title: 'Research Artifacts',
             frames: [
-              { label: 'Personas', src: publicAsset('vegama/personas.webp'),
-              },
-               { label: 'Empathy Map', src: publicAsset('vegama/emphatymap.webp')
-                 
-              },
-              { label: 'Survey Results', src: publicAsset('vegama/survey.webp')
-                ,
-               },
+              { label: 'Personas', src: publicAsset('vegama/personas.webp') },
+              { label: 'Empathy Map', src: publicAsset('vegama/emphatymap.webp') },
+              { label: 'Survey Results', src: publicAsset('vegama/survey.webp') },
             ],
           },
         },
@@ -69,13 +64,12 @@ export const projects = [
     },
   },
   {
-    id: 1.1,
+    id: 2,
     title: 'The Brothers Lionheart',
     category: 'UX/UI',
     description: 'A UX/UI case study for a theatre promotion site that balances emotional storytelling for children with fast, clear ticket information for parents.',
     imageUrl: publicAsset('lionheart/mockup.jpg'),
     embedUrl: 'https://embed.figma.com/proto/1tbzeWt4MYITMZWq35v5Fv/THE-BROTHERS-LIONHEART?node-id=88-2&p=f&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=88%3A2&embed-host=share&hide-ui=1',
-    caseStudyComponent: 'LionheartCaseStudy',
     caseStudy: {
       role: 'UX/UI Designer & Researcher',
       tools: ['Figma', 'Adobe Illustrator'],
@@ -91,13 +85,9 @@ export const projects = [
             type: 'gallery',
             title: 'Research Artifacts',
             frames: [
-              { label: 'Personas', src: publicAsset('lionheart/personas.webp')},
-              { label: 'Affinity Map', src: publicAsset('lionheart/affinitymap.webp')
-                 
-              },
-              { label: 'Moscow', src: publicAsset('lionheart/moscow.webp')
-                ,
-               },
+              { label: 'Personas', src: publicAsset('lionheart/personas.webp') },
+              { label: 'Affinity Map', src: publicAsset('lionheart/affinitymap.webp') },
+              { label: 'Moscow', src: publicAsset('lionheart/moscow.webp') },
             ],
           },
         },
@@ -137,13 +127,12 @@ export const projects = [
     },
   },
   {
-    id: 1.3,
+    id: 3,
     title: 'ITINERO',
     category: 'UX/UI',
     description: 'A personalized travel companion focused on centralized itineraries and smart scheduling.',
     imageUrl: publicAsset('itinero/mockup.webp'),
     embedUrl: 'https://embed.figma.com/proto/HbvZtWRpgpeHqCM7kJxubm/Ux-Travel-app?node-id=141-531&p=f&scaling=scale-down&content-scaling=fixed&page-id=115%3A9&starting-point-node-id=141%3A531&embed-host=share',
-    caseStudyComponent: 'ItineroCaseStudy',
     caseStudy: {
       role: 'UX/UI Designer',
       tools: ['Figma'],
@@ -173,7 +162,7 @@ export const projects = [
           visual: {
             type: 'image',
             src: publicAsset('itinero/wireframes.webp'),
-            alt: 'Wanderly app mockup',
+            alt: 'Itinero wireframes',
           },
         },
         {
@@ -187,7 +176,6 @@ export const projects = [
             alt: 'Itinero prototype mockup',
             buttonLabel: 'Go to prototype',
           },
-          
         },
          {
           slug: 'final-design-system',
@@ -201,155 +189,95 @@ export const projects = [
       ],
     },
   },
-
   {
-    id: 2,
+    id: 4,
     title: 'Posters Collection',
     category: 'Graphic Design',
     description: 'Bold and impactful poster designs for cultural events and brand campaigns.',
     imageUrl: publicAsset('posters/posterscover.webp'),
-    caseStudyComponent: 'GraphicDesignSlideshow',
     caseStudy: {
       gallery: {
         images: [
           {
             src: publicAsset('posters/lionheartbrothers.webp'),
-            thumb: publicAsset('posters/lionheartbrothers.webp'), 
             title: 'THE BROTHERS LIONHEART',
             description: 'Enchanting theatrical poster featuring storybook-style illustrations and soft textures to promote a live stage adaptation of the classic fantasy adventure.',
           },
           {
             src: publicAsset('posters/sæddingposter.webp'),
-            thumb: publicAsset('posters/sæddingposter.webp'),
             title: 'SÆDDING TOURIST GUIDE',
             description: 'Minimalist travel poster using a striking two-tone silhouette of coastal landmarks to represent the unique character of Esbjerg’s seaside district.',
           },
           {
             src: publicAsset('posters/infography.webp'),
-            thumb: publicAsset('posters/infography.webp'),
             title: 'GLOBAL FOOD WASTE',
-                 description: 'Comprehensive infographic poster utilizing earthy tones and bold data visualization to highlight the environmental and social impact of food loss.',
-       
+            description: 'Comprehensive infographic poster utilizing earthy tones and bold data visualization to highlight the environmental and social impact of food loss.',
           },
-         
         ],
       },
     },
   },
   {
-    id: 2.2,
-    title: 'Brochures Collection',
-    category: 'Graphic Design',
-    description: 'Brochure designs for product marketing.',
-    imageUrl: publicAsset('brochures/brochurecover.webp'),
-    caseStudyComponent: 'GraphicDesignSlideshow',
-    caseStudy: {
-      gallery: {
-        images: [
-          {
-            src: publicAsset('brochures/sæddingmockup.webp'),
-            thumb: publicAsset('brochures/sæddingmockup.webp'),
-            title: 'SÆDDING LIGHTHOUSE GUIDE',
-            description: 'Informative layout for a local tourism guide, blending the historical context of the maritime beacon with a focus on the serene coastal environment of Esbjerg',
-            externalUrl: 'https://indd.adobe.com/view/686daddf-2960-40d1-9233-39e5fe29fdba',
-          },
-          {
-            src: publicAsset('brochures/lionheartmockup.jpg'),
-            thumb: publicAsset('brochures/lionheartmockup.jpg'),
-            title: 'LIONHEART THEATER PROGRAM',
-            description: 'A structured layout for a production program , focusing on the story\'s themes of courage, love, and brotherhood through a reflection on the power of moving and hopeful narratives.',
-            externalUrl: 'https://indd.adobe.com/view/4402c09a-bd1a-49a7-a694-533ed8f0205c',
-          },
-          
-        ],
-      },
-    },
-  },
-  {
-    id: 2.1,
+    id: 5,
     title: 'Character Design',
     category: 'Graphic Design',
     description: 'Original character designs and illustrations.',
     imageUrl: publicAsset('characters/characterscover.webp'),
-    caseStudyComponent: 'GraphicDesignSlideshow',
     caseStudy: {
       gallery: {
         images: [
           {
             src: publicAsset('characters/minime1.webp'),
-            thumb: publicAsset('characters/minime1.webp'),
             title: 'MINI ME CHARACTER KIT',
             description: 'A playful design sheet featuring a customizable cartoon avatar alongside a variety of modular facial expressions and limb poses for personalized digital creation.',
           },
           {
             src: publicAsset('characters/characterslionheart.webp'),
-            thumb: publicAsset('characters/characterslionheart.webp'),
             title: 'LIONHEART CHARACTER ASSETS',
             description: 'A collection of stylized character illustrations developed for the theater production, featuring the protagonists and visual elements of the story\'s fantasy world.',
           },
           {
             src: publicAsset('characters/dragon.webp'),
-            thumb: publicAsset('characters/dragon.webp'),
             title: 'KATLA THE DRAGON',
             description: 'Detailed character illustration of a legendary creature, featuring textured digital brushwork and a classic fantasy aesthetic to serve as a key visual for the world of The Brothers Lionheart.',
           },
-         
-          
         ],
       },
     },
   },
-  /* {
-    id: 2.3,
-    title: 'Logos & Marks',
+  {
+    id: 6,
+    title: 'Brochures Collection',
     category: 'Graphic Design',
-    description: 'Professional logo designs and brand marks for diverse industries and businesses.',
-    imageUrl: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200',
-    caseStudyComponent: 'GraphicDesignSlideshow',
+    description: 'Brochure designs for product marketing.',
+    imageUrl: publicAsset('brochures/brochurecover.webp'),
     caseStudy: {
       gallery: {
         images: [
           {
-            src: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=200',
-            title: 'Tech Startup Logo',
-            description: 'Modern, minimalist logo design symbolizing innovation and forward-thinking approach.',
+            src: publicAsset('brochures/sæddingmockup.webp'),
+            title: 'SÆDDING LIGHTHOUSE GUIDE',
+            description: 'Informative layout for a local tourism guide, blending the historical context of the maritime beacon with a focus on the serene coastal environment of Esbjerg',
+            externalUrl: 'https://indd.adobe.com/view/686daddf-2960-40d1-9233-39e5fe29fdba',
+            externalLabel: 'View Brochure',
           },
           {
-            src: 'https://images.unsplash.com/photo-1563062810-1210a35a4c7d?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1563062810-1210a35a4c7d?q=80&w=200',
-            title: 'Sustainable Brand Mark',
-            description: 'Eco-friendly logo combining natural elements with geometric precision.',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=200',
-            title: 'Creative Agency Logo',
-            description: 'Dynamic logo mark representing creativity, collaboration, and growth.',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=200',
-            title: 'Fitness Brand Identity',
-            description: 'Strong, energetic logo design for health and wellness sector.',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1581291518633-83b6b2065dba?q=80&w=1600',
-            thumb: 'https://images.unsplash.com/photo-1581291518633-83b6b2065dba?q=80&w=200',
-            title: 'Heritage Brand Logo',
-            description: 'Timeless logo design combining traditional elements with contemporary styling.',
+            src: publicAsset('brochures/lionheartmockup.webp'),
+            title: 'LIONHEART THEATER PROGRAM',
+            description: 'A structured layout for a production program, focusing on the story\'s themes of courage, love, and brotherhood through a reflection on the power of moving and hopeful narratives.',
+            externalUrl: 'https://indd.adobe.com/view/4402c09a-bd1a-49a7-a694-533ed8f0205c',
+            externalLabel: 'View Brochure',
           },
         ],
       },
     },
-  }, */
+  },
   {
-    id: 3,
+    id: 7,
     title: 'VIDEO PRODUCTION',
     category: 'Video',
     description: 'Creative video editing and motion graphics focused on bringing narratives to life through high-impact visuals and polished post-production.',
     imageUrl: publicAsset('category-video.webp'),
-    caseStudyComponent: 'VideoSlideshow',
     caseStudy: {
       gallery: {
         videos: [
@@ -358,119 +286,61 @@ export const projects = [
             title: 'Sea Opening Day',
             description: 'A vibrant promotional feature designed to capture our school’s creative spirit, inviting future students and families to join us for a wonderful adventure as they discover our story and meet our team.',
           },
-          /* {
-            src: publicAsset('videos/cv-video.mp4'),
-            title: 'Brand Intro',
-            description: 'Dynamic brand introduction with 3D elements and visual effects.',
-          }, */
         ],
       },
     },
   },
-  
   {
-    id: 6,
-    title: 'My Portfolio website',
-    category: 'Web Dev',
-    description: 'A modern, responsive portfolio website built with Vue.js and Tailwind CSS.',
-    imageUrl: publicAsset('webdev/webdev1.webp'),
-    caseStudyComponent: 'WebDevSlideshow',
-    caseStudy: {
-      gallery: {
-        images: [
-          {
-            src: publicAsset('webdev/webdev2.webp'),
-            thumb: publicAsset('webdev/webdev2.webp'),
-            title: 'COMPONENT ARCHITECTURE',
-            description:'A behind-the-scenes look at the clean, modular code powering this portfolio, utilizing Vue.js and Tailwind CSS to create a seamless and responsive user experience.',
-          },
-         /*  {
-            src: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80&fm=auto',
-            thumb: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80&fm=auto',
-            title: 'Product Detail Page',
-            description: 'Immersive product page with image gallery, specifications, and customer reviews.',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1559056199-641a0ac8b3f4?w=1200&q=80&fm=auto',
-            thumb: 'https://images.unsplash.com/photo-1559056199-641a0ac8b3f4?w=400&q=80&fm=auto',
-            title: 'Shopping Cart & Checkout',
-            description: 'Streamlined checkout flow with multiple payment options and order tracking.',
-          }, */
-        ],
-      },
-    },
-  },
-  /* {
-    id: 7,
-    title: 'Portfolio CMS',
-    category: 'Web Dev',
-    description: 'A modular content management dashboard with reusable Vue components.',
-    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&fm=auto',
-    caseStudyComponent: 'WebDevSlideshow',
-    caseStudy: {
-      gallery: {
-        images: [
-          {
-            src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80&fm=auto',
-            thumb: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80&fm=auto',
-            title: 'Dashboard Overview',
-            description: 'Central hub for managing portfolio projects, case studies, and media assets.',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80&fm=auto',
-            thumb: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80&fm=auto',
-            title: 'Content Editor',
-            description: 'Rich text editor with drag-and-drop image uploads and real-time preview.',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80&fm=auto',
-            thumb: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80&fm=auto',
-            title: 'Media Library',
-            description: 'Organized asset management with tags, search, and version history.',
-          },
-        ],
-      },
-    },
-  }, */
- {
-    id: 4,
+    id: 8,
     title: 'NATURAL OBSERVATIONS',
     category: 'Photography',
     description: 'Atmospheric imagery capturing the vibrant transition of the seasons, from candid moments of joy to the quiet, intricate textures of the natural landscape.',
     imageUrl: publicAsset('photography/redrose.webp'),
-    caseStudyComponent: 'PhotographySlideshow',
     caseStudy: {
       gallery: {
         images: [
           {
             src: publicAsset('photography/happiness.webp'),
-            thumb: publicAsset('photography/happiness.webp'),
             title: 'Happiness',
             description: 'A high-energy action photograph capturing a moment of pure childhood bliss, utilizing dynamic composition and the vibrant contrast of falling leaves against a clear blue sky.',
           },
           {
             src: publicAsset('photography/fountain.webp'),
-            thumb: publicAsset('photography/fountain.webp'),
             title: 'URBAN OASIS',
             description: 'A serene capture of a modern park fountain, featuring symmetrical water "umbrellas" and geometric concrete spheres that create a sense of architectural calm.',
           },
           {
             src: publicAsset('photography/woods.jpg'),
-            thumb: publicAsset('photography/woods.jpg'),
             title: 'EMERALD CANOPY',
             description: 'A dramatic, low-angle perspective looking up into a dense evergreen forest, capturing the towering strength of the trees against a deep twilight sky.',
           },
           {
             src: publicAsset('photography/leaves.webp'),
-            thumb: publicAsset('photography/leaves.webp'),
             title: 'THE LONE BLOOM',
             description: 'A striking composition highlighting the contrast between the fleeting colors of fallen maple leaves and the resilient, simple beauty of a single white daisy.',
           },
           {
             src: publicAsset('photography/rose.webp'),
-            thumb: publicAsset('photography/rose.webp'),
             title: 'AUTUMN’S GOLDEN ROSE',
             description: 'A delicate close-up of a vibrant yellow rose, standing out in soft focus against a rustic carpet of fallen autumn leaves.',
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: 9,
+    title: 'My Portfolio website',
+    category: 'Web Dev',
+    description: 'A modern, responsive portfolio website built with Vue.js and Tailwind CSS.',
+    imageUrl: publicAsset('webdev/webdev1.webp'),
+    caseStudy: {
+      gallery: {
+        images: [
+          {
+            src: publicAsset('webdev/webdev2.webp'),
+            title: 'COMPONENT ARCHITECTURE',
+            description: 'A behind-the-scenes look at the clean, modular code powering this portfolio, utilizing Vue.js and Tailwind CSS to create a seamless and responsive user experience.',
           },
         ],
       },

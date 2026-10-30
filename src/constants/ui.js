@@ -11,19 +11,10 @@ export const PROJECT_CATEGORY_LABELS = {
   'UX/UI': 'Experience First Decisions',
 }
 
-export const PROJECT_BUTTONS = {
-  GALLERY: 'Open Gallery',
-  PROJECT: 'Open Project',
-}
+const GALLERY_CATEGORIES = ['Photography', 'Graphic Design']
 
-export const GALLERY_COMPONENTS = {
-  PHOTOGRAPHY: 'PhotographySlideshow',
-  GRAPHIC_DESIGN: 'GraphicDesignSlideshow',
-}
-
-export const getProjectButtonLabel = (category, componentName) => {
-  const isGalleryStyle = category === 'Photography' || componentName === GALLERY_COMPONENTS.GRAPHIC_DESIGN
-  return isGalleryStyle ? PROJECT_BUTTONS.GALLERY : PROJECT_BUTTONS.PROJECT
+export const getProjectButtonLabel = category => {
+  return GALLERY_CATEGORIES.includes(category) ? 'Open Gallery' : 'Open Project'
 }
 
 export const getCategoryLabel = (category) => {

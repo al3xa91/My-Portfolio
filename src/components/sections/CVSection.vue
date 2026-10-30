@@ -17,9 +17,9 @@ const flattenedSkills = computed(() => {
     <!-- Header -->
     <div class="mb-10">
       <span class="text-accent font-black text-[10px] tracking-[0.3em] uppercase mb-4 ml-2 block">CV</span>
-      <h2 class="text-[13vw] md:text-[11vw] font-black tracking-tighter leading-[0.8] uppercase mb-12">
-        <p class="text-3xl sm:text-6xl font-black uppercase tracking-tight text-black">Professional</p>
-        <p class="text-3xl sm:text-6xl font-black uppercase tracking-tight text-black">Profile</p>
+      <h2 class="text-3xl sm:text-6xl font-black uppercase tracking-tight text-black mb-12">
+        <span class="block">Professional</span>
+        <span class="block">Profile</span>
       </h2>
     </div>
 
@@ -34,9 +34,10 @@ const flattenedSkills = computed(() => {
         </div>
 
         <div class="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl relative group">
-          <video 
-            controls 
+          <video
+            controls
             playsinline
+            preload="metadata"
             class="w-full h-full object-cover grayscale group-hover:grayscale-0 touch-fullcolor opacity-90 group-hover:opacity-100 touch-fullopacity transition-all duration-700 ease-out"
           >
             <source :src="cvData.videoUrl" type="video/mp4">

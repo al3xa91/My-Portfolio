@@ -1,4 +1,3 @@
-
 @import "tailwindcss";
 
 :root {
@@ -25,7 +24,6 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  /* Removed display: flex to prevent layout squishing */
 }
 
 html,
@@ -81,9 +79,7 @@ body {
   }
 }
 
-/* Hero: Soft & Light */
-/* Update these sections in your main.css */
-
+/* Hero & footer: soft pink/blue mesh */
 .hero-mesh {
   background-color: var(--color-bg);
    background-image: 
@@ -93,7 +89,6 @@ body {
 }
 
 .footer-mesh {
-  /* Using a very deep charcoal instead of pure black for better mesh visibility */
   background-color: var(--color-surface) !important; 
   background-image: 
     radial-gradient(at 0% 100%, rgba(var(--color-accent-glow-rgb), 0.3) 0px, transparent 50%), 
@@ -107,19 +102,17 @@ body {
   100% { background-position: 0% 0%; }
 }
 
-.footer-mesh-animated,
-.hero-mesh-animated {
+.footer-mesh-animated {
   animation: mesh-float 15s ease-in-out infinite;
 }
-/* This works for both Hero and Footer now since both are white */
+/* Outlined headline text (hero + footer); turns black on hover */
 .stroke-text {
-  -webkit-text-stroke: 1.5px var(--color-accent); /* Deep Pink-800 */
-  color: transparent; /* Makes the inside of the letters see-through */
+  -webkit-text-stroke: 1.5px var(--color-accent);
+  color: transparent;
 }
 
-/* Add a hover effect to make it feel "Live" */
 .stroke-text:hover {
-  -webkit-text-stroke: 1.5px var(--color-text); /* Turns black on hover */
+  -webkit-text-stroke: 1.5px var(--color-text);
   transition: all 0.4s ease;
 }
 
