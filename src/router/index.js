@@ -8,6 +8,7 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      meta: { title: 'Alexa Cattaneo Piazza' },
     },
     {
       path: '/about',
@@ -16,6 +17,7 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
+      meta: { title: 'About me · Alexa Cattaneo Piazza' },
     },
   ],
   // Start each new page at the top, restore position with the back button,
@@ -25,6 +27,11 @@ const router = createRouter({
     if (to.path === from.path) return false
     return { top: 0 }
   },
+})
+
+// Browser tab title for each page
+router.afterEach(to => {
+  document.title = to.meta.title || 'Alexa Cattaneo Piazza'
 })
 
 export default router
