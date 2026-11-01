@@ -2,7 +2,6 @@
 import { computed, onMounted, onUnmounted, defineAsyncComponent } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { isProject } from '@/utils/projectValidation.js'
-import { getProjectButtonLabel } from '@/constants/ui.js'
 import ProjectCaseStudy from '@/components/cards/ProjectCaseStudy.vue'
 
 const props = defineProps({
@@ -42,9 +41,23 @@ const caseStudyComponent = computed(() => {
   }
 })
 
-const buttonLabel = computed(() => 
-  getProjectButtonLabel(props.project.category, props.project.caseStudyComponent)
+// How many pieces are inside (posters, photos, logos…), shown on the card
+const itemCount = computed(() => {
+  const caseStudy = props.project.caseStudy ?? {}
+  if (caseStudy.logos) return caseStudy.logos.length
+  const gallery = caseStudy.gallery ?? {}
+  return (gallery.images?.length ?? 0) + (gallery.videos?.length ?? 0)
+})
+const countLabel = computed(() =>
+  props.project.itemName && itemCount.value > 1 ? `${itemCount.value} ${props.project.itemName}` : ''
 )
+
+// Text on the card's button: set per project with `cta`, otherwise based on what's inside
+const ctaLabel = computed(() => {
+  if (props.project.cta) return props.project.cta
+  if (countLabel.value) return `View ${countLabel.value}`
+  return props.project.caseStudy?.sections ? 'Read case study' : 'View project'
+})
 
 const ensureFigmaPreconnect = () => {
   const hosts = ['https://embed.figma.com', 'https://www.figma.com']
@@ -102,12 +115,13 @@ const preloadCaseStudy = () => {
 </script>
 
 <template>
-  <div class="group">
+  <!-- Full-height column so the buttons line up across a row -->
+  <div class="group flex h-full flex-col">
     <!-- The whole image opens the project -->
     <button
       type="button"
       :disabled="!hasPreview"
-      :aria-label="`${buttonLabel}: ${project.title}`"
+      :aria-label="`${ctaLabel}: ${project.title}`"
       @click="openPreview"
       @mouseenter="preloadCaseStudy"
       @focus="preloadCaseStudy"
@@ -121,11 +135,12 @@ const preloadCaseStudy = () => {
       />
 
       <span
-        v-if="hasPreview"
+        v-if="countLabel"
         aria-hidden="true"
-        class="absolute bottom-4 right-4 bg-black/80 group-hover:bg-pink-800 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full transition-colors"
+        class="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-slate-800 shadow-sm"
       >
-        {{ buttonLabel }}
+        <svg class="h-3 w-3 text-pink-800" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="7" y="7" width="13" height="13" rx="2" /><path d="M4 16V6a2 2 0 012-2h10" stroke-linecap="round" /></svg>
+        {{ countLabel }}
       </span>
     </button>
 
@@ -135,13 +150,33 @@ const preloadCaseStudy = () => {
           {{ project.label || project.category }}
         </p>
         <h3 class="text-xl font-bold tracking-tighter mb-2 uppercase">
-          {{ project.title }}
+          <button
+            type="button"
+            tabindex="-1"
+            @click="openPreview"
+            class="text-left uppercase transition-colors hover:text-pink-800"
+          >
+            {{ project.title }}
+          </button>
         </h3>
       </div>
     </div>
-    <p class="text-slate-500 text-base leading-relaxed">
+    <p class="flex-1 text-slate-500 text-base leading-relaxed">
       {{ project.description }}
     </p>
+
+    <!-- Clear call to action, same style as the other pink buttons -->
+    <button
+      v-if="hasPreview"
+      type="button"
+      @click="openPreview"
+      @mouseenter="preloadCaseStudy"
+      @focus="preloadCaseStudy"
+      class="mt-5 self-start inline-flex items-center gap-2 rounded-full bg-pink-800 px-5 py-2.5 text-[10px] font-black uppercase tracking-widest text-white transition-colors hover:bg-black"
+    >
+      {{ ctaLabel }}
+      <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" /></svg>
+    </button>
 
     <teleport to="body">
       <div

@@ -205,6 +205,7 @@ export const projects = [
   {
     id: 2,
     title: 'Posters Collection',
+    itemName: 'posters',
     category: 'Graphic Design',
     description: 'Bold and impactful poster designs for cultural events and brand campaigns.',
     imageUrl: publicAsset('posters/posterscover.webp'),
@@ -249,6 +250,7 @@ export const projects = [
   {
     id: 2.2,
     title: 'Brochures Collection',
+    itemName: 'brochures',
     category: 'Graphic Design',
     description: 'Brochure designs for product marketing.',
     imageUrl: publicAsset('brochures/brochurecover.webp'),
@@ -278,6 +280,7 @@ export const projects = [
   {
     id: 2.3,
     title: 'Logo Design',
+    itemName: 'logos',
     category: 'Graphic Design',
     description: 'Logos and visual identities, from the first idea to colours, typography and real-life use.',
     imageUrl: publicAsset('logos/cover.webp'),
@@ -365,6 +368,7 @@ export const projects = [
   {
     id: 2.1,
     title: 'Character Design',
+    itemName: 'illustrations',
     category: 'Graphic Design',
     description: 'Original character designs and illustrations.',
     imageUrl: publicAsset('characters/characterscover.webp'),
@@ -443,6 +447,7 @@ export const projects = [
   {
     id: 3,
     title: 'VIDEO PRODUCTION',
+    cta: 'Watch the video',
     category: 'Photo & Video',
     label: 'Video',
     description: 'Creative video editing and motion graphics focused on bringing narratives to life through high-impact visuals and polished post-production.',
@@ -575,6 +580,7 @@ export const projects = [
  {
     id: 4,
     title: 'NATURAL OBSERVATIONS',
+    itemName: 'photos',
     category: 'Photo & Video',
     label: 'Photography',
     description: 'Atmospheric imagery capturing the vibrant transition of the seasons, from candid moments of joy to the quiet, intricate textures of the natural landscape.',
